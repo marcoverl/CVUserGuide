@@ -6,6 +6,9 @@
 CloudVeneto.it User Guide
 =========================
 
+.. image:: ./images/title_logo.png
+
+
 For any issues, questions, problems concerning this document please contact 
 the CloudVeneto admins at support@cloudveneto.it
 
