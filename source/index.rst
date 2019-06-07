@@ -22,6 +22,7 @@ Contents:
 
    Overview
    Registration
+   GettingStarted
 
 
 
