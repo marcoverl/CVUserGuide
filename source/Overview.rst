@@ -1,16 +1,22 @@
-Overview of CloudVeneto.it
+Overview of CloudVeneto
 ==========================
 
-**CloudVeneto.it** is an OpenStack based cloud.
+**CloudVeneto** is an OpenStack based cloud.
 
-It implements a IaaS (Infrastructure as a service): it allows the
+It allows the
 instantiation of Virtual Machines (VMs) of the desired environments (in
 terms of operating system, installed software, etc.) and of the desired
 flavors (in terms of processors, memory size, etc.).
+It also provides storage volumes that can be attached to such virtual 
+instances.
+
+CloudVeneto also offers higher level services, such as the orchestration of
+multiple resources, the instantiation of elastic batch systems, the
+provision of Kubernetes clusters, etc.
 
 Even if it is a single, logical Cloud service, its resources are spread
-in two different locations: the INFN Padova - University of Padova's
-"Dipartimento di Fisica e Astronomia" computing centre, and INFN
+in two different locations: Padova (INFN Padova - University of Padova's
+"Dipartimento di Fisica e Astronomia"), and INFN
 Laboratori Nazionali di Legnaro (LNL).
 
 The CloudVeneto is currently based on the *Rocky* version of the OpenStack
@@ -33,7 +39,7 @@ A
 user can be on multiple projects at the same time and switch between
 them.
 
-In the CloudVeneto projects usually map to experiments or other research
+In the CloudVeneto, projects usually map to experiments or other research
 groups. Among the project's users there is a **project manager** (usually
 the team leader) who is responsible to manage (accepting or refusing)
 membership requests for the project.
@@ -46,14 +52,16 @@ Network access
 --------------
 
 Cloud instances are by default “visible” from the Local Area Networks (LANs) of
-both INFN Padova/Unipd DFA Dept. and INFN-LNL. This means that e.g. users can access via ssh
-VMs of the Cloud directly from their desktops located in INFN/DFA Padova or
+both INFN Padova/Unipd Physics Dept. and INFN-LNL. This means that e.g. users can access via ssh
+VMs of the Cloud directly from their desktops located in INFN 
+Padova/Physics Dept. or
 INFN Legnaro. It is then possible to control which services/ports can be
 accessed using the security groups (discussed later) and firewalls on
 the relevant VMs.
 
 If it is necessary to log on a VM of the Cloud from a location different
-than INFN/DFA Padova and INFN Legnaro, it is necessary to go through a gate machine.
+than INFN Padova/Physics Dept. and INFN Legnaro, it is necessary to go 
+through a gate machine.
 A Cloud specific gate host (*gate.cloudveneto.it*) can be used.
 
 
@@ -65,7 +73,7 @@ the case please contact support@cloudveneto.it.
 From a VM of the Cloud, it is possible to access the Internet, while by
 default it is not possible to access a host/service hosted in the INFN
 Padova or Legnaro LANs. If, for some reasons, you need to access some
-services hosted in Padova or Legnaro from the Cloud, please contact
+services hosted in INFN Padova or Legnaro from the Cloud, please contact
 support@cloudveneto.it.
 
 
