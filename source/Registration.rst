@@ -235,8 +235,6 @@ Both operations are performed by accessing the
 the OpenStack dashboard and clicking on **Subscribe to project** as depicted
 on the following image:
 
-.. image:: ./images/ProjectRequest.png
-   :align: center
 
 
 Fulfill your request selecting the relevant choice under the **Project
@@ -244,7 +242,6 @@ action** dropdown list.
 
 Manage project membership requests (only for project managers)
 --------------------------------------------------------------
-.. QUI
 If you are the manager of a project, you will receive membership
 requests for this project that you will have to manage (approving or
 refusing them).
@@ -252,20 +249,35 @@ refusing them).
 When a user applies to be member of a project that you manage, you will
 receive an e-mail such as this one:
 
+.. image:: ./images/email_subreq.png
+   :align: center
+
+
+
 To manage such requests, open the OpenStack web dashboard, i.e. go to
 https://cloud-areapd.pd.infn.it or https://cloudveneto.ict.unipd.it in a
-browser. Log in, and then access IdentitySubscriptions An image such as
+browser. Log in, and then access **Identity** |rarr| **Subscriptions**. 
+An image such as
 the following one, with the list of the pending requests, will appear.
 
-To approve a membership request, click on the Approve button (in
-Actions). A window such as the following one will appear:
+.. image:: ./images/Subscriptions.png
+   :align: center
 
-Set the expiration date of the account, and click on the Ok button to
+
+
+To approve a membership request, click on the **Approve** button (in
+**Actions**). A window such as the following one will appear:
+
+.. image:: ./images/ProcessSubscription.png
+   :align: center
+
+
+Set the expiration date of the account, and click on the **Ok&& button to
 approve the request.
 
-If, instead, you want to reject the request, select Reject in Actions.
+If, instead, you want to reject the request, select **Reject** in **Actions**.
 
-    **Note**
+.. NOTE::
 
     It is therefore up to the project manager to set the expiration date
     of the members of his/her group.
@@ -275,20 +287,25 @@ If, instead, you want to reject the request, select Reject in Actions.
 
 Administer project members (only for project managers)
 ------------------------------------------------------
-
 If you are the manager of a project, you can list the members of your
 project and, if needed, change their role.
 
 Open the OpenStack web dashboard, i.e. go to
 https://cloudveneto.ict.unipd.it/dashboard in a browser. Log in using
-the relevant method and access the IdentityProject Members panel. The
+the relevant method and access the **Identity** |rarr| **Project Members** 
+panel. The
 list of users affiliated to your project will appear:
 
+.. TBC modificare figura
+
+.. image:: ./images/IdentityProjectMembers.png
+   :align: center
+
+
 From here you can also change the role of a specific user (by clicking
-on 'Toggle Role') from 'Project User' to 'Project manager' or viceversa.
+on **Toggle Role**) from 'Project User' to 'Project manager' or viceversa.
 
-    **Note**
-
+.. NOTE::
     If a user is promoted to Project manager, she will then be allowed
     to manage affilitation requests to the project, as described in ?.
 
@@ -297,21 +314,28 @@ you manage.
 
 Manage account renewals (only for project managers)
 ---------------------------------------------------
-
 When the affiliation of a user for a project is expiring, as manager of
 that project you will receive an e-mail such as this one:
 
-|email_renewreq|
+.. image:: ./images/email_renewreq.png
+   :align: center
+
 
 To renew the affiliation for that user, open the OpenStack web
 dashboard, To manage such requests, open the OpenStack web dashboard,
 i.e. go to https://cloud-areapd.pd.infn.it or
 https://cloudveneto.ict.unipd.it in a browser. Log in, and then access
-IdentitySubscriptions. An image such as the following one will appear:
+**Identity** |rarr| **Subscriptions**. An image such as the following one will appear:
 
-Click on the Renew button (in Actions). A window, such as the one
+.. image:: ./images/renew_acc.png
+   :align: center
+
+Click on the **Renew** button (in **Actions**). A window, such as the one
 represented in the following image will appear:
 
-Set the new expiration date and then click the OK button.
+.. image:: ./images/renew_setdate.png
+   :align: center
 
-.. |email_renewreq| image:: ./images/email_renewreq.png
+
+Set the new expiration date and then click the **OK** button.
+
