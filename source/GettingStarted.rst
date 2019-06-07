@@ -40,7 +40,6 @@ You will need to give the keypair a name, such as my\_key.
 .. image:: ./images/create_keypair.png
    :align: center
 
-xxx
 
 
 On completion of the operation, a file ''my\_key.pem'' will be downloaded to
@@ -49,7 +48,7 @@ your computer.
 
 .. WARNING ::
 
-    Be careful not to lose the file you just downloaded since there is
+    Be careful not to loose the file you just downloaded since there is
     no easy way to download it again.
 
 This file should be stored in a safe location. To keep it private, run:::
