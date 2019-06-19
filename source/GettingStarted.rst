@@ -1,3 +1,5 @@
+..    include:: <isonum.txt>
+
 Getting Started
 ===============
 
@@ -61,9 +63,9 @@ Importing your keypair
 
 .. QUI
 You might already have an ssh key you use to remotely access machines.
-This mean you already have under the .ssh directory in your home folder
-a couple of files named id\_rsa (or id\_dsa) and id\_rsa.pub (or
-id\_dsa.pub). If, on the machine you want to log on, your id\_rsa.pub
+This mean you already have under the *.ssh* directory in your home folder
+a couple of files named *id\_rsa* (or *id\_dsa*) and *id\_rsa.pub* (or
+*id\_dsa.pub*). If, on the machine you want to log on, your *id\_rsa.pub*
 has been authorized you can access the machine without providing a
 password.
 
@@ -72,22 +74,26 @@ VM in your project.
 
 The steps are as follows:
 
--  Open the Compute tab on the left side
+-  Open the **Compute** tab on the left side
 
--  Select Key Pairs
+-  Select **Key Pairs**
 
--  In the Key Pairs section, select Import Key Pair.
+-  In the **Key Pairs** section, select **Import Key Pair**.
 
 You will need to give the keypair a name (your full username is a good
-choice), e.g. paolomazzon.
+choice), e.g. *paolomazzon*.
 
-On the "Public Key" field paste the content of your id\_rsa.pub file
+On the "Public Key" field paste the content of your *id\_rsa.pub* file
 
-|image2|
 
-Finally click on the Import Key Pair button
+.. image:: ./images/import_keypair.png
+   :align: center
 
-    **Warning**
+
+
+Finally click on the **Import Key Pair** button
+
+.. WARNING ::
 
     Be careful not to paste the content of your private key, the one
     without the '.pub' extension.
@@ -103,11 +109,11 @@ access and are applied to all instances within a project using that
 group. As described in ?, when you create an instance you have to
 specify the security group to be used.
 
-To set such IP rules, users can either add them to the default security
+To set such IP rules, users can either add them to the *default* security
 group or can create a new security group with the desired rules.
 
 For example the following procedure enables SSH and ICMP (ping) access
-to the default security group. The rules apply to all instances within a
+to the *default* security group. The rules apply to all instances within a
 given project using this security group, and should be set (just once)
 for every project, unless there is a reason to inhibit SSH or ICMP
 access to the instances.
@@ -115,15 +121,14 @@ access to the instances.
 This procedure can be adjusted as necessary to add additional security
 group rules to a project, if needed.
 
--  Log in to the dashboard, choose a project, and click NetworkSecurity
-   Groups. The security groups that are available for this project are
+-  Log in to the dashboard, choose a project, and click **Network** |rarr| **Security Groups**. The security groups that are available for this project are
    shown.
 
--  Select the default security group and click Manage Rules.
+-  Select the *default* security group and click **Manage Rules**.
 
--  To allow SSH access, click Add Rule.
+-  To allow SSH access, click **Add Rule**.
 
--  In the Add Rule dialog box, enter the following values:
+-  In the *Add Rule* dialog box, enter the following values:
 
    +----------+-------------+
    | Rule     | SSH         |
@@ -133,16 +138,16 @@ group rules to a project, if needed.
    | CIDR     | 0.0.0.0/0   |
    +----------+-------------+
 
-       **Note**
+.. NOTE ::
 
        To accept requests from a particular range of IP addresses,
-       specify the IP address block in the CIDR box.
+       specify the IP address block in the **CIDR** box.
 
--  Click Add.
+-  Click **Add**.
 
--  To add an ICMP rule, click Add Rule.
+-  To add an ICMP rule, click **Add Rule**.
 
--  In the Add Rule dialog box, enter the following values:
+-  In the *Add Rule* dialog box, enter the following values:
 
    +-------------+-------------+
    | Rule        | All ICMP    |
@@ -154,9 +159,9 @@ group rules to a project, if needed.
    | CIDR        | 0.0.0.0/0   |
    +-------------+-------------+
 
--  Click Add.
+-  Click **Add**.
 
-    **Warning**
+.. WARNING ::
 
     If you need to enable some services on a Virtual Machine, besides
     setting the specific IP rules through security groups, be sure that
@@ -164,15 +169,15 @@ group rules to a project, if needed.
     Virtual Machine.
 
 Password management
-===================
+-------------------
 
 Foreword
---------
+^^^^^^^^
 
-    **Warning**
+.. WARNING ::
 
     If you access the cloud either through UniPD SSO or INFN AAI you
-    already have a password that you cannot change with this procedure.
+    already have a password **that you cannot change with this procedure**.
 
 You need to use this procedure only if:
 
@@ -183,19 +188,23 @@ You need to use this procedure only if:
    ).
 
 Setting/changing password
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 From the OpenStack dashboard click on your user's name (on the top),
-select Settings from the dropdown menu and then Manage Password.
+select **Settings** from the dropdown menu and then **Manage Password**.
 
-    **Important**
+
+.. image:: ./images/changepasswd_prod.png
+   :align: center
+
+.. IMPORTANT ::
 
     Once again: this is the password to authenticate with the Cloud
     "internal" authentication mechanism. It is uncorrelated from the
     UniPD SSO or INFN-AAI one.
 
 Switching between projects
-==========================
+--------------------------
 
 As introduced in ?, a user can be on multiple projects at the same time.
 The current project is indicated by the top left dropdown menu near the
@@ -204,8 +213,12 @@ logo.
 To switch between projects just open the dropdown menu (as shown in the
 following figure) and select one of your available projects.
 
+.. image:: ./images/ProjectSwitch.png
+   :align: center
+
+
 Accessing the Cloud with command line tools
-===========================================
+-------------------------------------------
 
 It is possible to manage the Cloud using command line tools, even if
 most of the functionality provided by the Cloud can be accessed through
@@ -214,36 +227,37 @@ the dashboard web interface. The
 OpenStack site contains extended information on the syntax and
 installation procedure of the command line tools.
 
-    **Note**
+.. NOTE ::
 
     INFN Padova users can find the OpenStack client installed on
-    lx.pd.infn.it.
+    *lx.pd.infn.it*.
 
-    **Important**
+.. IMPORTANT ::
 
     Command line tools can only be used with the Cloud "internal"
     authentication mechanism. Even if you normally access the cloud
-    dashboard using the UniPD SSO or INFN-AAI it's now time to `set a
-    password. <#PasswordOnlyIf>`__
+    dashboard using the UniPD SSO or INFN-AAI it's now time to ?
 
 The OpenStack tools require a set of shell environment variables in
 order to run. These variables can be obtained from the dashboard and
 then stored in an 'rc' file that you can source (much like your .profile
 when logging into a linux server).
 
-The environment variables are different for project you work on.
+The environment variables are different for projects you work on.
 
-If you log into the dashboard, you will find API Access under the
-Compute menu on the left hand side.
+If you log into the dashboard, you will find **API Access** under the
+**Compute** menu on the left hand side.
 
-Select among Download OpenStack RC file v2.0 and Download OpenStack RC
-file v3, to download the rc file for your current project (v2.0 or v3).
+Select among **Download OpenStack RC file v2.0** and **Download OpenStack RC
+file v3**, to download the rc file for your current project (v2.0 or v3).
 The v3 openrc file requires a quite recent version of the Openstack
 client .
 
-|image3|
 
-    **Warning**
+.. image:: ./images/download_rc.png
+   :align: center
+
+.. WARNING ::
 
     Because of a bug, if you downloaded the v2.0 rc file, you have to
     edit it and replace "v3" with "v2.0" in the OS\_AUTH\_URL variable
@@ -253,12 +267,11 @@ This file is different for each of the projects you are working on.
 
 The downloaded rc file should be saved onto the machine you want to run
 the commands from. If you use csh rather than bash/zsh for your shell,
-you would need to create a new version using setenv rather than export.
+you would need to create a new version using *setenv* rather than *export*.
 
 Since the CloudVeneto services are secured using SSL, you will need the
-``Digicert.pem`` "certification authority" file. This file can be
-downloaded `from
-here. <https://raw.githubusercontent.com/CloudVeneto/CertCA/master/Digicert.pem>`__
+**Digicert.pem** "certification authority" file. This file can be
+downloaded `from here. <https://raw.githubusercontent.com/CloudVeneto/CertCA/master/Digicert.pem>`__
 
 Once you get the file you need to edit the RC file to set the
 ``OS_CACERT`` variable like this:
@@ -267,7 +280,7 @@ Once you get the file you need to edit the RC file to set the
 
     export OS_CACERT=/etc/grid-security/certificates/Digicert.pem
 
-    **Note**
+.. NOTE ::
 
     The certificate can be put anywhere on the client as long as the
     path you specify is consistent.
@@ -292,22 +305,22 @@ authenticate. The OpenStack command line tools can then be used, e.g.:
     +--------------------------------------+--------------+--------+-------------------------+------------+
     $ 
 
-    **Note**
+.. NOTE ::
 
     When you source the rc script you are asked for a password. If the
     password is wrong, you will be told (with a generic authentication
     error) only when you issue some OpenStack commands.
 
 Accessing the Cloud through the euca2ools EC2 command line tools
-================================================================
+----------------------------------------------------------------
 
-The CloudVeneto also exposes a EC2 compatible interface, which is a
-de-facto standard for computational clouds.
+The CloudVeneto also exposes a AWS EC2 compatible interface, which is one
+of the de-facto standard for computational clouds.
 
-The ``euca2ools`` are command line tools that can be used to interact
+The *euca2ools* are command line tools that can be used to interact
 with an EC2 based cloud.
 
-You can install the ``euca2ools`` package on your dekstop as follows:
+You can install the *euca2ools* package on your dekstop as follows:
 
 CentOS / Fedora
 
@@ -321,22 +334,25 @@ Ubuntu / Debian
 
       # apt-get install euca2ools
 
-    **Note**
+.. NOTE ::
 
     INFN-Padova users can find the euca2ools installed on
-    ``lx.pd.infn.it``.
+    *lx.pd.infn.it*.
 
 The euca2ools require a set of shell environment variables in order to
 run. These environment variables are different per project that you work
 on.
 
-If you log into the dashboard, you will find API Access under the
-Compute menu on the left hand side.
+If you log into the dashboard, you will find **API Access** under the
+**Compute** menu on the left hand side.
 
-Select the Download EC2 Credentials option to download the zip file for
+Select the **Download EC2 Credentials** option to download the zip file for
 your current project. This zip file will be downloaded from the browser.
 
-|image4|
+.. image:: ./images/download_rc.png
+   :align: center
+
+
 
 This file should be saved onto the machine where you want to run the
 commands from, and unzipped into a private directory, e.g:
@@ -350,7 +366,7 @@ commands from, and unzipped into a private directory, e.g:
      extracting: cacert.pem              
      extracting: ec2rc.sh           
 
-ec2rc.sh gives the variables for accessing the Cloud with EC2 APIs. If
+*ec2rc.sh* gives the variables for accessing the Cloud with EC2 APIs. If
 you use a C shell based shell, you would need to adapt this using
 setenv.
 
@@ -370,7 +386,7 @@ To test it, you can e.g. try the following:
     INSTANCEi-e93ef61cami-2cfcb026dasgara1-2running1m1.tiny2018-01-16T08:36:44Znova10.1.1.11instance-storesg-3896bec1
     $ 
 
-    **Warning**
+.. WARNING ::
 
     For some euca2ools distributions sourcing the ec2rc.sh script is not
     enough. You need to explictly specify access and secret keys and the
@@ -380,7 +396,3 @@ To test it, you can e.g. try the following:
 
         $ euca-describe-instances -I ${EC2_ACCESS_KEY} -S ${EC2_SECRET_KEY} -U ${EC2_URL}
 
-.. |image1| image:: ./images/create_keypair.png
-.. |image2| image:: ./images/import_keypair.png
-.. |image3| image:: ./images/download_rc.png
-.. |image4| image:: ./images/download_rc.png
