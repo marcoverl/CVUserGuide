@@ -24,7 +24,7 @@ Contents:
    Registration
    GettingStarted
    AdminVMs-nocontext
-
+   ManagingStorage
 
 Indices and tables
 ==================
