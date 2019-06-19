@@ -512,7 +512,7 @@ partitions.
     please contact support@cloudveneto.it.
 
 Stopping and Starting VMs
-=========================
+-------------------------
 
 VMs can be stopped and started in different ways available from the
 **Actions** menu of every instance found on the (**Compute** |rarr| **Instances**) table.
