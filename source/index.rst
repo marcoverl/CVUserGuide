@@ -25,6 +25,7 @@ Contents:
    GettingStarted
    AdminVMs-nocontext
    ManagingStorage
+   Orchestration
 
 Indices and tables
 ==================
