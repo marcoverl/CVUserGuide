@@ -30,6 +30,7 @@ Contents:
    ElasticCluster
    K8sCluster
    MicroPrimers
+   Miscellaneous
 
 Indices and tables
 ==================
