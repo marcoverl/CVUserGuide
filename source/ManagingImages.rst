@@ -10,6 +10,7 @@ provided by the *Glance* OpenStack component.
 
 Public Images
 -------------
+.. _PublicImages:
 
 Some images in the CloudVeneto are provided by the Cloud administrators.
 These images are public, and visible to all users. They appear with

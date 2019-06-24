@@ -104,7 +104,7 @@ admins at support@cloudveneto.it.
     `INFN-Padova computing and Network
     service <http://www.pd.infn.it/calcolo/indexEN.html>`__ can provide
     support only to INFN-Padova users and only for instances created
-    using "blessed" images, (as described in ?).
+    using "blessed" images, (as described in :ref:`PublicImages`).
 
 Experiences, problems, best practices, etc. can be shared with the other
 users of the CloudVeneto using the discuss@cloudveneto.it mailing list.
