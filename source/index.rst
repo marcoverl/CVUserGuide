@@ -27,6 +27,7 @@ Contents:
    ManagingStorage
    Orchestration
    ManagingImages
+   ElasticCluster
 
 Indices and tables
 ==================
