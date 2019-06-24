@@ -42,6 +42,7 @@ not possible within the system disk configuration.
 
 Volumes
 -------
+.. _volumes:
 
 Volumes are persistent virtualized block devices independent of any
 particular instance. Volumes may be attached to a single instance at a
@@ -80,7 +81,8 @@ for the volume to be created.
 In general different quotas for the different volume types are set.
 Unfortunately the OpenStack dashboard shows only the overall quota. To
 see the quota per each volume type you need to use the OpenStack CLI (as
-explained in ?) and run the ``cinder quota-usage ${OS_PROJECT_ID}``
+explained in :ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`) 
+and run the ``cinder quota-usage ${OS_PROJECT_ID}``
 command.
 
 E.g.:
@@ -194,7 +196,7 @@ this step cannot be reverted!):
 Sharing a volume between multiple (virtual) machines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As discussed in ?, a volume may be attached to a single instance.
+As discussed in :ref:`Volumes<volumes>`, a volume may be attached to a single instance.
 However it can be shared with other virtual machines of the Cloud
 (and/or with other hosts) using NFS.
 
