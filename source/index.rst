@@ -26,6 +26,7 @@ Contents:
    AdminVMs-nocontext
    ManagingStorage
    Orchestration
+   ManagingImages
 
 Indices and tables
 ==================
