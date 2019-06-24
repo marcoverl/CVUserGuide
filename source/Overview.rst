@@ -53,6 +53,7 @@ membership requests for the project.
 
 Network access
 --------------
+.. _NetworkAccess:
 
 Cloud instances are by default “visible” from the Local Area Networks (LANs) of
 both INFN Padova/Unipd Physics Dept. and INFN-LNL. This means that e.g. users can access via ssh

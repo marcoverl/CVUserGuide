@@ -123,6 +123,7 @@ possible to create a volume using the iscsi-infnpd volume type.
 
 Using (attaching) a Volume
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _CreateFS:
 
 The new defined volume will appear in the **Volumes** tab.
 
@@ -318,7 +319,7 @@ However it can be shared with other virtual machines of the Cloud
 
              service iptables restart
 
-   e. Check the security group (see ?): access to ports 111, 875 and
+   e. Check the security group (see :ref:`Setting security group(s)<SecurityGroups>`): access to ports 111, 875 and
       2049 (IPv4 Ingress both TCP and UDP) should be guaranteed:
 
       .. image:: ./images/AccessAndSecurity.jpg
@@ -389,7 +390,7 @@ However it can be shared with other virtual machines of the Cloud
 Accessing storage external to the Cloud
 ---------------------------------------
 
-As explained in ? from an instance of the Cloud by default it is not
+As explained in :ref:`Network Access<NetworkAccess>` from an instance of the Cloud by default it is not
 possible to access a host/service hosted in INFN Padova or Legnaro. This
 also means that by default on a virtual machine of the CloudVeneto it is
 not possible to mount a file system exported from a storage server

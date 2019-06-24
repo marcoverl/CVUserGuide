@@ -103,6 +103,7 @@ method.
 
 Setting security group(s)
 -------------------------
+.. _SecurityGroups:
 
 Security groups are sets of IP rules (firewall) that define networking
 access and are applied to all instances within a project using that

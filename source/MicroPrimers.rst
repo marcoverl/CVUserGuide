@@ -483,7 +483,7 @@ system.
 Formatting/resizing a volume you just attached
 ----------------------------------------------
 
-We already showed on ? how to start using a volume you have attached to
+We already showed on :ref:`Using (attaching) a Volume<CreateFS>` how to start using a volume you have attached to
 your VM. We will give you here some more details.
 
 If you just created an empty volume you first need to create a
@@ -505,13 +505,14 @@ you expect until you do some operations from inside your VM.
 We are going to resize the volume 'test' from 2 to 4 GB and use the
 newly available space on a VM.
 
-We will create the volume from scratch. Obviously you can jump to step ?
+We will create the volume from scratch. Obviously you can skip
+these 3 steps
 if you are resizing an existing volume.
 
 1. Create a 2 GB volume named 'test' and attach it to one of your VM as
-   described in ?
+   described in :ref:`Volumes<Volumes>`
 
-2. Create a filesystem and mount it as described in ?
+2. Create a filesystem and mount it as described in :ref:`Using (attaching) a Volume<CreateFS>`
 
 3. Check the available space is 2 GB and the filesystem is filling up
    the partition
@@ -637,7 +638,7 @@ Forget to do so might cause the following:
 4. Your VM might not boot anymore and you have to call for help.
 
 We will now create an entry on the */etc/fstab* file to remount the
-volume (the volumes?) upon reboot.
+volume upon reboot.
 
 .. WARNING ::
     A big warning! DO NOT edit the /etc/fstab file by transferring it on

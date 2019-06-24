@@ -31,19 +31,21 @@ The following page should appear:
 
 -  If you have an account on the INFN Authenticaton and
    Authorization Infrastructure (INFN AAI) and therefore you have access
-   to the INFN portal, click on the INFN AAI logo and proceed with ?.
+   to the INFN portal, click on the INFN AAI logo and proceed with :ref:`Enrollment procedure through INFN AAI or UniPD SSO<Enrollment>`.
 
 -  If you instead have an account on the UniPD Single Sign-On (SSO)
    Infrastructure (e.g. you have a username @unipd.it or
-   @studenti.unipd.it), click on the UniPD logo and proceed with ?.
+   @studenti.unipd.it), click on the UniPD logo and proceed with :ref:`Enrollment procedure through INFN AAI or UniPD SSO<Enrollment>`.
 
 -  If and only if you don't have neither an account on the INFN
    Authenticaton and Authorization Infrastructure (INFN AAI) nor on the
    UniPD SSO, click on the last icon (the green one, with "Username"
-   and "Password") and proceed with ?.
+   and "Password") and proceed with :ref:`Apply for an account using User and Password<ApplyUsingUserPasswd>`.
 
 Enrollment procedure through INFN AAI or UniPD SSO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _Enrollment:
+
 .. TBC: Rivedere testo e figure
 
 Once authenticated on your Identity Provider system, you will be
@@ -58,7 +60,8 @@ redirected to a form like this:
 Fill the form with the required information. In particular please specify 
 your home institution and the relevant unit/department.
 
-For what concerns the **Project Action** (projects have been discussed in ?)
+For what concerns the **Project Action** (projects have been discussed in 
+:ref:`Projects<projects>`)
 you have two options:
 
 -  Select Existing Projects
@@ -128,6 +131,8 @@ using the CloudVeneto) or if for some reason your request is refused.
 
 Apply for an account using Username and Password
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _ApplyUsingUserPasswd:
+
 .. TBC rivedere testo e immagini
 
 If and only if you don't have an account on the UniPD SSO or INFN AAI,
@@ -152,7 +157,8 @@ name (please note that it could be changed by the Cloud admins during
 the registration process) and a Password. 
 Specify your home institution and the relevant unit/department.
 
-For what concerns the **Project Action** (projects have been discussed in ?)
+For what concerns the **Project Action** (projects have been discussed in 
+:ref:`Projects<projects>`)
 you have two options:
 
 -  Select Existing Projects
@@ -242,6 +248,8 @@ action** dropdown list.
 
 Manage project membership requests (only for project managers)
 --------------------------------------------------------------
+.. _ManageProjectMembershipRequests:
+
 If you are the manager of a project, you will receive membership
 requests for this project that you will have to manage (approving or
 refusing them).
@@ -307,7 +315,8 @@ on **Toggle Role**) from 'Project User' to 'Project manager' or viceversa.
 
 .. NOTE::
     If a user is promoted to Project manager, she will then be allowed
-    to manage affilitation requests to the project, as described in ?.
+    to manage affilitation requests to the project, as described in 
+    :ref:`Manage project membership requests (only for project managers)<ManageProjectMembershipRequests>`.
 
 From this window you can also remove a specific user from the project
 you manage.
