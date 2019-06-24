@@ -692,7 +692,7 @@ The status will then change to 'Active' once completed.
 
 Snapshotting Virtual Machines
 -----------------------------
-
+.. _SnapshottingVMs:
 
 It is possible to create a new instance from a previously saved snapshot
 of a VM.

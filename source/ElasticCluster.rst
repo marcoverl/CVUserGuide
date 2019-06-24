@@ -18,7 +18,7 @@ Intro: the idea
 You create on the cloud a virtual machine that acts as a master for a
 dynamic batch system (implemented using HTCondor). When you create the
 master you will need to describe the cluster configuration, as described
-in ?.
+in :ref:`The cluster configuration<ClusterConfiguration>`.
 
 The master node will be able to spawn new slave nodes (where jobs are
 executed) when jobs are submitted to the batch system. The elastic
@@ -37,7 +37,8 @@ the slave nodes, get done, and eventually the slaves will be released.
 Creating Batch Clusters on the Cloud with HTCondor
 --------------------------------------------------
 
-When you create the master, using the instructions reported in ?, you
+When you create the master, using the instructions reported in 
+:ref:`Creating Virtual Machines<creatingvms>`, you
 will need to specify some user-data to describe the cluster
 configuration, as described below.
 
@@ -166,6 +167,7 @@ Prerequisites
 
 The cluster configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _ClusterConfiguration:
 
 You must properly configure the ecm.conf file stored in the ECM
 directory (created when you downloaded via git the ECM software)

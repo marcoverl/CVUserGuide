@@ -3,6 +3,7 @@ Miscellaneous topics
 
 Migrating an image to another cloud
 -----------------------------------
+.. _MigratingAnImageToAnotherCloud:
 
 Sometimes it becomes necessary to migrate an image (or snapshot) from
 one OpenStack cloud to another one.
@@ -19,7 +20,8 @@ In short the procedure is the following:
 
 To download the image from the source cloud, you need to use the
 OpenStack CLI. After having sourced the environment script of the source
-cloud (as explained in ?), run the **openstack image list** to find the
+cloud (as explained in :ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`), 
+run the **openstack image list** to find the
 id of the image (photo-slave in the following example):
 
 ::
@@ -54,10 +56,10 @@ different OpenStack cloud, can be done using snapshots.
 In short the procedure to migrate an instance is the following:
 
 -  Create a snapshot of the instance in the source project (please refer
-   to the instructions provided at ?).
+   to the instructions provided at :ref:`Snapshotting Virtual Machines<SnapshottingVMs>`).
 
 -  Transfer the snapshot from the source project to the destination one
-   (this was discussed in the previous section: ?).
+   (this was discussed in the previous section:  :ref:`Migrating an image to another cloud<MigratingAnImageToAnotherCloud>`).
 
 -  In the target environment boot a new instance from the snapshot.
 
