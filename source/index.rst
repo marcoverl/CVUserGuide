@@ -28,6 +28,7 @@ Contents:
    Orchestration
    ManagingImages
    ElasticCluster
+   K8sCluster
 
 Indices and tables
 ==================
