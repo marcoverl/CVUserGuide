@@ -8,9 +8,11 @@ In a cloud environment, Virtual Machines are instantiated from images.
 These images are registered in an Image Management Service, in our case
 provided by the *Glance* OpenStack component.
 
+
 Public Images
 -------------
-.. _PublicImages:
+.. _publicimages:
+
 
 Some images in the CloudVeneto are provided by the Cloud administrators.
 These images are public, and visible to all users. They appear with
@@ -78,6 +80,7 @@ the Cloud keypair, considering the 'root' account, e.g.:
 
 User Provided Images
 --------------------
+.. _userprovidedimages:
 
 Users can provide their own images and upload them to the Cloud Image
 service: these images are private, meaning that they are only available
@@ -138,7 +141,7 @@ However images can be shared between different projects. This is
 currently only possible via the command line tools.
 
 If an image has been uploaded to your currently active project, using
-the procedure described in ?, you can then use the
+the procedure described in :ref:`User Provided Images <userprovidedimages>`, you can then use the
 **openstack image add project** operation to share that image with
 another project.
 
@@ -206,7 +209,7 @@ Building Images
 ---------------
 
 Users can also build custom images, that can then been uploaded in the
-Cloud Image service as described in ?.
+Cloud Image service as described in :ref:`User Provided Images <userprovidedimages>`.
 
 There are several tools providing support for image creation. Some of
 them are described in the `Openstack

@@ -106,7 +106,7 @@ Setting security group(s)
 
 Security groups are sets of IP rules (firewall) that define networking
 access and are applied to all instances within a project using that
-group. As described in ?, when you create an instance you have to
+group. As described in :ref:`Creating Virtual Machines <creatingvms>`, when you create an instance you have to
 specify the security group to be used.
 
 To set such IP rules, users can either add them to the *default* security
@@ -170,6 +170,7 @@ group rules to a project, if needed.
 
 Password management
 -------------------
+.. _PasswordOnlyIf:
 
 Foreword
 ^^^^^^^^
@@ -184,7 +185,8 @@ You need to use this procedure only if:
 -  You access the cloud through username and password and you want to
    set/change that password;
 
--  You want to use the cloud resources through the command line (see ?
+-  You want to use the cloud resources through the command line (see 
+   :ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`
    ).
 
 Setting/changing password
@@ -206,7 +208,7 @@ select **Settings** from the dropdown menu and then **Manage Password**.
 Switching between projects
 --------------------------
 
-As introduced in ?, a user can be on multiple projects at the same time.
+As introduced in :ref:`Projects <projects>`, a user can be on multiple projects at the same time.
 The current project is indicated by the top left dropdown menu near the
 logo.
 
@@ -219,6 +221,7 @@ following figure) and select one of your available projects.
 
 Accessing the Cloud with command line tools
 -------------------------------------------
+.. _accessingthecloudthroughcli:
 
 It is possible to manage the Cloud using command line tools, even if
 most of the functionality provided by the Cloud can be accessed through
@@ -236,7 +239,7 @@ installation procedure of the command line tools.
 
     Command line tools can only be used with the Cloud "internal"
     authentication mechanism. Even if you normally access the cloud
-    dashboard using the UniPD SSO or INFN-AAI it's now time to ?
+    dashboard using the UniPD SSO or INFN-AAI it's now time to :ref:`set a password<PasswordOnlyIf>`.
 
 The OpenStack tools require a set of shell environment variables in
 order to run. These variables can be obtained from the dashboard and

@@ -6,6 +6,7 @@ Managing Virtual Machines
 
 Creating Virtual Machines
 -------------------------
+.. _creatingvms:
 
 To create a Virtual Machine (VM) using the dashboard, you need to have
 already logged into the dashboard, created your private key (as
