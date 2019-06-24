@@ -29,6 +29,7 @@ Contents:
    ManagingImages
    ElasticCluster
    K8sCluster
+   MicroPrimers
 
 Indices and tables
 ==================
