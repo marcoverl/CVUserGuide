@@ -2,7 +2,7 @@ Some basics on Linux administration
 ===================================
 
 Introduction
-============
+------------
 
 
 
