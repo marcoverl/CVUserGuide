@@ -46,7 +46,6 @@ Enrollment procedure through INFN AAI or UniPD SSO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. _Enrollment:
 
-.. TBC: Rivedere testo e figure
 
 Once authenticated on your Identity Provider system, you will be
 redirected to a form like this:
@@ -58,7 +57,7 @@ redirected to a form like this:
 
 
 Fill the form with the required information. In particular please specify 
-your home institution and the relevant unit/department.
+the relevant unit/department of your home institution.
 
 For what concerns the **Project Action** (projects have been discussed in 
 :ref:`Projects<projects>`)
@@ -133,7 +132,6 @@ Apply for an account using Username and Password
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. _ApplyUsingUserPasswd:
 
-.. TBC rivedere testo e immagini
 
 If and only if you don't have an account on the UniPD SSO or INFN AAI,
 click on the green icon on the right:
@@ -242,6 +240,9 @@ the OpenStack dashboard and clicking on **Subscribe to project** as depicted
 on the following image:
 
 
+.. image:: ./images/ProjectRequest.png
+   :align: center
+
 
 Fulfill your request selecting the relevant choice under the **Project
 action** dropdown list.
@@ -280,7 +281,7 @@ To approve a membership request, click on the **Approve** button (in
    :align: center
 
 
-Set the expiration date of the account, and click on the **Ok&& button to
+Set the expiration date of the account, and click on the **Ok** button to
 approve the request.
 
 If, instead, you want to reject the request, select **Reject** in **Actions**.
@@ -304,7 +305,6 @@ the relevant method and access the **Identity** |rarr| **Project Members**
 panel. The
 list of users affiliated to your project will appear:
 
-.. TBC modificare figura
 
 .. image:: ./images/IdentityProjectMembers.png
    :align: center
@@ -323,6 +323,8 @@ you manage.
 
 Manage account renewals (only for project managers)
 ---------------------------------------------------
+
+.. QUI
 When the affiliation of a user for a project is expiring, as manager of
 that project you will receive an e-mail such as this one:
 
