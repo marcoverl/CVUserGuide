@@ -169,6 +169,7 @@ Mount the volume:
 
 Detaching a Volume
 ^^^^^^^^^^^^^^^^^^
+.. _DetachVolume:
 
 To detach a volume from an instance, first of all log into the virtual
 machine that has the volume mounted, and unmount it:

@@ -56,11 +56,13 @@ Prerequisites
        one available network (i.e the lan) otherwise, due to a bug with
        ec2api, the instantiation of slaves fails.
 
--  You need to have created a SSH key-pair, ad explained in ?. This will
+-  You need to have created a SSH key-pair, ad explained in 
+   :ref:`Creating a keypair<CreatingAKeypair>`. This will
    allow you to log in the master and slave nodes.
 
 -  You need to download the EC2 credentials of the project you want to
-   use (see ?). You can download them from the dashboard as following:
+   use (see :ref:`Accessing the Cloud through the euca2ools EC2 command line tools<AccessingtheCloudthroughEC2>`). 
+   You can download them from the dashboard as following:
 
    Open the dashboard, select the project (drop down menu on top left of
    the dashboard), go to **Compute** |rarr| **API Access** and here click on **Download
@@ -112,7 +114,7 @@ Prerequisites
    slaves. Currently supported operating systems are RHEL6.x and
    derivates (SL6.x, CentOS7.x, etc.), RHEL7.x and derivates and Ubuntu.
    uCernVM based images are also supported. For such image you also need
-   to know the relevant EC2 (AMI) id (see ?).
+   to know the relevant EC2 (AMI) id (see :ref:`How to find the EC2 (AMI) id of an image<HowToFindAMIID>`).
 
 -  You need to set a specific security group to be used for the master
    node. This security group must include the following rules:
@@ -131,7 +133,7 @@ Prerequisites
    ..NOTE::
        Instead of modifying the rules of an existing security group, we
        suggest to create a new security group named e.g.
-       "master\_security\_group". Security groups are discussed in ?.
+       "master\_security\_group". Security groups are discussed in :ref:`Setting security group(s)<SecurityGroups>`.
 
    The slave nodes will instead use the *default* security group of
    your project. This group must include the following rule:
@@ -147,7 +149,7 @@ Prerequisites
 
 -  You need to download the
    `ECM <https://github.com/CloudPadovana/ECM.git>`__ software. As
-   explained in ?, this will be used to create the batch cluster
+   explained in :ref:`The cluster configuration<ClusterConfiguration>`, this will be used to create the batch cluster
    configuration:
 
    ::
@@ -186,7 +188,7 @@ directory (created when you downloaded via git the ECM software)
 Where:
 
 -  **<FLAVOR_VMS>** is the name of the flavor to be used for the slave
-   nodes. Flavors have been discussed in ?. Available flavors are listed
+   nodes. Flavors have been discussed in :ref:`Flavors<Flavors>`. Available flavors are listed
    in the dashboard when you try to launch a VM.
 
 -  **<MAX_VMS>** is the maximum number of slave nodes that can be
@@ -206,7 +208,7 @@ Where:
    will be killed.
 
 -  **<KEY_NAME>** is the name (without the .pem extension) of ssh key
-   previously created (see ?) to be injected in the batch cluster nodes.
+   previously created (see :ref:`Creating a keypair<CreatingAKeypair>`) to be injected in the batch cluster nodes.
 
 .. NOTE ::
     The batch system will use each CPU as a separate job slot. So if you
@@ -225,7 +227,7 @@ node.
 When you create such master, you will need to specify some user-data to
 describe the cluster configuration. The ecm.py script will create such
 user-data file for you, using as input the ecm.conf file you previously
-edited. (see ?).
+edited. (see :ref:`The cluster configuration<ClusterConfiguration>`).
 
 First of all you have to set the relevant EC2 credentials:
 
@@ -269,7 +271,7 @@ create a CentOS 6 cluster as an example.
 
 .. WARNING ::
     If you choose "Other image" you have to manually insert the image id
-    in EC2 format (see ?).
+    in EC2 format (see :ref:`How to find the EC2 (AMI) id of an image<HowToFindAMIID>`).
 
 The script will now print something like:
 
@@ -278,7 +280,7 @@ The script will now print something like:
           Now you can use the master-centos6-2017-03-16-17.45.31 file to instantiate the master node of your elastiq cluster.
         
 
-Now you have to start the master node. As explained in ?. go to
+Now you have to start the master node. As explained in :ref:`Creating Virtual Machines<creatingvms>`, go to
 'Instances' and create a new instance with [Launch Instances].
 
 In the details select:
@@ -472,12 +474,13 @@ is downloaded from docker-hub:
 
 How to find the EC2 (AMI) id of an image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _HowToFindAMIID:
 
 As explained above, to use the Elastic batch cluster you need to know
 the EC2 (AMI) id of the image you want to use.
 
 First of all you need to install the euca2ools and to download the EC2
-credentials for your project, as explained in ?.
+credentials for your project, as explained in :ref:`Accessing the Cloud through the euca2ools EC2 command line tools<AccessingtheCloudthroughEC2>`.
 
 Uncompress (unzip) the EC2 zip file, and source the ec2rc.sh script to
 set the correct environment:

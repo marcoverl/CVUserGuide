@@ -10,7 +10,7 @@ Creating Virtual Machines
 
 To create a Virtual Machine (VM) using the dashboard, you need to have
 already logged into the dashboard, created your private key (as
-explained in ?) and set the security group (as discussed in ?) to be
+explained in :ref:`Creating a keypair<CreatingAKeypair>`) and set the security group (as discussed in :ref:`Setting security group(s)<SecurityGroups>`) to be
 used for this VM.
 
 To create a VM proceed as follows:
@@ -39,7 +39,7 @@ To create a VM proceed as follows:
       specified using VCPUs (number of virtual CPUs), disk space for the
       system disk, size for the RAM memory. You are advised to start
       small (the flavor of a virtual machine can be changed later if
-      required). Flavors are discussed in ?.
+      required). Flavors are discussed in :ref:`Flavors<Flavors>`.
 
    -  **Instance Count** is the number of virtual machines to be started.
 
@@ -66,7 +66,7 @@ To create a VM proceed as follows:
           the ssh-key mechanisms.
 
    -  Specify the Security group to be used for this VM (security groups
-      are discussed in ?).
+      are discussed in :ref:`Setting security group(s)<SecurityGroups>`).
 
 -  Now switch to the **Networking** tab. 
 
@@ -83,7 +83,7 @@ To create a VM proceed as follows:
        if the VM doesn't need to be visible on the Internet. The
        *<ProjectName>-wan* network must be selected if instead the VM must
        have a public IP. It will then be necessary to allocate a public
-       (floating) IP address to this instance, as explained in ?.
+       (floating) IP address to this instance, as explained in :ref:`Giving a VM public access (getting a floating IP)<PublicAccess>`.
 
 -  Select **Launch** to start the virtual machine being created. You will be
    returned to the Overview screen, where there will be a line with the
@@ -191,7 +191,8 @@ Virtual machines created on the cloud have their IP assigned on a
 private network associated with the project they belong to, therefore
 they cannot be accessed directly from the internet. Conversely, there is
 no limitation on the 'outer' services you can reach from your VM (modulo
-the services hosted in the INFN Padova/Legnaro LANs, as described in ?.
+the services hosted in the INFN Padova/Legnaro LANs, as described in 
+:ref:`Accessing other hosts/services from Virtual Machines<AccessingFromVMs>`.
 
 If you need to log on your VMs from the Internet you must go through the
 gate machine **gate.cloudveneto.it**.
@@ -245,7 +246,7 @@ are:
        ubuntu@10.64.14.12: Permission denied (publickey).
 
 -  SOLUTION: you forgot to change the permission on your private key
-   (see ?). Please run:
+   (see :ref:`Creating a keypair<CreatingAKeypair>`). Please run:
 
    ::
 
@@ -370,12 +371,13 @@ It is a file system client that mounts the remote file system locally.
 
 Giving a VM public access (getting a floating IP)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _PublicAccess:
 
 If needed, e.g. if a VM should host a service accessible from the
 Internet, such VM on the Cloud can be given a public IP. For this
 purpose you will need:
 
--  to instantiate the VM, as explained in ?;
+-  to instantiate the VM, as explained in :ref:`Creating Virtual Machines<creatingvms>`;
 
 -  to allocate a floating (public) IP;
 
@@ -462,12 +464,13 @@ click the **More** button and select the **Release Floating IP** option.
     network, if the VM must be given a public IP.
 
 To control which services/ports of your virtual machine can be accessed,
-be sure you are using the right security group (as discussed in ?) and
+be sure you are using the right security group (as discussed in :ref:`Setting security group(s)<SecurityGroups>`) and
 you have correctly configured firewall (iptables, firewalld etc.) on the
 relevant VM.
 
 Accessing other hosts/services from Virtual Machines
 ----------------------------------------------------
+.. _AccessingFromVMs:
 
 There is no limitation on the 'outer' services you can reach from your
 VM. However by default it is not possible to access a host/service
@@ -478,8 +481,9 @@ or Legnaro from the Cloud, please contact support@cloudveneto.it.
 
 Flavors
 -------
+.. _Flavors:
 
-As shown in ?, when an instance has to be created it is necessary to
+As shown in :ref:`Creating Virtual Machines<creatingvms>`, when an instance has to be created it is necessary to
 specify the flavor to be used for this VM.
 
 Flavors define the virtual machine size such as:
@@ -661,7 +665,7 @@ application downtime.
 
 To resize a VM using the graphical Interface:
 
--  Detach any attached volume as decribed in ?
+-  Detach any attached volume as decribed in :ref:`Detaching a Volume<DetachVolume>`
 
    .. WARNING ::
 

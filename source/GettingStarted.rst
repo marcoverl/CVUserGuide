@@ -23,6 +23,8 @@ Padova Single Sign On (SSO) system, or using the username and password.
 
 Creating a keypair
 ------------------
+.. _CreatingAKeypair:
+
 You can now proceed creating a key-pair. This is a secret key which
 will allow you to interact with your virtual machine once it is created.
 This key should be handled with similar security to a password or an ssh
@@ -317,6 +319,7 @@ authenticate. The OpenStack command line tools can then be used, e.g.:
 
 Accessing the Cloud through the euca2ools EC2 command line tools
 ----------------------------------------------------------------
+.. _AccessingtheCloudthroughEC2:
 
 The CloudVeneto also exposes a AWS EC2 compatible interface, which is one
 of the de-facto standard for computational clouds.
