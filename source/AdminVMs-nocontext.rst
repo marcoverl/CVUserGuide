@@ -3,7 +3,7 @@
 
 Managing Virtual Machines
 =========================
-
+.. QUI
 Creating Virtual Machines
 -------------------------
 .. _creatingvms:

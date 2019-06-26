@@ -324,7 +324,6 @@ you manage.
 Manage account renewals (only for project managers)
 ---------------------------------------------------
 
-.. QUI
 When the affiliation of a user for a project is expiring, as manager of
 that project you will receive an e-mail such as this one:
 
@@ -332,8 +331,7 @@ that project you will receive an e-mail such as this one:
    :align: center
 
 
-To renew the affiliation for that user, open the OpenStack web
-dashboard, To manage such requests, open the OpenStack web dashboard,
+To manage such requests, open the OpenStack web dashboard,
 i.e. go to https://cloud-areapd.pd.infn.it or
 https://cloudveneto.ict.unipd.it in a browser. Log in, and then access
 **Identity** |rarr| **Subscriptions**. An image such as the following one will appear:

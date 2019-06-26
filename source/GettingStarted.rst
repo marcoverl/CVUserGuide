@@ -39,14 +39,14 @@ The steps are as follows:
 
 -  In the Key Pairs section, select **Create Key Pair**.
 
-You will need to give the keypair a name, such as my\_key.
+You will need to give the keypair a name, such as *my\_key*.
 
 .. image:: ./images/create_keypair.png
    :align: center
 
 
 
-On completion of the operation, a file ''my\_key.pem'' will be downloaded to
+On completion of the operation, a file *my\_key.pem* will be downloaded to
 your computer.
 
 
@@ -55,7 +55,7 @@ your computer.
     Be careful not to loose the file you just downloaded since there is
     no easy way to download it again.
 
-This file should be stored in a safe location. To keep it private, run:::
+This file should be stored in a safe location. To keep it private, run: ::
 
   chmod 600 my_key.pem
 
@@ -80,7 +80,7 @@ The steps are as follows:
 
 -  Select **Key Pairs**
 
--  In the **Key Pairs** section, select **Import Key Pair**.
+-  In the **Key Pairs** section, select **Import Public Key**.
 
 You will need to give the keypair a name (your full username is a good
 choice), e.g. *paolomazzon*.
@@ -93,7 +93,7 @@ On the "Public Key" field paste the content of your *id\_rsa.pub* file
 
 
 
-Finally click on the **Import Key Pair** button
+Finally click on the **Import Public Key** button
 
 .. WARNING ::
 
@@ -129,7 +129,7 @@ group rules to a project, if needed.
 
 -  Select the *default* security group and click **Manage Rules**.
 
--  To allow SSH access, click **Add Rule**.
+-  To allow SSH access, click **+ Add Rule**.
 
 -  In the *Add Rule* dialog box, enter the following values:
 
@@ -180,15 +180,14 @@ Foreword
 
 .. WARNING ::
 
-    If you access the cloud either through UniPD SSO or INFN AAI you
-    already have a password **that you cannot change with this procedure**.
+    This procedure is NOT the one to be used to change the UniPD SSO or INFN AAI password !
 
-You need to use this procedure only if:
+You need to use the procedure described in the following subsection **only if**:
 
 -  You access the cloud through username and password and you want to
    set/change that password;
 
--  You want to use the cloud resources through the command line (see 
+-  You want to use the cloud infrastructure through the command line (see 
    :ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`
    ).
 
@@ -252,22 +251,22 @@ when logging into a linux server).
 The environment variables are different for projects you work on.
 
 If you log into the dashboard, you will find **API Access** under the
-**Compute** menu on the left hand side.
-
-Select among **Download OpenStack RC file v2.0** and **Download OpenStack RC
-file v3**, to download the rc file for your current project (v2.0 or v3).
-The v3 openrc file requires a quite recent version of the Openstack
-client .
+**Project** menu on the left hand side.
 
 
 .. image:: ./images/download_rc.png
    :align: center
 
-.. WARNING ::
 
-    Because of a bug, if you downloaded the v2.0 rc file, you have to
-    edit it and replace "v3" with "v2.0" in the OS\_AUTH\_URL variable
-    setting
+
+Select **Download OpenStack RC file** and then **OpenStack RC
+file (Identity API v3)**, to download the rc file for your current project.
+Please note that the v3 openrc file requires a quite recent version of the Openstack
+client .
+
+.. image:: ./images/download_rc_menu.png
+   :align: center
+
 
 This file is different for each of the projects you are working on.
 
@@ -351,14 +350,18 @@ run. These environment variables are different per project that you work
 on.
 
 If you log into the dashboard, you will find **API Access** under the
-**Compute** menu on the left hand side.
+**Project** menu on the left hand side.
 
-Select the **Download EC2 Credentials** option to download the zip file for
-your current project. This zip file will be downloaded from the browser.
 
 .. image:: ./images/download_rc.png
    :align: center
 
+
+
+Select **Download OpenStack RC file** and then **EC2 Credentials** to download the zip file for
+your current project. This zip file will be downloaded from the browser.
+
+xxx
 
 
 This file should be saved onto the machine where you want to run the
@@ -368,9 +371,6 @@ commands from, and unzipped into a private directory, e.g:
 
     $ unzip SgaraPrj1-x509.zip 
     Archive:  SgaraPrj1-x509.zip
-     extracting: pk.pem                  
-     extracting: cert.pem                
-     extracting: cacert.pem              
      extracting: ec2rc.sh           
 
 *ec2rc.sh* gives the variables for accessing the Cloud with EC2 APIs. If
