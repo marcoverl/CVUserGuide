@@ -3,7 +3,6 @@
 
 Managing Virtual Machines
 =========================
-.. QUI
 Creating Virtual Machines
 -------------------------
 .. _creatingvms:
@@ -77,8 +76,8 @@ To create a VM proceed as follows:
 
     .. NOTE ::
    
-       INFN users could see, besides the **<ProjectName>-lan** network, also
-       a network called **<ProjectName>-wan**, if the possibility to use
+       INFN users could see, besides the *<ProjectName>-lan* network, also
+       a network called *<ProjectName>-wan*, if the possibility to use
        public IP numbers was requested. The former one must be selected
        if the VM doesn't need to be visible on the Internet. The
        *<ProjectName>-wan* network must be selected if instead the VM must
@@ -118,7 +117,7 @@ to access to the console of the VM.
 
 Improve reliability: creating Virtual Machines from Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+.. QUI
 By default Virtual Machines are instantiated using the local disk of the
 Cloud compute node. This means that, in case of failure of the Compute
 node, it may happen that the virtual machine content is lost.
@@ -135,46 +134,28 @@ On the other hand, I/O performance is usually better when the instance
 is created using the local disk of the compute node with respect to a
 virtual machine created from volume.
 
-The procedure to create a VM from volume is the following:
+To create a VM from volume, in the **Launch Instance** tab select
+**Boot from image (create a new volume)** for **Instance Boot Source**.
 
--  Create a volume using the desired image as source.
+Select the image to be used (**Image Name** field). Then fill the **Device size (GB)**
+field with the desired disk size.
 
--  Launch a Virtual Machine with that volume as the system disk.
-
-To create a volume from an image, go to the **Volumes** tab of the
-Dahsboard, and click on **Create Volume**.
-
-After having set the Volume Name, set **Image** for **Volume Source** and
-specify the image name in the **Use image as a source** field.
-
-Set the Size of the root disk (**Size (GiB)** field).
-
-Complete the operation clicking on **Create Volume**.
-
-.. image:: ./images/create_volume_from_image.png
+.. image:: ./images/boot_from_image.png
    :align: center
+
+Then proceed as described above.
+
+
 
 
 
 .. NOTE ::
 
-    Please select *ceph* (the default) as type for the volume. Unipd
+    Unipd
     users will have to first contact support@cloudveneto.it to require
     some disk space on the ceph storage backend, since by default they
     are given no disk space on such storage system.
 
-Once the volume has been created, you can launch the Virtual Machine.
-
-In the **Launch Instance** form, that appears after having clicked on the
-**Launch Instance** button, please select **Boot from volume** in the **Instance
-Boot Source** field, and specify the name of the previously created volume
-in the **Volume** field.
-
-Then proceed as explained for the creation of a "normal" instance.
-
-.. NOTE ::
-    You can create only one virtual machine from a volume created using
-    an image as source.
 
 Accessing Virtual Machines
 --------------------------
