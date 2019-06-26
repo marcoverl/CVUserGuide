@@ -117,9 +117,8 @@ to access to the console of the VM.
 
 Improve reliability: creating Virtual Machines from Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. QUI
 By default Virtual Machines are instantiated using the local disk of the
-Cloud compute node. This means that, in case of failure of the Compute
+Cloud compute node. This means that, in case of failure of the compute
 node, it may happen that the virtual machine content is lost.
 
 For production servers which are not fully redundant and load balanced,
@@ -135,15 +134,16 @@ is created using the local disk of the compute node with respect to a
 virtual machine created from volume.
 
 To create a VM from volume, in the **Launch Instance** tab select
-**Boot from image (create a new volume)** for **Instance Boot Source**.
+**Boot from image (create a new volume)** for the **Instance Boot Source**
+field.
 
-Select the image to be used (**Image Name** field). Then fill the **Device size (GB)**
-field with the desired disk size.
+Select the image to be used (**Image Name** field). Then specify the
+desired disk size (**Device size (GB)**).
 
 .. image:: ./images/boot_from_image.png
    :align: center
 
-Then proceed as described above.
+Then proceed as discussed above.
 
 
 
@@ -152,9 +152,10 @@ Then proceed as described above.
 .. NOTE ::
 
     Unipd
+    Since volumes for VMs are created on the ceph backend,
     users will have to first contact support@cloudveneto.it to require
-    some disk space on the ceph storage backend, since by default they
-    are given no disk space on such storage system.
+    some disk space on the ceph storage system. In fact 
+    by default they are given no disk space on such volume backend.
 
 
 Accessing Virtual Machines
@@ -162,21 +163,17 @@ Accessing Virtual Machines
 
 .. WARNING ::
 
-    Please note that cloud VMs are not registered in the DNS, and
+    Please note that by default cloud VMs are not registered in the DNS, and
     therefore you must use their IP address.
 
 Logging to a VM
 ---------------
-
 Virtual machines created on the cloud have their IP assigned on a
-private network associated with the project they belong to, therefore
-they cannot be accessed directly from the internet. Conversely, there is
-no limitation on the 'outer' services you can reach from your VM (modulo
-the services hosted in the INFN Padova/Legnaro LANs, as described in 
-:ref:`Accessing other hosts/services from Virtual Machines<AccessingFromVMs>`.
+private network associated with the project they belong to. Therefore
+they cannot be accessed directly from the internet. 
 
-If you need to log on your VMs from the Internet you must go through the
-gate machine **gate.cloudveneto.it**.
+If you need to log on your VMs from the Internet you must go through a
+gate machine: **gate.cloudveneto.it**.
 
 When your account on the cloud is created you also got access to the
 gate. Contact support@cloudveneto.it in case of problems with this
@@ -206,6 +203,13 @@ you can access your VM from the gate machine issuing
 ::
 
            ssh -i ~/private/my_key ubuntu@10.67.15.3
+
+
+Conversely, there is
+no limitation on the 'outer' services you can reach from your VM (modulo
+the services hosted in the INFN Padova/Legnaro LANs, as described in 
+:ref:`Accessing other hosts/services from Virtual Machines<AccessingFromVMs>`.
+
 
 Common access problems
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -277,7 +281,7 @@ fashion:
 This is clearly not very practical.
 
 A more clever approach is to use an **SSH tunnel** (port forwarding
-mechanism): you set up a special TCP port on your PC that act as an
+mechanism): you set up a special TCP port on your PC that acts as an
 entrance point and then you inject your files in that port to get them
 copyed on your VM.
 
@@ -425,7 +429,7 @@ button.
 
 
 To release the floating IP address back into the pool of addresses,
-click the **More** button and select the **Release Floating IP** option.
+click the **Actions** button and select the **Release Floating IP** option.
 
 .. image:: ./images/releasefloatingip.png
    :align: center
@@ -499,7 +503,7 @@ partitions.
 
 Stopping and Starting VMs
 -------------------------
-
+.. QUI
 VMs can be stopped and started in different ways available from the
 **Actions** menu of every instance found on the (**Compute** |rarr| **Instances**) table.
 
