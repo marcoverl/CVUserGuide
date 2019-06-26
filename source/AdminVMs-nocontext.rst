@@ -503,7 +503,6 @@ partitions.
 
 Stopping and Starting VMs
 -------------------------
-.. QUI
 VMs can be stopped and started in different ways available from the
 **Actions** menu of every instance found on the (**Compute** |rarr| **Instances**) table.
 
@@ -514,15 +513,15 @@ VMs can be stopped and started in different ways available from the
 .. WARNING ::
 
     The cleanest way to shutdown (or reboot) an instance is however to
-    log on the VM and issue from the shell the **shutdown** or
-    **reboot** command. In fact if the **Soft Reboot** or **Hard Reboot** or
-    **Shutdown** actions are chosen, there could be problems with networking
+    log on the VM and issue from the shell the *shutdown* or
+    *reboot* command. In fact if the **Soft Reboot Instance** or **Hard Reboot Instance** or
+    **Shut Off Instance** actions are chosen, there could be problems with networking
     when the VM is later restarted.
 
-**Pause/Unpause** allows for temporary suspension of the VM. The VM is kept
+**Pause Instance/Unpause Instance** allows for temporary suspension of the VM. The VM is kept
 in memory but it is not allocated any CPU time.
 
-**Suspend/Resume** stores the VM onto disk and recovers it later. This is
+**Suspend Instance/Resume Instance** stores the VM onto disk and recovers it later. This is
 faster than stop/start and the VM returns to the status is was when the
 suspend was performed as opposed to a new boot cycle.
 
@@ -657,7 +656,7 @@ To resize a VM using the graphical Interface:
        Failure in doing so might lead to VM and/or Volume corruption!
 
 -  Select the **Compute** |rarr| **Instances** menu and then **Resize Instance** option on
-   the Actions.
+   the **Actions**.
 
 -  In the **Resize Instance** box select the desired flavor.
 
@@ -710,7 +709,7 @@ To save a snapshot of your VM:
    are correctly flushed on disk. Issue the *shutdown -h now* or *poweroff* command;
 
 -  From the **Compute** |rarr| **Instances** table select the desired VM and click
-   **Create Snapshot**.
+   **Create Snapshot** on the **Actions** menu.
 
 
 Deleting Virtual Machines

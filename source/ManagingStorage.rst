@@ -3,7 +3,6 @@
 
 Managing Storage
 ================
-
 There are several ways of handling disk storage in the CloudVeneto:
 
 -  **Ephemeral storage** exists only for the life of a virtual machine
@@ -59,16 +58,30 @@ Create a Volume
 
 The steps to add a Volume are:
 
-Using the Dashboard, click on **Compute** |rarr| **Volumes** and then **Create Volume**. In
+Using the Dashboard, click on **Volumes** |rarr| **Volumes** and then **Create Volume**. 
+
+.. TBC cambiare questa figura perche` non e` piu` sotto compute
+.. image:: ./images/create_volume.png
+   :align: center
+
+
+
+
+
+In
 the "Create Volume” window specify the name of the volume (*testvol* in
 the example below) and the desired size (*12 GB* in the example). As
 *Volume Source* specify “No source, empty volume”.
 
-.. image:: ./images/create_volume.png
+.. image:: ./images/testvolCreation1.png
    :align: center
 
 Multiple volume types exist, and you need to specify the type to be used
 for the volume to be created.
+
+.. image:: ./images/testvolCreation2.png
+   :align: center
+
 
 .. NOTE ::
     If you are a University of Padova user, please select the
@@ -80,8 +93,8 @@ for the volume to be created.
 
 In general different quotas for the different volume types are set.
 Unfortunately the OpenStack dashboard shows only the overall quota. To
-see the quota per each volume type you need to use the OpenStack CLI (as
-explained in :ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`) 
+see the quota per each volume type you need to use the OpenStack CLI (see:
+:ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`) 
 and run the ``cinder quota-usage ${OS_PROJECT_ID}``
 command.
 
@@ -127,9 +140,11 @@ Using (attaching) a Volume
 
 The new defined volume will appear in the **Volumes** tab.
 
-To attach this volume to an existing instance, click on **Actions** |rarr| **Manage
-Attachments** ... 
 
+To attach this volume to an existing instance, click on **Actions** |rarr| **Manage
+Attachments**: 
+
+.. TBC cambiare questa figura perche` non e` piu` sotto compute
 .. image:: ./images/AttachVolumeToInstance.png
    :align: center
 
@@ -179,9 +194,9 @@ machine that has the volume mounted, and unmount it:
     umount /mnt
 
 Then, using the Dashboard, click on **Volumes**, click on 
-**More** |rarr| **Manage Attachments** for the relevant volume and select **Detach Volume**. The
+**Actions** |rarr| **Manage Attachments** for the relevant volume and select **Detach Volume**. The
 detached volume can then be associated to another VM, as described above
-(you won't have to re-create the file system, otherwise you will lose
+(you won't have to re-create the file system, otherwise you will loose
 the content of the volume!)
 
 Deleting a Volume
@@ -192,12 +207,12 @@ this step cannot be reverted!):
 
 -  if needed, detach the volume from the associated instance
 
--  using the Dashboard, click on **Compute** |rarr| **Volumes**, select the relevant
+-  using the Dashboard, click on **Volumes** |rarr| **Volumes**, select the relevant
    volume and then select **Delete Volumes**.
 
 Sharing a volume between multiple (virtual) machines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+.. QUI
 As discussed in :ref:`Volumes<volumes>`, a volume may be attached to a single instance.
 However it can be shared with other virtual machines of the Cloud
 (and/or with other hosts) using NFS.
