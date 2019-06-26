@@ -361,8 +361,9 @@ If you log into the dashboard, you will find **API Access** under the
 Select **Download OpenStack RC file** and then **EC2 Credentials** to download the zip file for
 your current project. This zip file will be downloaded from the browser.
 
-xxx
 
+.. image:: ./images/download_rc_menu.png
+   :align: center
 
 This file should be saved onto the machine where you want to run the
 commands from, and unzipped into a private directory, e.g:
