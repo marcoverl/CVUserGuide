@@ -190,6 +190,13 @@ project whose id is e81df4c0b493439abb8b85bfd4cbe071, use the command:
     | updated_at | 2018-03-19T16:09:21Z                 |
     +------------+--------------------------------------+
 
+.. NOTE ::
+    Because of a bug in OpenStack this command could return an error message such as: 
+    ::
+      403 Forbidden: Not allowed to create members for image d4b02b71-755e-47ad-bb27-1ea5c23bf7cb. (HTTP 403)
+    but actually the command worked.
+
+
 Then a member of the target project (with id e81df4c0b493439abb8b85bfd4cbe071
 in our example) needs to accept the image:
 
