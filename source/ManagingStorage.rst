@@ -212,14 +212,13 @@ this step cannot be reverted!):
 
 Sharing a volume between multiple (virtual) machines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. QUI
 As discussed in :ref:`Volumes<volumes>`, a volume may be attached to a single instance.
 However it can be shared with other virtual machines of the Cloud
 (and/or with other hosts) using NFS.
 
 1. **Configure NFS server**
 
-   a. Once a volume has been created, formatted and attached to this
+   a. Once a volume has been created, formatted and attached to an
       instance acting as NFS server, create the mount point and mount
       the volume on this virtual machine:
 
@@ -406,7 +405,7 @@ However it can be shared with other virtual machines of the Cloud
 Accessing storage external to the Cloud
 ---------------------------------------
 
-As explained in :ref:`Network Access<NetworkAccess>` from an instance of the Cloud by default it is not
+As explained in :ref:`Network Access<NetworkAccess>`, from an instance of the Cloud by default it is not
 possible to access a host/service hosted in INFN Padova or Legnaro. This
 also means that by default on a virtual machine of the CloudVeneto it is
 not possible to mount a file system exported from a storage server

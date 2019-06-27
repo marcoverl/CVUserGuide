@@ -6,7 +6,7 @@ Managing Images
 
 In a cloud environment, Virtual Machines are instantiated from images.
 These images are registered in an Image Management Service, in our case
-provided by the *Glance* OpenStack component.
+provided by the **Glance** OpenStack component.
 
 
 Public Images
@@ -74,7 +74,7 @@ the Cloud keypair, considering the 'root' account, e.g.:
     instance.
 
     `INFN-Padova computing and Network
-    service <http://www.pd.infn.it/calcolo/indexEN.html>`__
+    service <https://www.pd.infn.it/eng/computing-and-networking/>`__
     (supporto@pd.infn.it) can provide support only for instances created
     using such images (only to INFN-Padova users).
 
@@ -90,7 +90,7 @@ to the users of the project they are uploaded for.
     Users are not allowed to publish public (i.e. available to all
     projects) images.
 
-Many open source projects such as Ubuntu and Fedora now produce
+Many open source projects such as Ubuntu and Fedora produce
 pre-built images which can be used for certain clouds. If these are
 available, it is much easier to use them compared to building your own.
 
@@ -100,16 +100,17 @@ available, it is much easier to use them compared to building your own.
 
 Using an Ubuntu image as an example, after you downloaded the image from
 the relevant web site, to upload such image using the command line tools
+(see :ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`)
 you need to:
 
--  Authenticate to OpenStack using the openrc source:
+-  Authenticate to OpenStack using the openrc script:
 
    ::
 
        $ . demo-openrc.sh
              
 
--  Issue th following command:
+-  Issue the following command:
 
    ::
 
@@ -161,7 +162,7 @@ find its id with the **openstack image list** command
     | 071668fc-dfeb-4956-996a-d2a487755709 | cirros               | active |
     +--------------------------------------+----------------------+--------+
 
-You then need to change (to 'Shared' the visibility of the image:
+You then need to change (to 'Shared') the visibility of the image:
 
 ::
 
@@ -173,7 +174,7 @@ project and finding the *OS_PROJECT_ID* variable (in this example, it
 is e81df4c0b493439abb8b85bfd4cbe071).
 
 To share the image with id d4b02b71-755e-47ad-bb27-1ea5c23bf7cb to the
-project whose is is e81df4c0b493439abb8b85bfd4cbe071, use the command:
+project whose id is e81df4c0b493439abb8b85bfd4cbe071, use the command:
 
 ::
 
@@ -189,9 +190,8 @@ project whose is is e81df4c0b493439abb8b85bfd4cbe071, use the command:
     | updated_at | 2018-03-19T16:09:21Z                 |
     +------------+--------------------------------------+
 
-A member of the target project (with id e81df4c0b493439abb8b85bfd4cbe071
-in our example) needs to accept the image in order to be available in
-the images list:
+Then a member of the target project (with id e81df4c0b493439abb8b85bfd4cbe071
+in our example) needs to accept the image:
 
 ::
 
@@ -228,6 +228,6 @@ Confirm your action pressing the **Delete Images** again on the confirmation
 dialog box.
 
 .. WARNING ::
-    Don't delete an image if are there are virtual machines created
-    using this image, otherwise these VMs won't be able to start if hard
+    Don't delete an image if there are virtual machines created
+    using this image, otherwise these VMs won't be able to start if
     rebooted.

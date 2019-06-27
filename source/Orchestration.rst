@@ -18,8 +18,8 @@ then your template would contain the definitions for two instances, a
 network, a subnet, and two network ports.
 
 Either native **HOT** templates, and **AWS CloudFormation** (CFN)
-templates are supported. Templates in **HOT** (Heat Orchestration
-Template) format are typically, but not necessarily required to be,
+templates are supported. Templates in HOT (Heat Orchestration
+Template) format are typically, but not necessarily required, to be
 expressed as `YAML <http://yaml.org>`__ while CFN (AWS CloudFormation)
 formatted templates are instead typically expressed in
 `JSON <http://json.org>`__.

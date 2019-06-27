@@ -106,7 +106,7 @@ admins at support@cloudveneto.it.
     -  Accessing your VM 'the graphical way'.
 
     `INFN-Padova computing and Network
-    service <http://www.pd.infn.it/calcolo/indexEN.html>`__ can provide
+    service <https://www.pd.infn.it/eng/computing-and-networking/>`__ can provide
     support only to INFN-Padova users and only for instances created
     using "blessed" images, (as described in :ref:`Public Images <publicimages>`).
 
