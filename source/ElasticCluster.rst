@@ -61,59 +61,14 @@ Prerequisites
    allow you to log in the master and slave nodes.
 
 -  You need to download the EC2 credentials of the project you want to
-   use (see :ref:`Accessing the Cloud through the euca2ools EC2 command line tools<AccessingtheCloudthroughEC2>`). 
-   You can download them from the dashboard as following:
-
-   Open the dashboard, select the project (drop down menu on top left of
-   the dashboard), go to **Compute** |rarr| **API Access** and here click on **Download
-   EC2 credentials**.
-
-   You'll get a zip file with a name like: *testing-x509.zip* (in this
-   case *testing* is the name of the project). The zip contains the
-   following files:
-
-   ::
-
-       $ unzip testing-x509.zip
-       Archive:  testing-x509.zip
-       extracting: pk.pem
-       extracting: cert.pem
-       extracting: cacert.pem
-       extracting: ec2rc.sh
-             
-
-   Extract all these files somewhere safe. The content of your ec2rc.sh
-   file is something like:
-
-   ::
-
-       $ cat ec2rc.sh
-
-       #!/bin/bash
-
-       NOVARC=$(readlink -f "${BASH_SOURCE:-${0}}" 2>/dev/null) || NOVARC=$(python -c 'import os,sys; print os.path.abspath(os.path.realpath(sys.argv[1]))' "${BASH_SOURCE:-${0}}")
-       NOVA_KEY_DIR=${NOVARC%/*}
-       export EC2_ACCESS_KEY=
-       export EC2_SECRET_KEY=
-       export EC2_URL=https://cloud.cedc.csia.unipd.it:8773/services/Cloud
-       export EC2_USER_ID=42 # nova does not use user id, but bundling requires it
-       export EC2_PRIVATE_KEY=${NOVA_KEY_DIR}/pk.pem
-       export EC2_CERT=${NOVA_KEY_DIR}/cert.pem
-       export NOVA_CERT=${NOVA_KEY_DIR}/cacert.pem
-       export EUCALYPTUS_CERT=${NOVA_CERT} # euca-bundle-image seems to require this set
-
-       alias ec2-bundle-image="ec2-bundle-image --cert ${EC2_CERT} --privatekey ${EC2_PRIVATE_KEY} --user 42 --ec2cert ${NOVA_CERT}"
-       alias ec2-upload-bundle="ec2-upload-bundle -a ${EC2_ACCESS_KEY} -s ${EC2_SECRET_KEY} --url ${S3_URL} --ec2cert ${NOVA_CERT}"
-             
-
-   where EC2\_ACCESS\_KEY and EC2\_SECRET\_KEY are different for each
-   project and user. The elastiq service uses these values to
-   instantiate and to kill VMs in the specific project.
+   use, as explained in :ref:`Accessing the Cloud through the euca2ools EC2 command line tools<AccessingtheCloudthroughEC2>`. 
 
 -  You need to identify the image to be used for the master and for the
    slaves. Currently supported operating systems are RHEL6.x and
-   derivates (SL6.x, CentOS7.x, etc.), RHEL7.x and derivates and Ubuntu.
-   uCernVM based images are also supported. For such image you also need
+   derivates (SL6.x, CentOS6.x, etc.), RHEL7.x and derivates and Ubuntu.
+   uCernVM based images are also supported. 
+
+   For such image you need
    to know the relevant EC2 (AMI) id (see :ref:`How to find the EC2 (AMI) id of an image<HowToFindAMIID>`).
 
 -  You need to set a specific security group to be used for the master
@@ -130,7 +85,7 @@ Prerequisites
        Ingress      IPv4          TCP            41000 - 42000      0.0.0.0/0
              
 
-   ..NOTE::
+   .. NOTE ::
        Instead of modifying the rules of an existing security group, we
        suggest to create a new security group named e.g.
        "master\_security\_group". Security groups are discussed in :ref:`Setting security group(s)<SecurityGroups>`.
@@ -437,7 +392,7 @@ Use the elastic cluster to run docker containers
 The HTCondor elastic cluster can also be used to run docker containers.
 You don't need to install docker on your images: this is done by ECM.
 
-Once the cluster is created, check if Docker is enabled on the slaves:
+Once the cluster is created, verify that Docker is enabled on the slaves:
 
 ::
 
@@ -542,13 +497,6 @@ In the example above:
             
 
 You can also see all the information of an image, e.g.:
-
-::
-
-    $ euca-describe-images --debug ami-00000447 
-        
-
-or:
 
 ::
 
@@ -802,6 +750,6 @@ Processes expected to run are:
                
 
 .. WARNING ::
-    The condor\_status information isn't updated very frequently. So it
-    can happen that condor\_status shows nodes that have been already
+    The *condor\_status* information isn't updated very frequently. So it
+    can happen that *condor\_status* shows nodes that have been already
     removed from the cloud by elastiq.

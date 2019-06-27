@@ -16,7 +16,7 @@ CloudVeneto provides an infrastructure where your virtual machines
 can live. After you have activated your virtual machine(s) you are on
 your own for the most part of the day to day administration tasks.
 
-.. WARNING ::
+.. NOTE ::
     We will only focus on Linux VMs, showing differences between the
     RedHat (CentOS, Fedora, ... ) and Debian (Ubuntu, Mint, ... )
     distributions.
@@ -41,6 +41,7 @@ instructions on performing such tasks.
 
 Setting up 'sudo'
 -----------------
+.. _sudo:
 
 Nobody (not even administrators) use a Unix/Linux system **always** as
 root.
@@ -125,7 +126,7 @@ Let's try to install the wget software on CentOS or Fedora linux.
 We will use **yum** (**dnf** on Fedora 21) and **rpm** for the task.
 
 Since we will be performing operations as the superuser, if you haven't
-already, please `set up sudo <#sudo>`__ first.
+already, please :ref:`set up sudo<sudo>` first.
 
 1. Query the system to search for wget (no need to be root for that):
 
@@ -272,7 +273,7 @@ Let's try to install the wget software on Debian or Ubuntu linux.
 We will use **apt** and **dpkg** for the task.
 
 Since we will be performing operations as the superuser, if you haven't
-already, please `set up sudo <#sudo>`__ first.
+already, please :ref:`set up sudo<sudo>` first.
 
 1. Update your local cache of available softwares (superuser privileges
    needed):
@@ -376,7 +377,7 @@ already, please `set up sudo <#sudo>`__ first.
    from the system (keep config files).
 
    Note: you can alternatively 'purge' the software completely as
-   described in the `'purge' <#purge>`__ section.
+   described below.
 
    ::
 

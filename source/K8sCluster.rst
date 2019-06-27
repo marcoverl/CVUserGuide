@@ -14,7 +14,7 @@ Intro: the idea
 
 The provided Ansible playbooks allow you to deploy a Kubernetes cluster
 both on bare metal and on an OpenStack cloud. The installation is based
-on the kubeadm tool configured with a pre-generated admin token and
+on the *kubeadm* tool configured with a pre-generated admin token and
 flannel network. The playbooks can enrich the cluster installation with
 a set of services such as:
 
