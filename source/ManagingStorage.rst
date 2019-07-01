@@ -60,8 +60,7 @@ The steps to add a Volume are:
 
 Using the Dashboard, click on **Volumes** |rarr| **Volumes** and then **Create Volume**. 
 
-.. TBC cambiare questa figura perche` non e` piu` sotto compute
-.. image:: ./images/create_volume.png
+.. image:: ./images/create_volume_with_arrows.png
    :align: center
 
 
@@ -144,8 +143,7 @@ The new defined volume will appear in the **Volumes** tab.
 To attach this volume to an existing instance, click on **Actions** |rarr| **Manage
 Attachments**: 
 
-.. TBC cambiare questa figura perche` non e` piu` sotto compute
-.. image:: ./images/AttachVolumeToInstance.png
+.. image:: ./images/AttachVolumeToInstance-with_arrows.png
    :align: center
 
 
