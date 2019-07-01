@@ -63,7 +63,6 @@ This file should be stored in a safe location. To keep it private, run: ::
 Importing your keypair
 ----------------------
 
-.. QUI
 You might already have an ssh key you use to remotely access machines.
 This mean you already have under the *.ssh* directory in your home folder
 a couple of files named *id\_rsa* (or *id\_dsa*) and *id\_rsa.pub* (or
