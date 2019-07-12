@@ -33,7 +33,7 @@ The deployment environment requires:
 
 -  Ubuntu 18.04 (for master and node images)
 
--  at least 2 CPUs for the master
+-  2 CPUs or more per machine, 2 GB or more of RAM per machine (any less will leave little room for your apps)
 
 Getting Started
 ---------------
