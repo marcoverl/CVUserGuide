@@ -3,7 +3,7 @@ Creating Kubernetes Clusters on the Cloud
 
 The virtual machines provided by CloudVeneto can also be used to deploy
 Kubernetes clusters where users familiar with Kubernetes can run their
-applications. `Kubernetes (k8s) <https://kubernetes.io/>`__ is the most
+applications. `Kubernetes (K8S) <https://kubernetes.io/>`__ is the most
 popular production-grade container orchestrator.
 
 In this chapter we explain how to deploy a Kubernetes cluster using
@@ -18,7 +18,7 @@ on the *kubeadm* tool configured with a pre-generated admin token and
 flannel network. The playbooks can enrich the cluster installation with
 a set of services such as:
 
--  Dashboards: k8s legacy and Grafana;
+-  Dashboards: K8S legacy and Grafana;
 
 -  Monitoring: Prometheus operator;
 
@@ -29,11 +29,11 @@ System requirements
 
 The deployment environment requires:
 
--  Ansible 2.5.0+
+-  Ansible 2.5.0+ (on the user client)
 
--  Ubuntu 18.04
+-  Ubuntu 18.04 (for master and node images)
 
--  Master and nodes must have passwordless SSH access
+-  at least 2 CPUs for the master
 
 Getting Started
 ---------------
@@ -57,6 +57,10 @@ The directory structure should be like:
     |   +-- config
     |   +-- keystone_client.py
     |   +-- tls-ca-bundle.pem
+    +-- examples
+    |   +-- spark-pi.yaml
+    |   +-- kcluster.yaml
+    |   +-- ktopic.yaml
     +-- deploy_k8s.yaml
     +-- deploy_master_openstack.yaml
     +-- deploy_node_openstack.yaml
@@ -90,6 +94,16 @@ The directory structure should be like:
         +-- docker
         |   +-- tasks
         |       +-- main.yml
+        +-- haproxy
+        |   +-- tasks
+        |   |   +-- main.yml
+        |   +-- templates
+        |       +-- haproxy.cfg.j2
+        +-- keepalived
+        |   +-- tasks
+        |       +-- main.yml
+        |   +-- templates
+        |       +-- keepalived.conf.j2
         +-- kubeadm
         |   +-- tasks
         |       +-- main.yml
@@ -98,6 +112,13 @@ The directory structure should be like:
         |   |   +-- main.yml
         |   +-- tasks
         |       +-- main.yml
+        +-- masterha
+        |   +-- handlers
+        |   |   +-- main.yml
+        |   +-- tasks
+        |       +-- main.yml
+        |   +-- templates
+        |       +-- kubeadm-config.yaml.j2
         +-- node
         |   +-- tasks
         |      +-- main.yml
@@ -119,39 +140,28 @@ The provided Ansible playbook is able to create and configure properly
 all hosts (i.e. the VMs) on CloudVeneto and deploy Kubernetes on it. To
 do it:
 
--  edit the file openstack\_config.yaml and fill up all required
-   attributes (i.e. OS\_AUTH\_URL, OS\_PROJECT\_NAME, OS\_USERNAME,
+-  edit the file openstack\_config.yaml and fill up all required attributes 
+   (i.e. OS\_USERNAME, OS\_PASSWORD, OS\_PROJECT\_NAME, OS\_PROJECT\_ID, OS\_NETWORK,
    etc), the same used for accessing OpenStack by its client;
 
 -  define the VMs characteristics of the master and nodes, in terms of
-   name, flavor, and image;
+   name, flavor, and image (default values for flavor and image are defined);
 
 -  specify the number of nodes (i.e. OS\_NODES) of your cluster.
 
+Look at the comments inside the openstack\_config.yaml file for more details. 
+
 Verify if the 'shade' Python module is available on your environment,
 otherwise install it:
-
 ::
 
     # pip install shade
           
 
-Add your SSH private key to the ssh-agent. Please use the same key
-associated to your OpenStack Key Pair and by which you can login your VM
-using ssh -i cloud.key username@instance\_ip.
-
+Execute:
 ::
-
-    # eval "$(ssh-agent -s)"
-    Agent pid 59566
-
-    # ssh-add cloud.key
-          
-
-Finally execute:
-
-::
-
+    
+    # export ANSIBLE_HOST_KEY_CHECKING=False
     # ansible-playbook deploy_master_openstack.yaml
           
 
@@ -182,15 +192,21 @@ The tls-ca-bundle.pem file is CA certificate required by the CloudVeneto
 OpenStack based cloud. Do not forget to source the openrc.sh with your
 OpenStack credentials and OS\_CACERT variable set.
 
-Edit $HOME/.kube/config and set the IP address of your new Kubernetes
-master.
+The only manual configuration required is to edit $HOME/.kube/config and set the IP address of your new K8S master.
+
+To allow other users to access your K8S cluster and operate on a subset of its resources, edit the auth-policy file with:
+::
+
+    # kubectl -n kube-system edit configmap k8s-auth-policy
+
+modify in the first block the line "resources" and replace "type": "role", "values": ["k8s-user"] with e.g. "type": "user", "values": ["username1", "username2"]
 
 Kubernetes Dashboard
 ^^^^^^^^^^^^^^^^^^^^
 
 The cluster exposes the following dashboards:
 
--  k8s dashboard: https://master\_ip:30900
+-  K8S dashboard: https://master\_ip:30900
 
 -  Prometheus UI: http://master\_ip:30901
 
@@ -198,7 +214,7 @@ The cluster exposes the following dashboards:
 
 -  Grafana UI: http://master\_ip:30903
 
-To login into the k8s dashboard use the token of the kube-system:default
+To login into the K8S dashboard use the token of the kube-system:default
 service account. To get it, execute the following command from your
 environment, or from the master node:
 
@@ -232,11 +248,14 @@ environment, or from the master node:
 Testing your Kubernetes cluster
 -------------------------------
 
-The cluster comes up by default with two k8s operators implementing the
+The cluster comes up by default with two K8S operators implementing the
 popular Big Data Analytics and Streaming platforms Apache
 `Spark <https://spark.apache.org/>`__ and
 `Kafka <https://kafka.apache.org/>`__ (you can avoid this by removing
 the roles spark and kafka in the file deploy\_k8s.yaml).
+
+Launching the Spark application spark-pi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can use the Spark application spark-pi to verify that the cluster
 works properly. Just take the examples/spark-pi.yaml file and execute
@@ -273,4 +292,54 @@ the following kubectl commands:
     ::
 
         # kubectl api-versions
+
+Creating a Kafka cluster with a topic
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Declare the cluster structure as in the kcluster.yaml file taken from the examples directory, and execute the following kubectl command: 
+::
+
+    # kubectl apply -f kcluster.yaml
+
+For further details on configuration see https://strimzi.io/docs/master/#assembly-deployment-configuration-str
+
+A topic for the Kafka cluster can be declared as in the ktopic.yaml file taken from the examples directory, and created by executing the following kubectl command:
+::
+    # kubectl apply -f ktopic.yaml
+
+Kubernetes provides a port on the master for accessing the created cluster.
+The port number is reported by the following kubectl command:
+::
+
+    # kubectl get service kcluster-kafka-external-bootstrap -o=jsonpath='{.spec.ports[0].nodePort}{"\n"}'
+
+Other useful commands for monitor the status of the cluster are:
+::
+
+    # kubectl get service
+    NAME                                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+    kcluster-kafka-0                        NodePort    10.97.1.118      <none>        9094:31945/TCP               64s
+    kcluster-kafka-1                        NodePort    10.100.252.199   <none>        9094:31730/TCP               64s
+    kcluster-kafka-2                        NodePort    10.106.128.149   <none>        9094:31608/TCP               64s
+    kcluster-kafka-bootstrap                ClusterIP   10.109.113.86    <none>        9091/TCP                     65s
+    kcluster-kafka-brokers                  ClusterIP   None             <none>        9091/TCP                     65s
+    kcluster-kafka-external-bootstrap       NodePort    10.107.133.0     <none>        9094:32161/TCP               64s
+    kcluster-zookeeper-client               ClusterIP   10.103.223.73    <none>        2181/TCP                     93s
+    kcluster-zookeeper-nodes                ClusterIP   None             <none>        2181/TCP,2888/TCP,3888/TCP   93s
+    kubernetes                              ClusterIP   10.96.0.1        <none>        443/TCP                      3d1h
+    
+    # kubectl get pod 
+    NAME                                            READY   STATUS    RESTARTS   AGE
+    kcluster-entity-operator-7b8d767b5c-lh6kp       3/3     Running   0          3m55s
+    kcluster-kafka-0                                2/2     Running   0          4m28s
+    kcluster-kafka-1                                2/2     Running   0          4m28s
+    kcluster-kafka-2                                2/2     Running   0          4m28s
+    kcluster-zookeeper-0                            2/2     Running   0          4m56s
+    kcluster-zookeeper-1                            2/2     Running   0          4m56s
+    kcluster-zookeeper-2                            2/2     Running   0          4m56s
+    strimzi-cluster-operator-6464cfd94f-tmbqd       1/1     Running   0          3d1h
+
+    # kubectl get kafkatopics
+    NAME                  AGE
+    ktopic                12s
 
