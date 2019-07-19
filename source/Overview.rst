@@ -3,7 +3,7 @@ Overview of CloudVeneto
 
 .. _tt:
 
-**CloudVeneto** is an OpenStack based cloud.
+**CloudVeneto** is an OpenStack-based cloud.
 
 It allows the
 instantiation of Virtual Machines (VMs) of the desired environments (in
