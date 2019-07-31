@@ -240,7 +240,7 @@ the OpenStack dashboard and clicking on **Subscribe to project** as depicted
 on the following image:
 
 
-.. image:: ./images/ProjectRequest.png
+.. image:: ./images/ProjectRequest-new.png
    :align: center
 
 
