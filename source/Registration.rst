@@ -125,8 +125,11 @@ Finally click on the **Register** button and you are done.
 
 Your request will be managed by the Cloud adminstrator and by the
 manager(s) of the project(s) for which you applied membership. You will
-get an e-mail when your request is approved (and therefore you can start
-using the CloudVeneto) or if for some reason your request is refused.
+get an e-mail when your request is approved or if for some reason your 
+request is refused.
+In the first case you will also receive an e-mail for the credentials
+needed to access the Cloud gate machine (see :ref:`Network Access<NetworkAccess>`).
+
 
 Apply for an account using Username and Password
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
