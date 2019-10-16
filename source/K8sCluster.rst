@@ -255,7 +255,7 @@ popular Big Data Analytics and Streaming platforms Apache
 the roles spark and kafka in the file deploy\_k8s.yaml).
 
 Launching the Spark application spark-pi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can use the Spark application spark-pi to verify that the cluster
 works properly. Just take the examples/spark-pi.yaml file and execute
@@ -294,7 +294,7 @@ the following kubectl commands:
         # kubectl api-versions
 
 Creating a Kafka cluster with a topic
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Declare the cluster structure as in the kcluster.yaml file taken from the examples directory, and execute the following kubectl command: 
 ::
