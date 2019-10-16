@@ -527,6 +527,8 @@ suspend was performed as opposed to a new boot cycle.
 
 Contextualisation
 -----------------
+.. _contextualisation:
+
 
 Contextualisation is the process to configure a virtual machine after it
 has been installed. Typical examples would be to create additional

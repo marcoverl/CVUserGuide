@@ -18,8 +18,6 @@ Some images in the CloudVeneto are provided by the Cloud administrators.
 These images are public, and visible to all users. They appear with
 **Visibility** equal to **Public** in the **Compute** |rarr| **Images** menu.
 
-In CloudVeneto, public images are usually provided in QCOW2 format.
-They are fully resizable also with respect to the disk size.
 
 
 .. image:: ./images/public_images.png
@@ -98,6 +96,10 @@ available, it is much easier to use them compared to building your own.
 
 -  `Ubuntu repository <https://cloud-images.ubuntu.com/>`__
 
+-  `CentOS 7 images <http://cloud.centos.org/centos/7/images/>`__
+
+
+
 Using an Ubuntu image as an example, after you downloaded the image from
 the relevant web site, to upload such image using the command line tools
 (see :ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`)
@@ -116,10 +118,38 @@ you need to:
 
        $ openstack image create --private --disk-format=qcow2 \
              --container-format=bare \
-             --file trusty-server-cloudimg-amd64-disk1.img ubuntu-trusty
+             --file bionic-server-cloudimg-amd64.img ubuntu-bionic
              
 
 Once loaded, the image can then be used to create virtual machines.
+
+.. NOTE ::
+    Images are usually provided in several formats. The most used ones in Cloud
+    environments are 'qcow2' and 'raw'. 
+
+    When considering the format to choose, you should take into account how
+    the instantiation of a virtual machine on a Cloud compute node works.
+    When a virtual machine is instantiated, first
+    of all the relevant image is staged to the target hypervisor, if needed 
+    (i.e. if this is the first instance created on that compute node using 
+    this image).
+    Then the image is converted to raw, if it is not already in that
+    format.
+
+    A qcow2 image is usually much smaller with respect to the same image 
+    provided in raw format.
+    This means that:
+
+    - the registration to the OpenStack image service for images in qcow2 
+      format is faster with respect to images in raw format
+    - the staging of images in qcow2 format to the target compute node
+      is faster with respect to images in raw format
+
+    However qcow2 images, as reported above, need to be translated into
+    raw format, and this can take a non negligible time, in particular for
+    images with a large virtual disk size. 
+
+
 
 Some system software is delivered in ISO image format. For example,
 these steps show how to create an image from the Freedos ISO available
@@ -221,6 +251,41 @@ Cloud Image service as described in :ref:`User Provided Images <userprovidedimag
 There are several tools providing support for image creation. Some of
 them are described in the `Openstack
 documentation <http://docs.openstack.org/image-guide/content/ch_creating_images_automatically.html>`__.
+
+.. One example is **virt-builder**, which is briefly described in the next
+.. subsection. 
+
+
+Please consider these guidelines when creating an image:
+
+- Data inside images can be accessed by the other members of the project. 
+  So please don't store sensitive information (e.g. password) in the image.
+- Please make sure that the *cloud-init* and *cloud-utils* packages are installed. This is needed 
+  for contextualisation (see  
+  :ref:`Contextualisations<contextualisation>`), 
+  which allows to customize the image after 
+  installation.
+- If you use Fedora, CentOS, or RHEL, the *cloud-utils-growpart package* must be installed, since it is needed for extending partitions. if you use Ubuntu or Debian, 
+  the *cloud-initramfs-growroot* package, which supports resizing root partition on the first boot, must be installed.
+
+
+.. NOTE ::
+    Another possible way to create an image is:
+
+    - instantiating a virtual machine using an already registered image
+    - applying your own customization on this instance (e.g. installing new
+      packages)
+    - creating a snapshot of this image
+    - using the snapshot to instantiate new virtual machines
+
+    However this usually means creating very large and quite inefficient images.
+    Therefore we **strongly** suggest instead to use the provided public images and applying your customizations
+    using contextualization (see :ref:`Contextualisations<contextualisation>`) 
+    or to create new images using one of the tools mentioned above. 
+   
+
+
+
 
 Deleting Images
 ---------------
