@@ -252,8 +252,8 @@ There are several tools providing support for image creation. Some of
 them are described in the `Openstack
 documentation <http://docs.openstack.org/image-guide/content/ch_creating_images_automatically.html>`__.
 
-.. One example is **virt-builder**, which is briefly described in the next
-.. subsection. 
+One example is **virt-builder**, which is briefly described in the next
+subsection. 
 
 
 Please consider these guidelines when creating an image:
@@ -265,9 +265,9 @@ Please consider these guidelines when creating an image:
   :ref:`Contextualisations<contextualisation>`), 
   which allows to customize the image after 
   installation.
-- If you use Fedora, CentOS, or RHEL, the *cloud-utils-growpart package* must be installed, since it is needed for extending partitions. if you use Ubuntu or Debian, 
+- If you use Fedora, CentOS, or RHEL, the *cloud-utils-growpart* and
+  *gdisk* packages must be installed, since they are needed for extending partitions. if you use Ubuntu or Debian, 
   the *cloud-initramfs-growroot* package, which supports resizing root partition on the first boot, must be installed.
-
 
 .. NOTE ::
     Another possible way to create an image is:
@@ -283,8 +283,64 @@ Please consider these guidelines when creating an image:
     using contextualization (see :ref:`Contextualisations<contextualisation>`) 
     or to create new images using one of the tools mentioned above. 
    
+virt-builder
+^^^^^^^^^^^^
+Virt-builder is a command line tool
+(provided by the  *libguestfs-tools-c* package)
+for quickly creating customized images, without
+requiring root privileges.
+
+It takes cleanly prepared, digitally signed OS templates and customizes them.
+
+Documentation how to use virt-builder is provided in the relevant
+`man pages <http://libguestfs.org/virt-builder.1.html/>`__.
+
+Here we provide some examples.
+
+To see the operating system available to install, please use the following 
+command:
+
+   ::
+
+      virt-builder --list               
 
 
+  The following command:
+   
+   ::
+
+      virt-builder -v -x centos-7.7 \
+        --uninstall "chrony" \
+	--install "ntp,cloud-init,cloud-utils,cloud-utils-growpart,gdisk" \
+        --timezone Europe/Rome" \
+        --write '/etc/ntp.conf:server ntp.pd.infn.it' \
+        --run-command 'systemctl enable ntpd' \
+        --edit '/etc/resolv.conf:s/nameserver 10.0.2.3//' \
+	--output c7.7-test-grow.qcow2 --format qcow2 --selinux-relabel
+
+
+creates a centos 7.7 image, called *centos-7.7.qcow2* in qcow2 format, where 
+the packages *ntp*, *cloud-init*, *cloud-utils*, *cloud-utils-growpart* and
+*gdisk* are installed.
+
+The above command removes from the image the package *chrony*.
+
+The option *--timezone Europe/Rome* sets the timezone.
+
+The string
+
+   ::
+
+      server ntp.pd.infn.it
+
+is written into the file */etc/ntp.conf*.
+
+The command 'systemctl enable ntpd' is also issued 
+(to start the ntpd service at boot).
+
+The option *--edit '/etc/resolv.conf:s/nameserver 10.0.2.3//'* is
+used as a workaround to address a problem in the centos7 default
+image (a wrong nameserver is defined in /etc/resolv.conf).
 
 
 Deleting Images
