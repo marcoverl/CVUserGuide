@@ -286,9 +286,7 @@ Please consider these guidelines when creating an image:
 virt-builder
 ^^^^^^^^^^^^
 Virt-builder is a command line tool
-(provided by the  *libguestfs-tools-c* package)
-for quickly creating customized images, without
-requiring root privileges.
+for quickly creating customized images.
 
 It takes cleanly prepared, digitally signed OS templates and customizes them.
 
@@ -327,13 +325,7 @@ The above command removes from the image the package *chrony*.
 
 The option *--timezone Europe/Rome* sets the timezone.
 
-The string
-
-   ::
-
-      server ntp.pd.infn.it
-
-is written into the file */etc/ntp.conf*.
+The string 'server ntp.pd.infn.it' is written into the file */etc/ntp.conf*.
 
 The command 'systemctl enable ntpd' is also issued 
 (to start the ntpd service at boot).
@@ -341,6 +333,47 @@ The command 'systemctl enable ntpd' is also issued
 The option *--edit '/etc/resolv.conf:s/nameserver 10.0.2.3//'* is
 used as a workaround to address a problem in the centos7 default
 image (a wrong nameserver is defined in /etc/resolv.conf).
+
+
+The following command will instead create an ubuntu 18.04 image, called 
+*k8s-ubuntu-18.04.raw*, in raw format:
+
+  ::
+
+     virt-builder -v -x ubuntu-18.04 \
+    --install "net-tools,vim,apt-transport-https,ca-certificates,curl,software-properties-common,docker.io,sudo,wget,rsync,cloud-init,cloud-utils" \
+    --timezone Europe/Rome \
+    --output k8s-ubuntu-18.04.raw --format raw \
+    --run install.sh \
+    --firstboot-command 'apt-get update' \
+    --firstboot-command 'apt-get upgrade -y' \
+    --selinux-relabel
+
+Besides specifying a set of packages to be installed, the above command specifies that the script
+*install.sh* must be run on the disk image.
+The script can be used e.g. to install packages from an extra repository:
+
+  ::
+ 
+     $ cat install.sh 
+     #!/bin/bash
+     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+     cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+     deb https://apt.kubernetes.io/ kubernetes-xenial main
+     EOF
+     apt-get update
+     apt-get install -y kubelet kubeadm kubectl
+
+
+The command also specifies that the commands *apt-get update* and *apt-get upgrade -y* must be executed at the first boot.
+
+
+
+virt-builder is very easy to install (it is provided by the *libguestfs-tools-c* package)
+and doesn't require root privileges.
+If needed, access to an instance where virt-builder is installed can be provided:
+in such case please contact support@cloudveneto.it.
+
 
 
 Deleting Images

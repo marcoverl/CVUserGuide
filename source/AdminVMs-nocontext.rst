@@ -685,25 +685,23 @@ Snapshotting Virtual Machines
 -----------------------------
 .. _SnapshottingVMs:
 
-It is possible to create a new instance from a previously saved snapshot
-of a VM.
+A snapshot of a Virtual Machine is an image which preserves the disk 
+state of that running instance.  
+Snapshots can be used e.g. to backup your instances, or to migrate
+your instances to another cloud.
 
-The new instance can also have a different flavor from the source VM
-(but not smaller disk size!). It is therefore suggested to use the
-smallest (in terms of disk size) possible flavor for the source VM.
+Snapshots can also be used to replicate an installation from one instance 
+to new instances: new virtual machines can in fact be created from a previously saved 
+snapshot of an instance.
+However, as described in :ref:`User provided images<userprovidedimages>`,
+we suggest instead to create new fresh images, or
+to customize (using contextualization) existing images. 
+If this is not possible,
+and therefore you need to create a snaphot of a VM (and then use such
+snapshot to create new instances), we suggest to use the smallest
+(in terms of disk size) flavor for the VM that will be snapshotted.
 
-Before creating a snapshot you need to "clean up" the network
-configurations of the “source” VM. For a RedHat based OS (CentOS,
-Fedora, ...) this can be done using the following instructions, once
-logged as root on the “source” VM:
 
-::
-
-    /bin/rm /etc/udev/rules.d/70-persistent-net.rules
-    /bin/rm /lib/udev/write_net_rules
-
-You may safely ignore warnings raised by these commands (e.g.
-complaining that the files are missing)
 
 To save a snapshot of your VM:
 
@@ -713,6 +711,12 @@ To save a snapshot of your VM:
 
 -  From the **Compute** |rarr| **Instances** table select the desired VM and click
    **Create Snapshot** on the **Actions** menu.
+
+    .. NOTE ::
+
+       Snapshotting is supposed to be used as a form of backup of virtual machines.
+
+
 
 
 Deleting Virtual Machines
