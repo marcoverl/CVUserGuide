@@ -712,11 +712,6 @@ To save a snapshot of your VM:
 -  From the **Compute** |rarr| **Instances** table select the desired VM and click
    **Create Snapshot** on the **Actions** menu.
 
-    .. NOTE ::
-
-       Snapshotting is supposed to be used as a form of backup of virtual machines.
-
-
 
 
 Deleting Virtual Machines
