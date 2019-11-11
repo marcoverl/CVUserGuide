@@ -1,8 +1,22 @@
 ..    include:: <isonum.txt>
 
 
+
+
+
 Managing Virtual Machines
 =========================
+
+.. IMPORTANT ::
+
+    Virtual machines, even if idle or in shutdown state, allocate resources which therefore aren't
+    available to other users.
+    Therefore please delete the virtual instances that you don't plan to use anymore in the near future.
+    
+    Cloud administrators perform regular campaigns to identify and possibly delete unused instances.  
+
+
+
 Creating Virtual Machines
 -------------------------
 .. _creatingvms:
@@ -725,3 +739,12 @@ dashboard.
     This command will immediately terminate the instance, delete all
     content of the virtual machine and erase the ephemeral disk. This
     operation is not recoverable.
+
+
+.. IMPORTANT ::
+
+    Virtual machines, even if idle or in shutdown state, allocate resources which therefore aren't
+    available to other users.
+    Therefore please delete the virtual instances that you don't plan to use anymore in the near future.
+    Before deleting your virtual machines, you may want to save a snapshot of 
+    their disk image, as explained above.
