@@ -2,19 +2,76 @@
 
 Managing GPUs
 ================
-CloudVeneto provides also Unipd Physics Dept. and INFN Padova users with some
-GPUs (Graphics Processing Units):
+CloudVeneto provides Unipd Physics Dept. and INFN Padova users with some
+GPUs (Graphics Processing Units). These are:
 
-- 2 GPU Nvidia TITAN Xp
-- 1 GPU Nvidia Quadro RTX 6000 e 
-- 1 GPU Nvidia GeForce GTX TITAN
 - 4 GPU Nvidia Tesla T4
+- 1 GPU Nvidia Quadro RTX 6000 
+- 2 GPU Nvidia TITAN Xp
+- 1 GPU Nvidia GeForce GTX TITAN
 
-Moreover other 4 GPU Nvidia V100 are going to be installed quite soon.
+Other 4 GPU Nvidia V100 are going to be installed quite soon.
 
 
-To use one (or more) of these GPUs, you need to create a virtual machine
-with a special flavor, so that the created instance will "see" the relevant
-GPU device.
+Using a CloudVeneto GPU means accessing a virtual machine which has
+full access and direct control of such GPU device.
 
-TBC
+
+
+Creating a GPU instance 
+-----------------------
+GPU instances, i.e. virtual machines which have access to one 
+or more GPUs can be created only from the **HPC-Physics** project.
+
+So, first of all, you need to request the affiliation to such project
+(see :ref:`Apply for other projects<ApplyForOtherProjects>` for
+the relevant instructions).
+
+The instructions to then create a GPU instance are the very same for
+the creation of a 'standard' virtual machine (see
+:ref:`Creating Virtual Machines<creatingvms>`). You will only have to
+pay attention to use one of these special flavors:
+
+- **cloudveneto.8cores40GB500GB1Quadro**
+
+  Flavor for an instance with 1 GPU Nvidia Quadro RTX 6000,
+  8 VCPUs, 40 GB of RAM, 500 GB of ephemeral
+  disk space.
+
+- **cloudveneto.8cores40GB500GB1TitanXP**
+
+  Flavor for an instance with 1 GPU Nvidia Titan Xp,
+  8 VCPUs, 40 GB of RAM, 500 GB of ephemeral
+  disk space.
+ 
+- **cloudveneto.16cores80GB500GB2TitanXP**
+
+  Flavor for an instance with 2 GPUs Nvidia Titan Xp,
+  16 VCPUs, 80 GB of RAM, 500 GB of ephemeral
+  disk space.
+
+- **cloudveneto.4cores20GB150GB1GeforceGtx**
+
+  Flavor for an instance with 1 GPU Nvidia GeForce GTX TITAN,
+  4 VCPUs, 20 GB of RAM, 150 GB of ephemeral
+  disk space.
+
+TBC (image)
+
+
+Policies
+--------
+Please consider the following policies when using GPU instances:
+
+
+- Since there is a high request to use GPUs, please **delete** your
+  instance as soon as you don't need it anymore. 
+  This is because virtual machines, even if 
+  idle or in shutdown state, allocate resources (GPUs in particular) which 
+  therefore aren't available to other users.
+
+- Once activated, your virtual instance is **managed by you**. 
+
+
+
+TBC (monitoring)

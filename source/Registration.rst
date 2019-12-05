@@ -231,6 +231,7 @@ using the CloudVeneto) or if for some reason your request is refused.
 
 Apply for other projects
 ------------------------
+.. _ApplyForOtherProjects:
 
 
 After you have been given an account on the CloudVeneto, at any time you
