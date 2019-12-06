@@ -821,31 +821,30 @@ is available. As root:
 
 ::
 
-                                                                                                     
-    mount hellgate.pd.infn.it:/sw/linux mnt/                                                               
+    mount hellgate.pd.infn.it:/sw/linux /mnt
+
 
 For Ubuntu systems:
 
 ::
-
-                                                                                                     
-    sudo mount hellgate.pd.infn.it:/sw/linux mnt/                                                               
+                                                                                   sudo mount hellgate.pd.infn.it:/sw/linux /mnt                                  
 
 Go to the relevant directory and launch the installer. As root:
 
 ::
 
-                                                                                                     
-    cd mnt/Mathematica/<version>/Installer/                                                            
-    ./MathInstaller                                                                                          
+                                                                              
+    cd /mnt/Mathematica/<version>/Installer
+                           
+    ./MathInstaller                                                            
 
 For Ubuntu systems:
 
 ::
 
-                                                                                                     
-    cd mnt/Mathematica/<version>/Installer/                                                            
-    sudo ./MathInstaller                                                                                          
+    cd /mnt/Mathematica/<version>/Installer
+                         
+    sudo ./MathInstaller                                                       
 
 The installer will ask the target installation directory (the default is
 /usr/local/Wolfram/Mathematica/<version>) and the directory where the
