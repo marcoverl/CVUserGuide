@@ -10,7 +10,6 @@ GPUs (Graphics Processing Units). These are:
 - 2 GPU Nvidia TITAN Xp
 - 1 GPU Nvidia GeForce GTX TITAN
 
-Other 4 GPU Nvidia V100 are going to be installed quite soon.
 
 
 Using a CloudVeneto GPU means accessing a virtual machine which has
@@ -31,6 +30,27 @@ The instructions to then create a GPU instance are the very same for
 the creation of a 'standard' virtual machine (see
 :ref:`Creating Virtual Machines<creatingvms>`). You will only have to
 pay attention to use one of these special flavors:
+
+
+
+- **cloudveneto.15cores90GB500GB1T4**
+
+  Flavor for an instance with 1 GPU Nvidia T4,
+  15 VCPUs, 90 GB of RAM, 500 GB of ephemeral
+  disk space.
+
+- **cloudveneto.30cores180GB500GB2T4**
+
+  Flavor for an instance with 2 GPUs Nvidia T4,
+  30 VCPUs, 180 GB of RAM, 500 GB of ephemeral
+  disk space.
+
+- **cloudveneto.60cores360GB500GB4T4**
+
+  Flavor for an instance with 4 GPUs Nvidia T4,
+  60 VCPUs, 360 GB of RAM, 500 GB of ephemeral
+  disk space.
+
 
 - **cloudveneto.8cores40GB500GB1Quadro**
 
@@ -56,7 +76,30 @@ pay attention to use one of these special flavors:
   4 VCPUs, 20 GB of RAM, 150 GB of ephemeral
   disk space.
 
-TBC (image)
+You are responsible to create the image to be used (see 
+:ref:`User Provided Images <userprovidedimages>` and 
+:ref:`Building Images <buildingimages>`). 
+
+`These <https://developer.nvidia.com/cuda-downloads>`__ 
+instructions explain how to install CUDA toolkit and
+the relevant drivers.
+
+.. NOTE::
+
+    If you need a GPU instance but the needed GPU(s) is/are allocated by other
+    users, please contact support@cloudveneto.it.
+
+
+Monitoring
+----------
+Unfortunately it is not straightforward to see which GPUs are being
+used and which ones are available using the CloudVeneto Openstack dashboard.
+
+You can refer to `this page <https://cloud-areapd.pd.infn.it/GPUs>`__ for
+such information (please note that this page is updated every 30 minutes).
+
+
+
 
 
 Policies
@@ -74,4 +117,3 @@ Please consider the following policies when using GPU instances:
 
 
 
-TBC (monitoring)

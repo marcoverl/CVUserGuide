@@ -244,6 +244,8 @@ In the target project, the image will appear in the image list:
 
 Building Images
 ---------------
+.. _buildingimages:
+
 
 Users can also build custom images, that can then been uploaded in the
 Cloud Image service as described in :ref:`User Provided Images <userprovidedimages>`.
