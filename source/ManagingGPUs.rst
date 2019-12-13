@@ -89,8 +89,16 @@ the relevant drivers.
 
 .. NOTE::
 
-For better performance, 
-we suggest to create images in raw format.
+   For better performance, 
+   we suggest to create images:
+
+     - in raw format
+     - setting the properties *hw_disk_bus=scsi* and *hw_scsi_model=virtio-scsi*, i.e., using the command line tool:
+
+       ::
+
+	  # glance image-update --property hw_disk_bus=scsi <image-id>
+	  # glance image-update --property hw_scsi_model=virtio-scsi <image-id>
 
 
 Monitoring
