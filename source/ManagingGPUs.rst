@@ -76,6 +76,9 @@ pay attention to use one of these special flavors:
   4 VCPUs, 20 GB of RAM, 150 GB of ephemeral
   disk space.
 
+Images for GPU instances
+^^^^^^^^^^^^^^^^^^^^^^
+
 You are responsible to create the image to be used (see 
 :ref:`User Provided Images <userprovidedimages>` and 
 :ref:`Building Images <buildingimages>`). 
@@ -86,8 +89,8 @@ the relevant drivers.
 
 .. NOTE::
 
-    If you need a GPU instance but the needed GPU(s) is/are allocated by other
-    users, please contact support@cloudveneto.it.
+For better performance, 
+we suggest to create images in raw format.
 
 
 Monitoring
@@ -99,6 +102,10 @@ You can refer to `this page <https://cloud-areapd.pd.infn.it/GPUs>`__ for
 such information (please note that this page is updated every 30 minutes).
 
 
+.. NOTE::
+
+    If you need a GPU instance but the needed GPU(s) is/are allocated by other
+    users, please contact support@cloudveneto.it.
 
 
 
