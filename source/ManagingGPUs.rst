@@ -32,10 +32,10 @@ the creation of a 'standard' virtual machine (see
 pay attention to use one of these special flavors:
 
 
-- **cloudveneto.15cores90GB10GB1T4**
+- **cloudveneto.15cores90GB20GB1T4**
 
   Flavor for an instance with 1 GPU Nvidia T4,
-  15 VCPUs, 90 GB of RAM, 10 GB of ephemeral
+  15 VCPUs, 90 GB of RAM, 20 GB of ephemeral
   disk space.
 
 - **cloudveneto.15cores90GB500GB1T4**
