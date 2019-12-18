@@ -183,6 +183,7 @@ Accessing Virtual Machines
 Logging to a VM
 ---------------
 .. _LoggingToAVM:
+
 Virtual machines created on the cloud have their IP assigned on a
 private network associated with the project they belong to. Therefore
 they cannot be accessed directly from the internet. 
