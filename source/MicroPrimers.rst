@@ -827,7 +827,8 @@ is available. As root:
 For Ubuntu systems:
 
 ::
-                                                                                   sudo mount hellgate.pd.infn.it:/sw/linux /mnt                                  
+
+    sudo mount hellgate.pd.infn.it:/sw/linux /mnt                                  
 
 Go to the relevant directory and launch the installer. As root:
 
