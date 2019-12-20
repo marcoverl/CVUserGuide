@@ -87,6 +87,19 @@ pay attention to use one of these special flavors:
   4 VCPUs, 20 GB of RAM, 150 GB of ephemeral
   disk space.
 
+
+.. WARNING ::
+
+    "Generic" flavors have a limited size for disk space. 
+    Flavors for GPUs 
+    have a bigger size to take advantage of the fast (SSD/NVME) disks installed
+    on the servers hosting the GPUs.
+    However, please remember that size limit for images
+    and snapshots is 25 GB. This means that it is not possible
+    to snapshot an instance created using a flavor with a big disk.
+
+
+
 Images for GPU instances
 ^^^^^^^^^^^^^^^^^^^^^^
 
