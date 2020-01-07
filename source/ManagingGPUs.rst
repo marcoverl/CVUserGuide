@@ -98,7 +98,12 @@ pay attention to use one of these special flavors:
     and snapshots is 25 GB. This means that it is not possible
     to snapshot an instance created using a flavor with a big disk.
 
+.. NOTE::
 
+   Before allocation one or more GPUs, please register such allocation in
+   `this document <https://tinyurl.com/yjz47dgx>`__. Please be sure to fill 
+   also the 'estimated end date' field. 
+ 
 
 Images for GPU instances
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -158,10 +163,6 @@ You can refer to `this page <https://cloud-areapd.pd.infn.it/GPUs>`__ for
 such information (please note that this page is updated every 30 minutes).
 
 
-.. NOTE::
-
-    If you need a GPU instance but the needed GPU(s) is/are allocated by other
-    users, please contact support@cloudveneto.it.
 
 
 
@@ -178,5 +179,11 @@ Please consider the following policies when using GPU instances:
 
 - Once activated, your virtual instance is **managed by you**. 
 
+- Before allocation one or more GPUs, please register such allocation in
+  `this document <https://tinyurl.com/yjz47dgx>`__. Please be sure to fill 
+  also the 'estimated end date' field. Instances for which there isn't a 
+  reservation in this document can be deleted by the Cloud administrators.
 
+
+- Please don't reserve the GPU(s) for long (i.e > 1 week) periods.
 
