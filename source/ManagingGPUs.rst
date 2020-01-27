@@ -103,6 +103,8 @@ pay attention to use one of these special flavors:
    Before allocation one or more GPUs, please register such allocation in
    `this document <https://tinyurl.com/yjz47dgx>`__. Please be sure to fill 
    also the 'estimated end date' field. 
+   If the GPU(s) you want to use are not available, you may use that
+   document to register a reservation. 
  
 
 Images for GPU instances
@@ -181,8 +183,8 @@ Please consider the following policies when using GPU instances:
 
 - Before allocation one or more GPUs, please register such allocation in
   `this document <https://tinyurl.com/yjz47dgx>`__. Please be sure to fill 
-  also the 'estimated end date' field. Instances for which there isn't a 
-  reservation in this document can be deleted by the Cloud administrators.
+  also the 'estimated end date' field. Instances for which there isn't an 
+  entry in this document can be deleted by the Cloud administrators.
 
 
 - Please don't reserve the GPU(s) for long (i.e > 1 week) periods.
