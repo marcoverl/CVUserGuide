@@ -5,6 +5,7 @@ Managing GPUs
 CloudVeneto provides Unipd Physics Dept. and INFN Padova users with some
 GPUs (Graphics Processing Units). These are:
 
+- 4 GPU Nvidia V100
 - 4 GPU Nvidia Tesla T4
 - 1 GPU Nvidia Quadro RTX 6000 
 - 2 GPU Nvidia TITAN Xp
@@ -31,6 +32,34 @@ the creation of a 'standard' virtual machine (see
 :ref:`Creating Virtual Machines<creatingvms>`). You will only have to
 pay attention to use one of these special flavors:
 
+
+- **cloudveneto.18cores56GB20GB1V100**
+
+  Flavor for an instance with 1 GPU Nvidia V100,
+  18 VCPUs, 56 GB of RAM, 20 GB of ephemeral
+  disk space.
+  Instances created with such flavor can be snapshotted.
+
+- **cloudveneto.18cores56GB90GB1V100**
+
+  Flavor for an instance with 1 GPU Nvidia V100,
+  18 VCPUs, 56 GB of RAM, 90 GB of ephemeral
+  disk space.
+  Instances created with such flavor cannnot be snapshotted.
+
+- **cloudveneto.36cores112GB180GB2V100**
+
+  Flavor for an instance with 2 GPU Nvidia V100,
+  36 VCPUs, 112 GB of RAM, 180 GB of ephemeral
+  disk space.
+  Instances created with such flavor cannnot be snapshotted.
+
+- **cloudveneto.72cores224GB360GB4V100**
+
+  Flavor for an instance with 4 GPU Nvidia V100,
+  72 VCPUs, 224 GB of RAM, 360 GB of ephemeral
+  disk space.
+  Instances created with such flavor cannnot be snapshotted.
 
 - **cloudveneto.15cores90GB20GB1T4**
 
@@ -169,7 +198,8 @@ the relevant drivers.
 
 Just for reference, we provide a CentOS7.x image (**GPU-CentOS7-INFNPadova-x86_64-<date>**) which has the
 same content of the *CentOS7x-INFNPadova-x86-64-<date>* public images, and in addition provides the CUDA 
-toolkit and the needed drivers. This image was tested with Nvidia T4 GPUs.
+toolkit and the needed drivers. This image was tested with Nvidia T4 GPUs
+and with Nvidia V100 GPUs.
 
 .. WARNING ::
 
@@ -179,13 +209,13 @@ toolkit and the needed drivers. This image was tested with Nvidia T4 GPUs.
 
        ::
 
-          # rpm -q cuda
+          # rpm -q cuda-drivers
 
     returns something like.
 
        ::
 
-          cuda-10.2.89-1.x86_64
+          cuda-drivers-440.33.01-1.x86_64
 
     A further reboot might then be needed.
 
