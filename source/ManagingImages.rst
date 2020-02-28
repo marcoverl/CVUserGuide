@@ -76,6 +76,16 @@ the Cloud keypair, considering the 'root' account, e.g.:
     (supporto@pd.infn.it) can provide support only for instances created
     using such images (only to INFN-Padova users).
 
+
+.. WARNING ::
+    These images for INFN-Padova users are supposed to be used only by INFN
+    Padova users and only for projects using a INFN (i.e. 10.64.x.0/24 
+    network). Using these images on Unipd projects (i.e. the one using
+    10.67.x.0/24 networks) can cause problems. 
+
+
+
+
 User Provided Images
 --------------------
 .. _userprovidedimages:
