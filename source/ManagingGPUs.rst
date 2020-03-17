@@ -22,6 +22,8 @@ Creating a GPU instance
 -----------------------
 GPU instances, i.e. virtual machines which have access to one 
 or more GPUs can be created only from the **HPC-Physics** project.
+The only exception is  is for the T4 GPUs that are usable also from the
+**PhysicsOfData-students** project.
 
 So, first of all, you need to request the affiliation to such project
 (see :ref:`Apply for other projects<ApplyForOtherProjects>` for
@@ -196,7 +198,8 @@ the relevant drivers.
 
 
 
-Just for reference, we provide a CentOS7.x image (**GPU-CentOS7-INFNPadova-x86_64-<date>**) which has the
+Just for reference, for the HPC-Physics project 
+we provide a CentOS7.x image (**GPU-CentOS7-INFNPadova-x86_64-<date>**) which has the
 same content of the *CentOS7x-INFNPadova-x86-64-<date>* public images, and in addition provides the CUDA 
 toolkit and the needed drivers. This image was tested with Nvidia T4 GPUs
 and with Nvidia V100 GPUs.
