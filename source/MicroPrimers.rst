@@ -425,6 +425,7 @@ already, please :ref:`set up sudo<sudo>` first.
 
 Adding a user to your VM
 ------------------------
+.. _AddingUser:
 
 You may need to give access to your VM to another user. Given that there
 are no graphical tools or fancy icons to do the task you are going to

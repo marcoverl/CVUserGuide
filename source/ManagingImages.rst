@@ -27,6 +27,7 @@ These images are public, and visible to all users. They appear with
 
 Public Images for INFN Padova users
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _PublicImagesPd:
 
 The **SL6x-INFNPadova-x86-64-<date>** and
 **CentOS7x-INFNPadova-x86-64-<date>** images are basic SL6.x / CentOS

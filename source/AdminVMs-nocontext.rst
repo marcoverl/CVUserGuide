@@ -469,6 +469,34 @@ be sure you are using the right security group (as discussed in :ref:`Setting se
 you have correctly configured firewall (iptables, firewalld etc.) on the
 relevant VM.
 
+
+Creating accounts on your Virtual Machine
+-----------------------------------------
+
+.. IMPORTANT ::
+
+   Please remember, that, as stated in the AUP that you accepted 
+   when you applied for an account on CloudVeneto, you can
+   allow access to the Virtual Machines (VMs) only and exclusively 
+   to people who have already an account on this CloudVeneto service, or have 
+   an account at INFN Padova, or have an account at INFN Laboratori Nazionali 
+   di Legnaro.
+
+
+If you need to create accounts on the virtual machine, please see 
+:ref:`Adding a user to your VM<AddingUser>`. 
+
+If you are an INFN user, and you are using a **SL6x-INFNPadova-x86-64-<date>** or **CentOS7x-INFNPadova-x86-64-<date>** image, please see 
+:ref:`Public Images for INFN Padova users<PublicImagesPd>`.
+
+
+
+.. IMPORTANT ::
+   Please also note that, as stated in the AUP, you will be held responsible 
+   for all the activities 
+   performed on the VMs created by yourself.
+
+
 Accessing other hosts/services from Virtual Machines
 ----------------------------------------------------
 .. _AccessingFromVMs:
