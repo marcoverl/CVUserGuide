@@ -412,18 +412,22 @@ However it can be shared with other virtual machines of the Cloud
 
 Object Storage (experimental)
 -----------------------------
-The CloudVeneto object Store is built upon Ceph and
+The CloudVeneto Object Store is built upon Ceph and
 supports two interfaces:
 
-- S3-compatible: Provides object storage functionality with an interface that 
+- S3-compatible: provides object storage functionality with an interface that 
   is compatible with a large subset of the Amazon S3 RESTful API.
 
-- Swift-compatible: Provides object storage functionality with an interface 
+- Swift-compatible: provides object storage functionality with an interface 
   that is compatible with a large subset of the OpenStack Swift API.
 
 
 Objects (which are typically files) in the object storage are organized in 
 **containers**, also called **buckets**.
+
+Accessing the object storage using the dashboard
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 To create a container, using the Dashboard, click on **Object Storage** |rarr| **Containers** and then click on **+ Container**.
 
@@ -448,13 +452,13 @@ Choose the file to upload and the click the **Upload File** button:
 .. image:: ./images/upload_container_file.png
    :align: center
 
-Using the dashboard, you can then retrieve objects (files) previously
+Using the dashboard, you can then retrieve the objects (files) previously
 uploaded to a container.
 
 
 .. WARNING ::
     Please note that containers (and their objects) are owned by the 
-    project, and not by the individual you created them.
+    project, and not by the individual who created them.
     This means that, if you create a container and upload some files on this
     container, the other members of the project can see these files and 
     possibly also delete them.
@@ -465,7 +469,7 @@ Accessing the object storage using the S3 interface
 You can also access the object storage using the S3 interface.
 
 s3cmd is a convenient command-line tool that can be used. 
-First of all you need to create a ~/.s3cfg file, that requires the following 
+First of all you need to create a $HOME/.s3cfg file, that requires the following 
 configuration:
 ::
   host_base = cloud-areapd.pd.infn.it:5210
@@ -478,6 +482,53 @@ To find your EC2 credentials, in the Dashboard go to **Project** |rarr|
 **API Access** and then click on **View Credentials**.
 
 
+To create a bucket in the Object Storage service, you can use s3cmd with the 
+'mb' command:
+::
+  $ s3cmd mb s3://mybucket
+  Bucket 's3://mybucket/' created
+  $ 
+
+Then with the 'ls' command you can verify that the bucket has been created:
+::
+  $ s3cmd ls
+  2020-04-14 16:30  s3://mybucket
+  $
+
+Once created you can start adding files to the bucket:
+::
+  $ s3cmd put /etc/fstab s3://mybucket
+  upload: '/etc/fstab' -> 's3://mybucket/fstab'  [1 of 1]
+   628 of 628   100% in    0s   780.01 B/s  done
+  $
+
+  $ s3cmd ls s3://mybucket
+  2020-04-14 16:34       628   s3://mybucket/fstab
+  $
+
+You can delete files from a bucket with the 'del' s3cmd command:
+::
+  $ s3cmd del s3://mybucket/fstab
+  delete: 's3://mybucket/fstab'
+  $
+
+  $ s3cmd ls s3://mybucket
+  $
+
+Once a bucket is empty, you can remove it with the 'rb' s3cmd command:
+::
+  $ s3cmd rb s3://mybucket
+  Bucket 's3://mybucket/' removed
+  $
+
+  $ s3cmd ls
+  $ 
+
+.. NOTE ::
+    As said above, containers (buckets) and their objects are owned by the 
+    project, and not by the individual who created them.
+    If this is a problem, it is possible to have a personal object storage
+    account, usable through the S3 interface.
 
 
 Accessing storage external to the Cloud
