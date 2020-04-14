@@ -18,6 +18,14 @@ There are several ways of handling disk storage in the CloudVeneto:
    volume can be selected when it is created within the quota limits for
    the particular project.
 
+- **Object Storage** (experimental) allows to store and retrieve potentially 
+  lots of data 
+  with a simple API. It's built for scale and optimized for durability, 
+  availability, and concurrency across the entire data set. 
+  Object storage is ideal for storing unstructured data that can grow without 
+  bound.
+
+
 Ephemeral storage
 -----------------
 
@@ -399,6 +407,78 @@ However it can be shared with other virtual machines of the Cloud
     on hosts outside the Cloud: it is sufficient to specify the IP
     address of these hosts in the /etc/exports file on the instance
     acting as NFS server.
+
+
+
+Object Storage (experimental)
+-----------------------------
+The CloudVeneto object Store is built upon Ceph and
+supports two interfaces:
+
+- S3-compatible: Provides object storage functionality with an interface that 
+  is compatible with a large subset of the Amazon S3 RESTful API.
+
+- Swift-compatible: Provides object storage functionality with an interface 
+  that is compatible with a large subset of the OpenStack Swift API.
+
+
+Objects (which are typically files) in the object storage are organized in 
+**containers**, also called **buckets**.
+
+To create a container, using the Dashboard, click on **Object Storage** |rarr| **Containers** and then click on **+ Container**.
+
+.. image:: ./images/create_container.png
+   :align: center
+
+
+Fill the **Container Name** field and then click on the **Submit** button.
+
+.. image:: ./images/create_container_name.png
+   :align: center
+
+
+You can then upload files to a container. Select the relevant container and
+then click on the up arrow:
+
+.. image:: ./images/upload_container.png
+   :align: center
+
+Choose the file to upload and the click the **Upload File** button:
+
+.. image:: ./images/upload_container_file.png
+   :align: center
+
+Using the dashboard, you can then retrieve objects (files) previously
+uploaded to a container.
+
+
+.. WARNING ::
+    Please note that containers (and their objects) are owned by the 
+    project, and not by the individual you created them.
+    This means that, if you create a container and upload some files on this
+    container, the other members of the project can see these files and 
+    possibly also delete them.
+
+
+Accessing the object storage using the S3 interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can also access the object storage using the S3 interface.
+
+s3cmd is a convenient command-line tool that can be used. 
+First of all you need to create a ~/.s3cfg file, that requires the following 
+configuration:
+::
+  host_base = cloud-areapd.pd.infn.it:5210
+  host_bucket = cloud-areapd.pd.infn.it:5210
+  use_https = true
+  access_key = <your EC2 access key>
+  secret_key = <your EC2 secret key>
+
+To find your EC2 credentials, in the Dashboard go to **Project** |rarr| 
+**API Access** and then click on **View Credentials**.
+
+
+
 
 Accessing storage external to the Cloud
 ---------------------------------------
