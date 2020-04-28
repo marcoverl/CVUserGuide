@@ -523,22 +523,25 @@ Flavors define the virtual machine size such as:
 
 -  Disk space
 
+
 Information about the flavors can be seen in the **Flavor Details** box that
 appears in the Dashboard when you launch a new instance.
 
 .. image:: ./images/flavor.png
    :align: center
 
+'Root Disk' is the size of the root disk. This is ephemeral storage, i.e.
+such storage is deleted when the relevant instance is deleted (see
+:ref:`Ephemeral Storage<EphemeralStorage>`).
+
+'Ephemeral Disk' is the size of the supplementary ephemeral disk.
 
 .. WARNING ::
 
     For what concerns VCPUs, please note that the CloudVeneto is
-    configured to allow some “overbooking” so that a physical core is
+    configured to allow some “overbooking” so that usually a physical core is
     mapped to 4 VCPUs.
 
-A disk size of 0 means that the size of the disk is the same as that in
-the image. For other cases, it may be necessary to resize the
-partitions.
 
 .. NOTE ::
 
@@ -755,7 +758,13 @@ To save a snapshot of your VM:
 -  From the **Compute** |rarr| **Instances** table select the desired VM and click
    **Create Snapshot** on the **Actions** menu.
 
+.. WARNING ::
+   Only the content of the 'root disk' is saved when you do a snapshot. 
+   So if the instance was created using a flavor that has a supplementary ephemeral disk, the content of such disk 
+   is NOT saved when snapshotting.
 
+.. NOTE ::
+   In CloudVeneto snapshot size is limited to 25 GB.
 
 Deleting Virtual Machines
 -------------------------

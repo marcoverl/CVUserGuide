@@ -28,6 +28,8 @@ There are several ways of handling disk storage in the CloudVeneto:
 
 Ephemeral storage
 -----------------
+.. _EphemeralStorage:
+
 
 Ephemeral storage exists only for the life of a virtual machine
 instance. It will persist across reboots of the guest operating system
