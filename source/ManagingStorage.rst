@@ -409,6 +409,53 @@ However it can be shared with other virtual machines of the Cloud
     acting as NFS server.
 
 
+Transferring the ownership of a volume to another user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This section explains how to transfer the ownership of a volume
+to another person, that can possibly be affiliated to another project.
+
+.. WARNING ::
+   The volume to be transferred must not be attached to an instance.
+
+
+The owner of the volume to be transferred should follow the following 
+procedure:
+
+Using the Dashboard, click on **Volumes** |rarr| **Volumes**.
+For the volume that you want to transfer, on the right side click on the 
+black dart and choose **Create Transfer**.
+
+.. image:: ./images/migrating_volumes-Create_Transfer.png
+   :align: center
+
+Specify a Transfer Name and click on **Create Volume Transfer**
+
+.. image:: ./images/migrating_volumes-Set_Transfer_name.png
+   :align: center
+
+Save the Transfer ID and the Authorization Key, or download them.
+
+.. image:: ./images/migrating_volumes-Authorization_Key.png
+   :align: center
+
+These Transfer ID and the Authorization Key must be communicated to the
+person who should become the new owner of the volume. Such user must follow
+the following steps:
+
+ 
+Using the Dashboard, click on **Volumes** |rarr| **Volumes**, and then
+click on **Accept Transfer**.
+
+.. image:: ./images/migrating_volumes-Accept_Transfer.png
+   :align: center
+
+Fill in the Transfer ID and the Authorization Key received from
+the donor and then click on **Accept Volume Transfer**.
+
+.. image:: ./images/migrating_volumes--Accept_Volume_Transfer.png
+   :align: center
+
+
 
 Object Storage (experimental)
 -----------------------------
