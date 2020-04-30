@@ -333,7 +333,9 @@ The syntax is explained in the following picture:
 The blu arrows depict the data flow.
 
 Once you have opened the tunnel you have, on your machine, a direct
-entry point to your VM. You can use the **-P** (capital 'p') parameter
+entry point to your VM. 
+From **another terminal** of your local machine,
+you can now use the **-P** (capital 'p') parameter
 of the scp command and the **remote
 username on your VM** to copy files to the VM:
 
