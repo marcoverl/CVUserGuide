@@ -40,10 +40,14 @@ Among the flavor details (that are listed in the Dashboard when a VM has
 to be launched or can be seen using the *openstack flavor list*
 command), there is an attribute called 'Ephemeral'. When you use a
 flavor with an ephemeral disk size different from zero, the instance is
-booted with an extra virtual disk whose size is indicated by the
-ephemeral value. This ephemeral disk can be useful where you want to
-partition the second disk or have a specific disk configuration which is
-not possible within the system disk configuration.
+booted with an extra virtual disk (besides the root disk) whose size is 
+indicated by the
+ephemeral value. 
+Please note that, when snapshotting a virtual machine instantiated using
+a flavor with the supplementary ephemeral disk, the content of such
+extra disk won't be saved: only the content of the
+root disk will be snapshotted.
+
 
 .. WARNING ::
     Please note that backups are not performed on ephemeral storage
