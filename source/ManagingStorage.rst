@@ -478,6 +478,10 @@ supports two interfaces:
 Objects (which are typically files) in the object storage are organized in 
 **containers**, also called **buckets**.
 
+.. WARNING ::
+    Please note that backups are not performed on object storage.
+
+
 Accessing the object storage using the dashboard
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
