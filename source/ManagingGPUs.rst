@@ -35,133 +35,80 @@ the creation of a 'standard' virtual machine (see
 pay attention to use one of these special flavors:
 
 
-- **cloudveneto.18cores56GB20GB1V100**
+- **cloudveneto.18cores56GB20+75GB1V100**
 
   Flavor for an instance with 1 GPU Nvidia V100,
   18 VCPUs, 56 GB of RAM, 20 GB of ephemeral
-  disk space.
-  Instances created with such flavor can be snapshotted.
+  root disk space, 75 GB of extra ephemeral disk space.
 
-- **cloudveneto.18cores56GB90GB1V100**
 
-  Flavor for an instance with 1 GPU Nvidia V100,
-  18 VCPUs, 56 GB of RAM, 90 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannnot be snapshotted.
-
-- **cloudveneto.36cores112GB180GB2V100**
+- **cloudveneto.36cores112GB20+170GB2V100**
 
   Flavor for an instance with 2 GPU Nvidia V100,
-  36 VCPUs, 112 GB of RAM, 180 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannnot be snapshotted.
+  36 VCPUs, 112 GB of RAM, 20 GB of ephemeral root disk space,
+  170 GB of extra ephemeral disk space.
 
-- **cloudveneto.72cores224GB360GB4V100**
+- **cloudveneto.72cores224GB20+360GB4V100**
 
   Flavor for an instance with 4 GPU Nvidia V100,
-  72 VCPUs, 224 GB of RAM, 360 GB of ephemeral
+  72 VCPUs, 224 GB of RAM, 20 GB of ephemeral root disk space,
+  360 GB of extra ephemeral
   disk space.
-  Instances created with such flavor cannnot be snapshotted.
 
-- **cloudveneto.15cores90GB20GB1T4**
+- **cloudveneto.15cores90GB20+700GB1T4**
 
   Flavor for an instance with 1 GPU Nvidia T4,
-  15 VCPUs, 90 GB of RAM, 20 GB of ephemeral
-  disk space.
-  Instances created with such flavor can be snapshotted.
+  15 VCPUs, 90 GB of RAM, 20 GB of ephemeral root disk space,
+  700 GB of extra ephemeral disk space.
 
-- **cloudveneto.15cores90GB500GB1T4**
-
-  Flavor for an instance with 1 GPU Nvidia T4,
-  15 VCPUs, 90 GB of RAM, 500 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannot be snapshotted.
-
-- **cloudveneto.30cores180GB500GB2T4**
+- **cloudveneto.30cores180GB20+1400GB2T4**
 
   Flavor for an instance with 2 GPUs Nvidia T4,
-  30 VCPUs, 180 GB of RAM, 500 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannot be snapshotted.
+  30 VCPUs, 180 GB of RAM, 20 GB of ephemeral root disk space,
+  1400 GB of extra ephemeral disk space.
 
-- **cloudveneto.30cores180GB1000GB2T4**
-
-  Flavor for an instance with 2 GPUs Nvidia T4,
-  30 VCPUs, 180 GB of RAM, 1000 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannot be snapshotted.
-
-- **cloudveneto.60cores360GB500GB4T4**
+- **cloudveneto.60cores360GB20+2800GB4T4**
 
   Flavor for an instance with 4 GPUs Nvidia T4,
-  60 VCPUs, 360 GB of RAM, 500 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannot be snapshotted.
+  60 VCPUs, 360 GB of RAM, 20 GB of ephemeral root
+  disk space, 2800 GB of extra ephemeral disk space.
 
-
-- **cloudveneto.8cores40GB20GB1Quadro**
+- **cloudveneto.8cores40GB20+500GB1Quadro**
   
   Flavor for an instance with 1 GPU Nvidia Quadro RTX 6000,
-  8 VCPUs, 40 GB of RAM, 20 GB of ephemeral
-  disk space.
-  Instances created with such flavor can be snapshotted.
+  8 VCPUs, 40 GB of RAM, 20 GB of ephemeral root
+  disk space, 500 GB of extra ephemeral disk space.
 
-
-- **cloudveneto.8cores40GB500GB1Quadro**
-
-  Flavor for an instance with 1 GPU Nvidia Quadro RTX 6000,
-  8 VCPUs, 40 GB of RAM, 500 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannot be snapshotted.
-
-- **cloudveneto.8cores40GB20GB1TitanXP**
+- **cloudveneto.8cores40GB20+500GB1TitanXP**
 
   Flavor for an instance with 1 GPU Nvidia Titan Xp,
-  8 VCPUs, 40 GB of RAM, 20 GB of ephemeral
-  disk space.
-  Instances created with such flavor can be snapshotted.
-
-- **cloudveneto.8cores40GB500GB1TitanXP**
-
-  Flavor for an instance with 1 GPU Nvidia Titan Xp,
-  8 VCPUs, 40 GB of RAM, 500 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannot be snapshotted.
+  8 VCPUs, 40 GB of RAM, 20 GB of ephemeral root
+  disk space, 500 GB of extra ephemeral disk space.
  
-- **cloudveneto.16cores80GB500GB2TitanXP**
+- **cloudveneto.16cores80GB20+1000GB2TitanXP**
 
   Flavor for an instance with 2 GPUs Nvidia Titan Xp,
-  16 VCPUs, 80 GB of RAM, 500 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannot be snapshotted.
+  16 VCPUs, 80 GB of RAM, 20 GB of ephemeral root
+  disk space, 1000 GB of extra ephemeral disk space.
 
-- **cloudveneto.4cores20GB20GB1GeforceGtx**
-
-  Flavor for an instance with 1 GPU Nvidia GeForce GTX TITAN,
-  4 VCPUs, 20 GB of RAM, 20 GB of ephemeral
-  disk space.
-  Instances created with such flavor can be snapshotted.
-
-- **cloudveneto.4cores20GB150GB1GeforceGtx**
+- **cloudveneto.4cores20GB20+200GB1GeforceGtx**
 
   Flavor for an instance with 1 GPU Nvidia GeForce GTX TITAN,
-  4 VCPUs, 20 GB of RAM, 150 GB of ephemeral
-  disk space.
-  Instances created with such flavor cannot be snapshotted.
+  4 VCPUs, 20 GB of RAM, 20 GB of ephemeral root
+  disk space, 200 GB of extra ephemeral disk space.
 
+.. WARNING ::
+   When you snapshot an instance created using one of such flavors, please
+   consider that only the root disk is saved. The content of the
+   extra ephemeral disk is not saved !
 
 .. WARNING ::
 
-    "Generic" flavors have a limited size for disk space. 
-    Most of the flavors for GPUs 
-    have instead a bigger size to take advantage of the fast (SSD/NVME) 
-    disks installed
-    on the servers hosting the GPUs.
-    However, please remember that size limit for images
-    and snapshots is 25 GB. This means that 
-    only the GPU instances created using one of the flavor listed above
-    with 20GB of ephemeral disk
-    size can be snapshotted.  
+    For historical reasons there are still some instances created
+    using flavors with a large root disk: since the size limit for images
+    and snapshots is 25 GB, such
+    instances cannot be snapshotted.
+    
 
 .. NOTE::
 
