@@ -294,14 +294,19 @@ fashion:
 
 -  Copy file from the gate machine to your VM;
 
-This is clearly not very practical.
+This works but it is clearly not very practical. Read on for a better solution.
+
+SSH Tunnel and port forwarding
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A more clever approach is to use an **SSH tunnel** (port forwarding
-mechanism): you set up a special TCP port on your PC that acts as an
-entrance point and then you inject your files in that port to get them
-copyed on your VM.
+mechanism). This technique allow you *transport* a TCP port opened on your VM
+directly **on your PC**. TCP port 22 can be used for ssh/scp access but any
+port (e.g. 80 or 443 for a web service or even **multiple ports**) will do.
 
-Proceed as follows: we suppose your VM IP address is 10.X.Y.Z.
+
+Use case 1: Suppose you want to access your VM (IP address is 10.X.Y.Z) via ssh: 
+you need to forward port 22. Proceed as follows: 
 
 -  Choose a free TCP port on your machine in the range 1025-65535 (e.g.
    2002);
@@ -315,8 +320,7 @@ Proceed as follows: we suppose your VM IP address is 10.X.Y.Z.
              ssh -L2002:10.X.Y.Z:22 user@gate.cloudveneto.it
              
 
-   The tunnel needs to stay open as long as you need to copy files
-   toward the VM.
+   The tunnel needs to stay open as long as you need to access the VM.
 
 The syntax is explained in the following picture:
 
@@ -333,11 +337,19 @@ The syntax is explained in the following picture:
 The blu arrows depict the data flow.
 
 Once you have opened the tunnel you have, on your machine, a direct
-entry point to your VM. 
-From **another terminal** of your local machine,
-you can now use the **-P** (capital 'p') parameter
-of the scp command and the **remote
-username on your VM** to copy files to the VM:
+entry point to your VM (port 2002 in this case).
+From **another terminal** of your local machine, you can now:
+
+- access the VM using ssh with the -p (lowercase 'p') parameter:
+
+::
+
+    ssh -p 2002 -i  ~/private/my_key remoteuser@localhost
+
+
+Please note the **remoteuser@localhost** part of the command.
+
+- copy a file on the VM using scp with the **-P** (capital 'p') parameter
 
 ::
 
@@ -370,6 +382,49 @@ It is a file system client that mounts the remote file system locally.
 
     You can now specify 2002,2003 or 2010 after '-P' to get to the
     chosen VM.
+
+
+Use case 2: you want to access both the web service on port 80 and the ssh service
+on your VM. Proceed as follows:
+
+- Choose **two** free TCP port on your machine in the range 1025-65535 (e.g. 2080 and 2022);
+
+- Set up the tunnel using your access to one of the gate machines of the cloud (e.g. gate.cloudveneto.it) 
+  and providing your TCP ports of choice and the IP address of your remote VM:
+
+::
+
+   ssh -L2080:10.X.Y.Z:80 -L2022:10.X.Y.Z:22 user@gate.cloudveneto.it
+
+
+The tunnel needs to stay open as long as you need to access the VM.
+
+From **another terminal** of your local machine, you can now:
+
+- access the VM using ssh with the -p (lowercase 'p') parameter:
+
+::
+
+    ssh -p 2022 -i  ~/private/my_key remoteuser@localhost
+
+
+Please note the **remoteuser@localhost** part of the command.
+
+- copy a file on the VM using scp with the **-P** (capital 'p') parameter
+
+::
+
+    scp -P 2022 -i ~/private/my_key  my_local_file.txt  remoteuser@localhost:/remote/path/
+
+Please note the **remoteuser@localhost** part of the command.
+
+From **your web browser** you can:
+
+- access the web service on the VM by accessing the url
+
+::
+
+    http://localhost:2080
 
 
 Giving a VM public access (getting a floating IP)
