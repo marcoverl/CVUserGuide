@@ -48,6 +48,14 @@ relevant accounts on the VM adding in the /etc/passwd file:
 
 and creating their home directories.
 
+
+You might also want to set a different home directory wrt the one specified in LDAP, e.g.:
+
+::
+
+
+    +pippo:::::/ehome/pippo:
+
 Changes done in /etc/passwd could not be applied immediately by the
 system. In this case a:
 
