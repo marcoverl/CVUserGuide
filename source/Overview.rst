@@ -83,32 +83,46 @@ support@cloudveneto.it.
 
 Getting help
 ------------
+In case of problems with the  CloudVeneto infrastructure, such as:
 
-If you have problems using the CloudVeneto cloud, please contact the
-admins at support@cloudveneto.it.
+- Problems during the registration process
 
-.. warning::
+- Problems creating a virtual machine
 
-    The CloudVeneto provides and infrastructure where you can
-    instantiate your servers but, once activated, your server are
-    **managed by you**.
+- Problems creating a volume, or attaching it to an instance
 
-    This implies that the CloudVeneto support crew **doesn't provide support** on
-    topics like:
+you can contact the admins at support@cloudveneto.it.
 
-    -  How to install/compile/configure your software;
 
-    -  ssh / scp basic usage (ask your Department / Institution
-       technicians about that);
+Please provide all the information needed to debug the problem, e.g.:
 
-    -  Basic linux usage (except what's described in this guide);
+- Your cloud username
+- The name of the project
+- The IP number of the instance (in case of problems with a virtual machine)
+- The image name and the flavor name (in case of problems creating an instance)  
 
-    -  Accessing your VM 'the graphical way'.
 
-    `INFN-Padova computing and Network
-    service <https://www.pd.infn.it/eng/computing-and-networking/>`__ can provide
-    support only to INFN-Padova users and only for instances created
-    using "blessed" images, (as described in :ref:`Public Images <publicimages>`).
+The CloudVeneto admins instead don't provide support to the virtual machines
+instantiated on the Cloud: once you created a server on the Cloud, such server is
+**managed by you**.
+
+
+This implies that the CloudVeneto support crew **doesn't provide support** on
+topics like:
+
+-  How to install/compile/configure your software;
+
+-  ssh / scp basic usage;
+
+-  Basic linux usage (except what's described in this guide);
+
+-  Accessing your VM 'the graphical way'.
+
+
+You might ask your Department / Institution technicians in case of problems with
+your virtual machine that you are not able to solve on your own.
+
+
 
 Experiences, problems, best practices, etc. can be shared with the other
 users of the CloudVeneto using the discuss@cloudveneto.it mailing list.
@@ -123,6 +137,16 @@ majordomo@pd.infn.it, writing in the body of the mail:
 Changes and planned interventions to the service will be posted on the
 announce@cloudveneto.it. All registered users to the Cloud are member of
 this mailing list.
+
+
+Getting help for INFN Padova users
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`INFN-Padova computing and Network
+service <https://www.pd.infn.it/eng/computing-and-networking/>`__ can provide
+support to INFN-Padova users only for instances created
+using the INFN-Padova "blessed" images, described in :ref:`Public Images for INFN Padova users<publicimagesPd>`.
+
 
 
 Acknowledge CloudVeneto / Scientific citations
