@@ -114,7 +114,7 @@ topics like:
 
 -  ssh / scp basic usage;
 
--  Basic linux usage (except what's described in this guide);
+-  Basic linux usage (except what's described on :ref:`Some basics on Linux administration`);
 
 -  Accessing your VM 'the graphical way'.
 

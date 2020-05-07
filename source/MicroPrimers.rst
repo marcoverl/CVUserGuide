@@ -1,6 +1,8 @@
 Some basics on Linux administration
 ===================================
 
+.. _linuxbasics:
+
 Introduction
 ------------
 
