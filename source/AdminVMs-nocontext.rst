@@ -338,6 +338,7 @@ port (e.g. 80 or 443 for a web service or even **multiple ports**) will do.
   
   Once you have opened the tunnel you have, on your machine, a direct
   entry point to your VM (port 2002 in this case).
+
   From **another terminal** of your local machine, you can now:
   
   - access the VM using ssh with the -p (lowercase 'p') parameter:
@@ -347,7 +348,7 @@ port (e.g. 80 or 443 for a web service or even **multiple ports**) will do.
       ssh -p 2002 -i  ~/private/my_key remoteuser@localhost
   
   
-  Please note the **remoteuser@localhost** part of the command.
+  ( e.g.: ssh -p 2002 -i ~/paolo.pem centos@localhost )
   
   - copy a file on the VM using scp with the **-P** (**capital 'p'**) parameter
   
@@ -355,7 +356,7 @@ port (e.g. 80 or 443 for a web service or even **multiple ports**) will do.
   
       scp -P 2002 -i ~/private/my_key  my_local_file.txt  remoteuser@localhost:/remote/path/
   
-  Please note the **remoteuser@localhost** part of the command.
+  ( e.g. scp -P 2002 -i ~/paolo.pem my_local_file.txt centos@localhost:/tmp/ )
   
   If `sshfs <https://github.com/libfuse/sshfs>`__ is installed, you can
   use it with the tunnel with the following command
@@ -408,7 +409,7 @@ port (e.g. 80 or 443 for a web service or even **multiple ports**) will do.
       ssh -p 2022 -i  ~/private/my_key remoteuser@localhost
   
   
-  Please note the **remoteuser@localhost** part of the command.
+  ( e.g.: ssh -p 2022 -i ~/paolo.pem ubuntu@localhost )
   
   - copy a file on the VM using scp with the **-P** (capital 'p') parameter
   
@@ -416,11 +417,9 @@ port (e.g. 80 or 443 for a web service or even **multiple ports**) will do.
   
       scp -P 2022 -i ~/private/my_key  my_local_file.txt  remoteuser@localhost:/remote/path/
   
-  Please note the **remoteuser@localhost** part of the command.
+  ( e.g. scp -P 2022 -i ~/paolo.pem my_local_file.txt ubuntu@localhost:/tmp/ )
   
-  From **your web browser** you can:
-  
-  - access the web service on the VM by accessing the url
+  - from **your web browser** you can access the web service on the VM by accessing the url
   
   ::
   
