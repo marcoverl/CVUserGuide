@@ -179,7 +179,7 @@ Foreword
 
 .. WARNING ::
 
-    This procedure is NOT the one to be used to change the UniPD SSO or INFN AAI password !
+    This procedure is NOT the one to be used to change the UniPD SSO or INFN AAI password and is NOT the one to be used to change the gate password !
 
 You need to use the procedure described in the following subsection **only if**:
 
@@ -204,7 +204,7 @@ select **Settings** from the dropdown menu and then **Manage Password**.
 
     Once again: this is the password to authenticate with the Cloud
     "internal" authentication mechanism. It is uncorrelated from the
-    UniPD SSO or INFN-AAI one.
+    UniPD SSO or INFN-AAI one and with the access to the gate host.
 
 Switching between projects
 --------------------------
