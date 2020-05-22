@@ -352,3 +352,13 @@ represented in the following image will appear:
 
 Set the new expiration date and then click the **OK** button.
 
+Expired users
+-------------
+Please note the resources (instances and volumes) owned by expired users 
+(i.e. people who
+don't have anymore an account on CloudVeneto) will be removed.
+
+Please also note that, while the ownership of a 
+volume can be transferred from a user to another one 
+(see :ref:`Transferring the ownership of a volume to another user<TransferVolumeOwnership>`), this can't be technically possible
+for virtual machines.
