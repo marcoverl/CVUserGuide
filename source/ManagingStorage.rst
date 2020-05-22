@@ -417,7 +417,7 @@ However it can be shared with other virtual machines of the Cloud
 
 Transferring the ownership of a volume to another user
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. _TransferVolumeOwnership
+.. _TransferVolume:
 
 
 This section explains how to transfer the ownership of a volume

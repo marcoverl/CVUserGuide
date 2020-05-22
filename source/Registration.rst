@@ -360,5 +360,5 @@ don't have anymore an account on CloudVeneto) will be removed.
 
 Please also note that, while the ownership of a 
 volume can be transferred from a user to another one 
-(see :ref:`Transferring the ownership of a volume to another user<TransferVolumeOwnership>`), this can't be technically possible
+(see :ref:`Transferring the ownership of a volume to another user<TransferVolume>`), this can't be technically possible
 for virtual machines.
