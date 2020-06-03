@@ -24,6 +24,7 @@ Contents:
    Registration
    GettingStarted
    AdminVMs-nocontext
+   ManagingContainers
    ManagingGPUs
    ManagingStorage
    Orchestration

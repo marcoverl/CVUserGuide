@@ -1,5 +1,7 @@
 Creating Kubernetes Clusters on the Cloud
 =========================================
+.. _CreatingK8s:
+
 
 The virtual machines provided by CloudVeneto can also be used to deploy
 Kubernetes clusters where users familiar with Kubernetes can run their
