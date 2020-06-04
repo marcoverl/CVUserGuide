@@ -31,6 +31,11 @@ where xfs is used as file system, as reported
 `here <https://www.pimwiddershoven.nl/entry/docker-on-centos-7-machine-with-xfs-filesystem-can-cause-trouble-when-d-type-is-not-supported>`__.
 Newest CentOS 7 releases are not affected by this issue.
 
+If, for some reasons, you can't use a newer version of CentOS 7 not affected
+by this problem, the instructions reported 
+`here <https://stackoverflow.com/questions/45461307/selinux-is-not-supported-with-the-overlay-graph-driver>`__ might help.
+
+
 
 Orchestrating containers
 ------------------------
