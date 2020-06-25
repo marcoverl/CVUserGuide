@@ -503,6 +503,14 @@ click the **Actions** button and select the **Release Floating IP** option.
     contact support@cloudveneto.it specifying what is/are the relevant
     service(s) and the port(s) that need to be open.
 
+.. WARNING ::
+
+   Instances with public floating IPs are regularly scanned to be sure
+   they don't expose vulnerable services.
+   In case you are contacted by the CloudVeneto support team about
+   a security problem, you need to promptly fix it.
+   If this is not done, the use of the floating IP will be revoked. 
+
 .. IMPORTANT ::
 
     INFN users will have to create the VM on the **<ProjectName>-wan**
