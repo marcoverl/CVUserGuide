@@ -99,7 +99,8 @@ Please provide all the information needed to debug the problem, e.g.:
 - Your cloud username
 - The name of the project
 - The IP number of the instance (in case of problems with a virtual machine)
-- The image name and the flavor name (in case of problems creating an instance)  
+- The image name and the flavor name (in case of problems creating an 
+  instance)  
 
 
 The CloudVeneto admins instead don't provide support to the virtual machines
@@ -147,7 +148,14 @@ service <https://www.pd.infn.it/eng/computing-and-networking/>`__ can provide
 support to INFN-Padova users only for instances created
 using the INFN-Padova "blessed" images, described in :ref:`Public Images for INFN Padova users<publicimagesPd>`.
 
+When contacting the INFN-Padova computing and Network         
+service to have support with a virtual machine,
+please provide all the information needed to debug the problem, in
+particular:
 
+- The IP number of the instance
+- The image name 
+- The flavor name
 
 Acknowledge CloudVeneto / Scientific citations
 ----------------------------------------------
