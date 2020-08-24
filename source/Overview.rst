@@ -171,7 +171,8 @@ References:
 
 -  P. Andreetto et
    al., "Merging OpenStack based private clouds: the case of 
-   CloudVeneto.it", to appear in Proceedings of CHEP2018 conference
+   CloudVeneto.it", Published in: EPJ Web Conf. 214 (2019) 07010,
+   DOI: 10.1051/epjconf/201921407010
 
 -  Cloudveneto web site: http://cloudveneto.it
 
