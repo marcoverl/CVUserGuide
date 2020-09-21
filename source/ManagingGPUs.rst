@@ -17,9 +17,6 @@ Using a CloudVeneto GPU means accessing a virtual machine which has
 full access and direct control of such GPU device.
 
 
-
-Creating a GPU instance 
------------------------
 GPU instances, i.e. virtual machines which have access to one 
 or more GPUs can be created only from the **HPC-Physics** project.
 The only exception is  is for the T4 GPUs that are usable also from the
@@ -29,7 +26,57 @@ So, first of all, you need to request the affiliation to such project
 (see :ref:`Apply for other projects<ApplyForOtherProjects>` for
 the relevant instructions).
 
-The instructions to then create a GPU instance are the very same for
+
+Reserving a GPU
+---------------
+.. _ReservingGpu:
+
+
+Before using a GPU, you need to reserve it. This can be done using a reservation 
+system integrated in the dashboard.
+
+Using the Dashboard, click on **GPU Booking Calendar**.
+
+.. image:: ./images/gpu_booking_calendar.png
+   :align: center
+
+Let's suppose that you want to reserve a Tesla V100 GPU from Oct 5 to Oct 9.
+
+Move the desired GPU to the first day of the reservation (October 5, in our example)
+
+.. image:: ./images/gpu_reserve_1.png
+   :align: center
+
+
+Using the mouse, you can then "enlarge" your reservation till the desired last day (October 9, in our example)
+
+.. image:: ./images/gpu_reserve_2.png
+   :align: center
+
+.. image:: ./images/gpu_reserve_3.png
+   :align: center
+
+
+You may also associate a comment for this reservation (by clicking on it). The message can be seen
+by the other users.
+
+.. image:: ./images/gpu_reserve_comment.png
+   :align: center
+
+
+To delete a reservation, you simply need to move it to the trash bin.
+
+
+.. WARNING ::
+  The reservation system that has been just described, is visible only to the projects
+  that have access to the GPUs (i.e. the **HPC-Physics** project and, just for the T4 GPUs,
+  the **PhysicsOfData-students** project)
+
+
+Creating a GPU instance 
+-----------------------
+
+The instructions to create a GPU instance are the very same for
 the creation of a 'standard' virtual machine (see
 :ref:`Creating Virtual Machines<creatingvms>`). You will only have to
 pay attention to use one of these special flavors:
@@ -112,11 +159,8 @@ pay attention to use one of these special flavors:
 
 .. NOTE::
 
-   Before allocation one or more GPUs, please register such allocation in
-   `this document <https://tinyurl.com/yjz47dgx>`__. Please be sure to fill 
-   also the 'estimated end date' field. 
-   If the GPU(s) you want to use are not available, you may use that
-   document to register a reservation. 
+   Before allocating one or more GPUs, please register such allocation using
+   the reservation system described in the :ref:`previous section<ReservingGpu>`.
  
 
 Images for GPU instances
@@ -195,10 +239,10 @@ Please consider the following policies when using GPU instances:
 
 - Once activated, your virtual instance is **managed by you**. 
 
-- Before allocation one or more GPUs, please register such allocation in
-  `this document <https://tinyurl.com/yjz47dgx>`__. Please be sure to fill 
-  also the 'estimated end date' field. Instances for which there isn't an 
-  entry in this document can be deleted by the Cloud administrators.
+- Before allocation one or more GPUs, please register such allocation 
+  as explained :ref:`here<ReservingGpu>`.
+  Instances for which there isn't a reservation 
+  can be deleted by the Cloud administrators.
 
 
 - Please don't reserve the GPU(s) for long (i.e > 1 week) periods.
