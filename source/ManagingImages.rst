@@ -312,7 +312,7 @@ for quickly creating customized images.
 It takes cleanly prepared, digitally signed OS templates and customizes them.
 
 Documentation how to use virt-builder is provided in the relevant
-`man pages <http://libguestfs.org/virt-builder.1.html/>`__.
+`man pages <http://libguestfs.org/virt-builder.1.html>`__.
 
 Here we provide some examples.
 
