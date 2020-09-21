@@ -259,9 +259,7 @@ If you log into the dashboard, you will find **API Access** under the
 
 
 Select **Download OpenStack RC file** and then **OpenStack RC
-file (Identity API v3)**, to download the rc file for your current project.
-Please note that the v3 openrc file requires a quite recent version of the Openstack
-client .
+file**, to download the rc file for your current project.
 
 .. image:: ./images/download_rc_menu.png
    :align: center
