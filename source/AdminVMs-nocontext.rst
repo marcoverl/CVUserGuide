@@ -821,7 +821,7 @@ To save a snapshot of your VM:
 Deleting Virtual Machines
 -------------------------
 
-VMs can be deleted using the **Terminate Instance** option in the OpenStack
+VMs can be deleted using the **Delete Instance** option in the OpenStack
 dashboard.
 
 .. WARNING ::
