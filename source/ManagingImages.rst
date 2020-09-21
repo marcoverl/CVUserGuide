@@ -120,25 +120,32 @@ available, it is much easier to use them compared to building your own.
 
 
 Using an Ubuntu image as an example, after you downloaded the image from
-the relevant web site, to upload such image using the command line tools
-(see :ref:`Accessing the Cloud with command line tools<accessingthecloudthroughcli>`)
-you need to:
+the relevant web site, to upload such image proceed as follows:
 
--  Authenticate to OpenStack using the openrc script:
+-  Be sure you have selected the right Project from the dropdown menu on
+   the top.
 
-   ::
+-  Go to **Compute** |rarr| **Images** on the left hand menu. This will display the
+   list of images currently available in your project.
 
-       $ . demo-openrc.sh
-             
+  .. image:: ./images/Images.png
+     :align: center
 
--  Issue the following command:
 
-   ::
+- Click on **+Create Image**. The following form will appear:
 
-       $ openstack image create --private --disk-format=qcow2 \
-             --container-format=bare \
-             --file bionic-server-cloudimg-amd64.img ubuntu-bionic
-             
+
+  .. image:: ./images/CreateImage.png
+     :align: center
+
+- Fill the needed fields. In particular specify a name for this image (to be specified in the **Image Name** field). 
+  Select
+  the downloaded file in the **Image Source** field, select the **Format**. Select *Private* as **Visibilility**
+
+- When done, click on **Create Image**. 
+
+
+
 
 Once loaded, the image can then be used to create virtual machines.
 
@@ -170,16 +177,8 @@ Once loaded, the image can then be used to create virtual machines.
 
 
 
-Some system software is delivered in ISO image format. For example,
-these steps show how to create an image from the Freedos ISO available
-from `here <http://www.freedos.org/download/download/fd11src.iso>`__
 
-::
-
-    $ openstack image create --private --disk-format=iso \
-    --container-format=bare --file=fd11src.iso freedos11
-
-.. NOTE ::
+.. WARNING ::
     In CloudVeneto image size is limited to 25 GB.
 
 
