@@ -39,9 +39,9 @@ The steps are as follows:
 
 -  In the Key Pairs section, select **Create Key Pair**.
 
-You will need to give the keypair a name, such as *my\_key*.
+You will need to give the keypair a name, such as *my\_key*. Select *SSH Key* as **Key Type**.
 
-.. image:: ./images/create_keypair.png
+.. image:: ./images/create_keypair_ssh.png
    :align: center
 
 
