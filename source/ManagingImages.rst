@@ -8,14 +8,35 @@ In a cloud environment, Virtual Machines are instantiated from images.
 These images are registered in an Image Management Service, in our case
 provided by the **Glance** OpenStack component.
 
+There are several types of images:
+
+* **Public images**
+
+  These are images provided by the CloudVeneto administrators. They are visible to all users.
+
+* **Private images**
+
+  A private image is owned by a specific project and cannot be viewed or used by other projects.
+
+* **Shared images**
+
+  A shared image is a private image that can be viewed/used by specific other projects that
+  the image owner adds as "members" to the image.
+
+* **Community images**
+
+  A community image is an image uploaded by a project, and such project  
+  wants other projects use such image, but isn't interested in maintaining a relationship with these tenants by 
+  making them image members. 
+
 
 Public Images
 -------------
 .. _publicimages:
 
 
-Some images in the CloudVeneto are provided by the Cloud administrators.
-These images are public, and visible to all users. They appear with
+Public images are provided by the CloudVeneto administrators.
+These images are visible to all users. They appear with
 **Visibility** equal to **Public** in the **Compute** |rarr| **Images** menu.
 
 
@@ -95,13 +116,14 @@ the Cloud keypair, considering the 'root' account, e.g.:
 
 
 
-User Provided Images
---------------------
+Private Images
+--------------
 .. _userprovidedimages:
 
 Users can provide their own images and upload them to the Cloud Image
 service: these images are private, meaning that they are only available
 to the users of the project they are uploaded for.
+
 
 .. NOTE ::
     Users are not allowed to publish public (i.e. available to all
@@ -126,7 +148,7 @@ the relevant web site, to upload such image proceed as follows:
    the top.
 
 -  Go to **Compute** |rarr| **Images** on the left hand menu. This will display the
-   list of images currently available in your project.
+   list of public and private images currently available in your project.
 
   .. image:: ./images/Images.png
      :align: center
@@ -182,11 +204,11 @@ Once loaded, the image can then be used to create virtual machines.
     In CloudVeneto image size is limited to 25 GB.
 
 
-Sharing Images
---------------
+Shared Images
+-------------
 
 As mentioned before, users are not allowed to publish public images.
-However images can be shared between different projects. This is
+However private images can be shared between different projects. This is
 currently only possible via the command line tools.
 
 If an image has been uploaded to your currently active project, using
@@ -258,6 +280,25 @@ In the target project, the image will appear in the image list:
 .. image:: ./images/SharedImage.png
    :align: center
 
+
+Community images
+----------------
+Let's suppose that a project wants to make a prepared VM image available so that in order to use the project's 
+software, all you have to do is boot an instance from their image. However they worry about the hassle of maintaining 
+a list of "customers" (i.e. they don't want to use the image sharing stuff described in the previous section).
+
+The vendor can make the image a community' image. Such image won't appear in user's default image lists of other 
+projects (so they won't know about it unless they are motivated to seek it out).
+
+The process to create a community image is the one described to create "ref"`private images<userprovidedimages>`:
+the only difference is that the *Visibility* field must be set to *Community*.
+
+A consumer can find a community image uploaded by another project
+by doing an image list and filtering with the 'Community' value for the 'visibility' field.
+
+ 
+.. image:: ./images/CommunityImageConsumer.png
+   :align: center
 
 
 Building Images
