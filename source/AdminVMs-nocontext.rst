@@ -648,7 +648,7 @@ Using the Openstack command line tool, the ``--user-data`` option of the
 
                                                                                                       
     nova boot my_vm --image "SL65-Padova-x86_64-20141023-QCOW2" \                                             
-      --flavor m1.xsmall --user-data my_data.txt --key_name my_key                                            
+      --flavor m1.xsmall --user-data my_data.txt --key-name my_key                                            
 
 For example to run a command during contextualisation, the
 **#cloud-config** directive can be used:
@@ -676,7 +676,7 @@ is larger than 16384 bytes, e.g.:
     gzip -c userdata4zip.txt > userdata4zip.gz                                                                
                                                                                                               
     nova boot my_server --image "SL65-Padova-x86_64-20141023-QCOW2" \                                         
-      --flavor m1.xsmall --user-data userdata4zip.gz --key_name my_key                                        
+      --flavor m1.xsmall --user-data userdata4zip.gz --key-name my_key                                        
 
 With the **#include** or **Content-Type: text/x-include-url**
 directives, it is possible to specify a list of URLs, one url per line.
@@ -733,7 +733,7 @@ it to launch an instance:
     write-mime-multipart -o userdata4multi.txt userdata4script userdata4config userdata4inc                   
                                                                                                               
     nova boot my_server --image "SL65-Padova-x86_64-20141023-QCOW2" \                                         
-      --flavor m1.xsmall --user-data userdata4multi.txt --key_name my_key                                     
+      --flavor m1.xsmall --user-data userdata4multi.txt --key-name my_key                                     
 
 On Internet a lot of documentation (along with examples) is available on
 cloud-init, such as in the `Ubuntu
