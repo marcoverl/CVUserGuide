@@ -137,7 +137,7 @@ directory (created when you downloaded via git the ECM software)
     MIN_VMS=                                      
     JOBS_PER_VM=                              
     IDLE_TIME=                                  
-    KEY_NAME==
+    KEY_NAME=
           
 
 Where:
