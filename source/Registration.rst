@@ -8,6 +8,37 @@ To be able to use the CloudVeneto service, first of all you need to
 apply for an account. The procedure to be followed is described in this
 chapter.
 
+Users who need to use INFN IT resources (i.e. users willing to be member of
+an INFN project) must met the prerequisites specified in the following
+section before applying for an account on the CloudVeneto infrastructure.
+
+
+
+Prerequisites for using INFN resources
+--------------------------------------
+Users who need to use INFN IT resources (i.e. users willing to be member of
+an INFN project) must: 
+
+- have a verified digital identity (LoA2) on INFN-AAI;
+- declare to have read and accepted the INFN rules for the use of IT resources;
+- have followed the "Corso di Sicurezza Informatica - BASE"
+
+To have a verified digital identity, connect to
+https://signup.app.infn.it/ to self-register and to get an account on 
+INFN-AAI. Documentation on this process is available `here <https://wiki.infn.it/cn/ccr/aai/doc/rid/istruzioni/signup/1.0-ita>`__.
+
+After this self-registration process, connect to the INFN-AAI User Portal at 
+https://userportal.app.infn.it/ using your INFN-AAI account 
+to complete the digital identity registration. 
+Documentation is available `here <https://wiki.infn.it/cn/ccr/aai/doc/rid/istruzioni/userportal/1.2-ita#utenti>`__.
+
+You will be contacted by an INFN secretariat person for your identification.
+
+To follow the "Corso di Sicurezza Informatica - BASE", please use
+`this link <https://elearning.infn.it/course/view.php?id=105>`__.
+
+
+
 Apply for an account
 --------------------
 
