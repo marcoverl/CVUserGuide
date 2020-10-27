@@ -21,21 +21,26 @@ an INFN project) must:
 
 - have a verified digital identity (LoA2) on INFN-AAI;
 - declare to have read and accepted the INFN rules for the use of IT resources;
-- have followed the "Corso di Sicurezza Informatica - BASE"
+- have followed the "Corso di Sicurezza Informatica - BASE".
 
 To have a verified digital identity, connect to
 https://signup.app.infn.it/ to self-register and to get an account on 
-INFN-AAI. Documentation on this process is available `here <https://wiki.infn.it/cn/ccr/aai/doc/rid/istruzioni/signup/1.0-ita>`__.
+INFN-AAI. Documentation (unfortunately only in Italian)
+on this process is available `here <https://wiki.infn.it/cn/ccr/aai/doc/rid/istruzioni/signup/1.0-ita>`__.
 
 After this self-registration process, connect to the INFN-AAI User Portal at 
 https://userportal.app.infn.it/ using your INFN-AAI account 
-to complete the digital identity registration. 
-Documentation is available `here <https://wiki.infn.it/cn/ccr/aai/doc/rid/istruzioni/userportal/1.2-ita#utenti>`__.
+to complete the digital identity registration. In this process you will
+have to choose where (the INFN site) you want to be identified, and
+the person that will have to approve your request.
+Documentation (unfortunately only in Italian) on this process
+is available `here <https://wiki.infn.it/cn/ccr/aai/doc/rid/istruzioni/userportal/1.2-ita#utenti>`__.
 
-You will be contacted by an INFN secretariat person for your identification.
+You will then be contacted by an INFN secretariat person for your identification.
 
 To follow the "Corso di Sicurezza Informatica - BASE", please use
-`this link <https://elearning.infn.it/course/view.php?id=105>`__.
+`this link <https://elearning.infn.it/course/view.php?id=105>`__. 
+**This course must be followed within 30 days after the registration.**
 
 
 
