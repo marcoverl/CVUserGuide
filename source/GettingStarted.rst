@@ -21,6 +21,12 @@ https://cloud-areapd.pd.infn.it/dashboard/ in a browser.
 You can now log either using the INFN-AAI credentials, the University of
 Padova Single Sign On (SSO) system, or using the username and password.
 
+.. WARNING ::
+
+   Please note that the credentials to be used here are not the one for 
+   accessing gate.cloudveneto.it
+
+
 Creating a keypair
 ------------------
 .. _CreatingAKeypair:
