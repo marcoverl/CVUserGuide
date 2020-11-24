@@ -67,8 +67,19 @@ relevant accounts on the VM adding in the /etc/passwd file:
     +name2::::::                                                                                 
     ...                                                                                          
 
-and creating their home directories.
+and creating their home directories (and changing their ownership).
+E.g.
 
+::
+
+   sudo mkdir /home/pippo
+   sudo id pippo
+
+The last command will return a string "<userid>(pippo) gid=<groupid>(utenti) groups=...." with the userid and gid to be used in the chown command:
+
+::
+
+   sudo chown -R <userid>.<groupid> /home/pippo
 
 You might also want to set a different home directory wrt the one specified in LDAP, e.g.:
 
