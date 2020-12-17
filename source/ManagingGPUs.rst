@@ -189,29 +189,6 @@ the relevant drivers.
 
 
 
-Just for reference, for the HPC-Physics project 
-we provide a CentOS7.x image (**GPU-CentOS7-INFNPadova-x86_64-<date>**) which has the
-same content of the *CentOS7x-INFNPadova-x86-64-<date>* public images, and in addition provides the CUDA 
-toolkit and the needed drivers. This image was tested with Nvidia T4 GPUs
-and with Nvidia V100 GPUs.
-
-.. WARNING ::
-
-    On a VM instantiated using this image, cuda is installed at the first boot (and its installation can 
-    take several minutes).
-    You may understand if the installation has been done if the following command:
-
-       ::
-
-          # rpm -q cuda-drivers
-
-    returns something like.
-
-       ::
-
-          cuda-drivers-440.33.01-1.x86_64
-
-    A further reboot might then be needed.
 
 
 Monitoring
