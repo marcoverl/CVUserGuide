@@ -600,6 +600,29 @@ such storage is deleted when the relevant instance is deleted (see
     If you find that a specific flavor you require is not available,
     please contact support@cloudveneto.it.
 
+Flavors with supplementary ephemeral disk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+An instance created using a flavor which has a supplementary ephemeral storage,
+usually automatically makes available this supplementary storage 
+as the /dev/vdb device, through the /mnt directory.
+Unfortunately a 'fat' file system is used, which has some problems (e.g. it
+doesn't allow the 'chown' operation). We suggest to reformat this file system
+using the xfs filesystem as soon as the machine is created:
+
+::
+
+    sudo umount /mnt
+    sudo mkfs.xfs -f /dev/vdb
+
+
+Then edit the /etc/fstab replacing 'auto' with 'xfs' for the /mnt entry. 
+You can then remount the /mnt filesystem:
+
+::
+
+   sudo umount /mnt
+
+
 Stopping and Starting VMs
 -------------------------
 VMs can be stopped and started in different ways available from the
