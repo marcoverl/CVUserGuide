@@ -126,17 +126,17 @@ pay attention to use one of these special flavors:
   8 VCPUs, 40 GB of RAM, 20 GB of ephemeral root
   disk space, 500 GB of extra ephemeral disk space.
 
-- **cloudveneto.8cores40GB20+500GB1TitanXP**
+- **cloudveneto.8cores40GB20+400GB1TitanXP**
 
   Flavor for an instance with 1 GPU Nvidia Titan Xp,
   8 VCPUs, 40 GB of RAM, 20 GB of ephemeral root
-  disk space, 500 GB of extra ephemeral disk space.
+  disk space, 400 GB of extra ephemeral disk space.
  
-- **cloudveneto.16cores80GB20+1000GB2TitanXP**
+- **cloudveneto.16cores80GB20+800GB2TitanXP**
 
   Flavor for an instance with 2 GPUs Nvidia Titan Xp,
   16 VCPUs, 80 GB of RAM, 20 GB of ephemeral root
-  disk space, 1000 GB of extra ephemeral disk space.
+  disk space, 800 GB of extra ephemeral disk space.
 
 - **cloudveneto.4cores20GB20+200GB1GeforceGtx**
 
