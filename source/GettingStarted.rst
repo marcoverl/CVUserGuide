@@ -278,15 +278,15 @@ the commands from. If you use csh rather than bash/zsh for your shell,
 you would need to create a new version using *setenv* rather than *export*.
 
 Since the CloudVeneto services are secured using SSL, you will need the
-**Digicert.pem** "certification authority" file. This file can be
-downloaded `from here. <https://raw.githubusercontent.com/CloudVeneto/CertCA/master/Digicert.pem>`__
+**CloudVenetoCAs.pem** "certification authority" file. This file can be
+downloaded `from here. <https://raw.githubusercontent.com/CloudVeneto/CertCA/master/CloudVenetoCAs.pem>`__
 
 Once you get the file you need to edit the RC file to set the
 ``OS_CACERT`` variable like this:
 
 ::
 
-    export OS_CACERT=/etc/grid-security/certificates/Digicert.pem
+    export OS_CACERT=/etc/grid-security/certificates/CloudVenetoCAs.pem
 
 .. NOTE ::
 
