@@ -102,11 +102,11 @@ pay attention to use one of these special flavors:
   360 GB of extra ephemeral
   disk space.
 
-- **cloudveneto.15cores90GB20+700GB1T4**
+- **cloudveneto.15cores90GB20+500GB1T4**
 
   Flavor for an instance with 1 GPU Nvidia T4,
   15 VCPUs, 90 GB of RAM, 20 GB of ephemeral root disk space,
-  700 GB of extra ephemeral disk space.
+  500 GB of extra ephemeral disk space.
 
 - **cloudveneto.30cores180GB20+1400GB2T4**
 
