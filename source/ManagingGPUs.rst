@@ -63,6 +63,9 @@ by the other users.
 .. image:: ./images/gpu_reserve_comment.png
    :align: center
 
+.. NOTE ::
+  Please note that a reservation can be at most 15 days long.
+
 
 To delete a reservation, you simply need to move it to the trash bin.
 
