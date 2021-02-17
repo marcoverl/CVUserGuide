@@ -125,22 +125,18 @@ E.g.:
     | gigabytes                  | 72     | 0        | 400   |
     | gigabytes_ceph             | 48     | 0        | 200   |
     | gigabytes_equallogic-unipd | 24     | 0        | 200   |
-    | gigabytes_iscsi-infnpd     | 0      | 0        | 0     |
     | per_volume_gigabytes       | 0      | 0        | 5000  |
     | snapshots                  | 0      | 0        | 10    |
     | snapshots_ceph             | 0      | 0        | -1    |
     | snapshots_equallogic-unipd | 0      | 0        | -1    |
-    | snapshots_iscsi-infnpd     | 0      | 0        | -1    |
     | volumes                    | 8      | 0        | 10    |
     | volumes_ceph               | 4      | 0        | -1    |
     | volumes_equallogic-unipd   | 4      | 0        | -1    |
-    | volumes_iscsi-infnpd       | 0      | 0        | -1    |
     +----------------------------+--------+----------+-------+
     $ 
 
 In this example the project was given 400 GB. For the ceph and
-equallogic-unipd volume types the quota is 200 GB, while it is not
-possible to create a volume using the iscsi-infnpd volume type.
+equallogic-unipd volume types the quota is 200 GB. 
 
 .. WARNING ::
     If you try to create a volume using a type for which the quota is
