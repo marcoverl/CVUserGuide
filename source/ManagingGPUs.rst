@@ -98,12 +98,6 @@ pay attention to use one of these special flavors:
   36 VCPUs, 112 GB of RAM, 20 GB of ephemeral root disk space,
   170 GB of extra ephemeral disk space.
 
-- **cloudveneto.72cores224GB20+360GB4V100**
-
-  Flavor for an instance with 4 GPU Nvidia V100,
-  72 VCPUs, 224 GB of RAM, 20 GB of ephemeral root disk space,
-  360 GB of extra ephemeral
-  disk space.
 
 - **cloudveneto.15cores90GB20+500GB1T4**
 
@@ -117,11 +111,6 @@ pay attention to use one of these special flavors:
   30 VCPUs, 180 GB of RAM, 20 GB of ephemeral root disk space,
   1400 GB of extra ephemeral disk space.
 
-- **cloudveneto.60cores360GB20+2800GB4T4**
-
-  Flavor for an instance with 4 GPUs Nvidia T4,
-  60 VCPUs, 360 GB of RAM, 20 GB of ephemeral root
-  disk space, 2800 GB of extra ephemeral disk space.
 
 - **cloudveneto.8cores40GB20+500GB1Quadro**
   
