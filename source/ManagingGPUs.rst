@@ -5,11 +5,18 @@ Managing GPUs
 CloudVeneto provides Unipd Physics Dept. and INFN Padova users with some
 GPUs (Graphics Processing Units). These are:
 
-- 4 GPU Nvidia V100
-- 4 GPU Nvidia Tesla T4
-- 1 GPU Nvidia Quadro RTX 6000 
-- 2 GPU Nvidia TITAN Xp
-- 1 GPU Nvidia GeForce GTX TITAN
+   * 4 GPU Nvidia V100
+   * 11 GPU Nvidia Tesla T4
+   * 1 GPU Nvidia Quadro RTX 6000 
+   * 2 GPU Nvidia TITAN Xp
+   * 1 GPU Nvidia GeForce GTX TITAN
+
+
+The Nvidia T4 GPUs are divided in 2 sets:
+   * the first set is composed by 4 Nvidia T4 GPUs, each one coupled with 15 
+     CPU cores; 
+   * the second set is composed by 7 Nvidia T4 GPUs, each one coupled with 8 
+     CPU cores.
 
 
 
@@ -19,8 +26,8 @@ full access and direct control of such GPU device.
 
 GPU instances, i.e. virtual machines which have access to one 
 or more GPUs can be created only from the **HPC-Physics** project.
-The only exception is  is for the T4 GPUs that are usable also from the
-**PhysicsOfData-students** project.
+The only exception is  for the 4 T4 GPUs each one coupled with 15 CPU
+cores, that are usable also from the **PhysicsOfData-students** project.
 
 So, first of all, you need to request the affiliation to such project
 (see :ref:`Apply for other projects<ApplyForOtherProjects>` for
@@ -63,16 +70,19 @@ by the other users.
 .. image:: ./images/gpu_reserve_comment.png
    :align: center
 
-.. NOTE ::
-  Please note that a reservation can be at most 15 days long.
+.. WARNING ::
+  Please note that a reservation can be at most 15 days long and you may have 
+  at most 2 active reservations for a specific GPU.
 
 
 To delete a reservation, you simply need to move it to the trash bin.
 
 
-.. WARNING ::
-  The reservation system that has been just described, is visible only to the projects
-  that have access to the GPUs (i.e. the **HPC-Physics** project and, just for the T4 GPUs,
+.. NOTE ::
+  The reservation system that has been just described, is visible only to the 
+  projects
+  that have access to the GPUs (i.e. the **HPC-Physics** project and, just 
+  for 4 T4 GPUs,
   the **PhysicsOfData-students** project)
 
 
@@ -105,11 +115,23 @@ pay attention to use one of these special flavors:
   15 VCPUs, 90 GB of RAM, 20 GB of ephemeral root disk space,
   500 GB of extra ephemeral disk space.
 
+- **cloudveneto.8cores90GB20+2000GB1T4**
+
+  Flavor for an instance with 1 GPU Nvidia T4,
+  8 VCPUs, 90 GB of RAM, 20 GB of ephemeral root disk space,
+  2000 GB of extra ephemeral disk space.
+
 - **cloudveneto.30cores180GB20+1400GB2T4**
 
   Flavor for an instance with 2 GPUs Nvidia T4,
   30 VCPUs, 180 GB of RAM, 20 GB of ephemeral root disk space,
   1400 GB of extra ephemeral disk space.
+
+- **cloudveneto.16cores180GB20+4000GB2T4**
+
+  Flavor for an instance with 2 GPUs Nvidia T4,
+  16 VCPUs, 180 GB of RAM, 20 GB of ephemeral root disk space,
+  4000 GB of extra ephemeral disk space.
 
 
 - **cloudveneto.8cores40GB20+500GB1Quadro**
@@ -214,5 +236,4 @@ Please consider the following policies when using GPU instances:
   can be deleted by the Cloud administrators.
 
 
-- Please don't reserve the GPU(s) for long (i.e > 1 week) periods.
 
