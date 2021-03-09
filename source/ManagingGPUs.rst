@@ -159,17 +159,17 @@ pay attention to use one of these special flavors:
   disk space, 200 GB of extra ephemeral disk space.
 
 .. WARNING ::
+   The ephemeral storage on these flavors is usually implemented
+   by fast (SSD/NVMe) disks which, however, don't 
+   provide a high level of reliability.
+   So please make sure that your important data are stored on persistent
+   volumes. 
+
+.. WARNING ::
    When you snapshot an instance created using one of such flavors, please
    consider that only the root disk is saved. The content of the
    extra ephemeral disk is not saved !
 
-.. WARNING ::
-
-    For historical reasons there are still some instances created
-    using flavors with a large root disk: since the size limit for images
-    and snapshots is 25 GB, such
-    instances cannot be snapshotted.
-    
 
 .. NOTE::
 
