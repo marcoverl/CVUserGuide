@@ -620,7 +620,7 @@ You can then remount the /mnt filesystem:
 
 ::
 
-   sudo umount /mnt
+   sudo mount /mnt
 
 
 Stopping and Starting VMs
