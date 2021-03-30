@@ -614,8 +614,12 @@ using the xfs filesystem as soon as the machine is created:
     sudo umount /mnt
     sudo mkfs.xfs -f /dev/vdb
 
+If the mkfs operation fails with a 'device busy' error message, 
+edit the /etc/fstab file temporarily disabling the mount of
+/mnt. Reboot the system and then retry the mkfs operation.
 
-Then edit the /etc/fstab replacing 'auto' with 'xfs' for the /mnt entry. 
+
+Finally edit the /etc/fstab replacing 'auto' with 'xfs' for the /mnt entry. 
 You can then remount the /mnt filesystem:
 
 ::
