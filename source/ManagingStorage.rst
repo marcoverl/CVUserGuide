@@ -97,11 +97,8 @@ for the volume to be created.
 
 
 .. NOTE ::
-    If you are a University of Padova user, please select the
-    **equallogic-unipd** volume type.
-
-    If you are a INFN user, please select the **ceph** volume type (the
-    default) unless you have been told by the cloud administrator to use
+    Please select the **ceph-ec** volume type (the
+    default) unless you have been told by the cloud administrators to use
     another volume type.
 
 In general different quotas for the different volume types are set.
