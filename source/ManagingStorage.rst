@@ -403,7 +403,7 @@ However it can be shared with other virtual machines of the Cloud
 
 .. NOTE ::
     Please note that this procedure can be used to mount a volume also
-    on hosts outside the Cloud: it is sufficient to specify the IP
+    on hosts outside the Cloud (but in the INFN-DFA local area network): it is sufficient to specify the IP
     address of these hosts in the /etc/exports file on the instance
     acting as NFS server.
 
