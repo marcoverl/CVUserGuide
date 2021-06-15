@@ -32,6 +32,7 @@ Contents:
    ElasticCluster
    K8sCluster
    MicroPrimers
+   FAQ
 
 Indices and tables
 ==================
