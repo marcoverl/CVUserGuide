@@ -24,6 +24,45 @@ Laboratori Nazionali di Legnaro (LNL).
 The CloudVeneto is currently based on the *Train* version of the OpenStack
 middleware.
 
+
+Who can use CloudVeneto ?
+-------------------------
+The CloudVeneto infrastructure is available to the users and collaborators
+of the following Unipd departments:
+
+* Dipartimento di Biologia
+* Dipartimento di Fisica e Astronomia
+* Dipartimento di Geoscienze
+* Dipartimento di Ingegneria Civile, Edile e Ambientale
+* Dipartimento di Ingegneria dell'Informazione
+* Dipartimento di Matematica
+* Dipartimento di Medicina Molecolare
+* Dipartimento di Scienze Biomediche
+* Dipartimento di Scienze Chimiche
+* Dipartimento di Scienze del Farmaco
+
+and INFN units:
+
+* Sezione di Padova
+* Laboratori Nazionali di Legnaro (LNL)
+
+
+Resource users and administrators
+---------------------------------
+Please note that 
+when you create a resource (e.g. a virtual machine) on CloudVeneto, you
+are then responsible to manage it.
+This means that you need to have adequate skills in using the resource
+that you create and at least basic system administration
+skills (some basics on Linux administration are presented in 
+:ref:`Some basics on Linux administration<linuxbasics>`).
+
+If you don't have such system administration skills, you may want to
+ask a colleague to create and manage the needed resources.
+
+
+
+
 Projects
 --------
 .. _projects:
