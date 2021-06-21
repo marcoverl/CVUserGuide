@@ -14,8 +14,7 @@ section before applying for an account on the CloudVeneto infrastructure.
 
 Prerequisites for using INFN resources
 --------------------------------------
-Users who need to use INFN IT resources (i.e. users willing to be member of
-an INFN project) must:
+Users who need to use INFN IT resources must:
 
 - have a verified digital identity (LoA2) on INFN-AAI;
 - declare to have read and accepted the INFN rules for the use of IT resources;
@@ -39,6 +38,14 @@ You will then be contacted by an INFN secretariat person for your identification
 To follow the "Corso di Sicurezza Informatica - BASE", please use
 `this link <https://elearning.infn.it/course/view.php?id=105>`__.
 **This course must be followed within 30 days after the registration.**
+
+
+.. NOTE::
+
+   These rules apply to users willing to be member of an INFN project, but 
+   also
+   to users who want to join a Physics Dept. related project using a
+   10.64.x.0/24 network (since this is a INFN network).
 
 
 Apply for an account
