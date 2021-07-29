@@ -34,6 +34,7 @@ The deployment environment requires:
 -  Ansible 2.5.0+ (on the user client)
 
 -  Ubuntu 18.04 (for master and node images)
+   These Ansible playbooks have only been tested on Ubuntu 18.04, so we do not guarantee the correct Kubernetes deployment on different Ubuntu versions or Linux distributions.
 
 -  2 CPUs or more per machine, 2 GB or more of RAM per machine (any less will leave little room for your apps)
 
