@@ -64,9 +64,8 @@ Prerequisites
    use, as explained in :ref:`Accessing the Cloud through the euca2ools EC2 command line tools<AccessingtheCloudthroughEC2>`. 
 
 -  You need to identify the image to be used for the master and for the
-   slaves. Currently supported operating systems are RHEL6.x and
-   derivates (SL6.x, CentOS6.x, etc.), RHEL7.x and derivates and Ubuntu.
-   uCernVM based images are also supported. 
+   slaves. Currently supported operating systems are RHEL7 and derivates (CentOS7.x) and Ubuntu (Ubuntu-bionic and Ubuntu-xenial).
+   uCernVM based images are also supported (based on cernvm4-micro-2020.04). 
 
    For such image you need
    to know the relevant EC2 (AMI) id (see :ref:`How to find the EC2 (AMI) id of an image<HowToFindAMIID>`).
