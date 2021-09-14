@@ -528,11 +528,29 @@ configuration:
   host_base = cloud-areapd.pd.infn.it:5210
   host_bucket = cloud-areapd.pd.infn.it:5210
   use_https = true
+  ca_certs_file = /etc/grid-security/certificates/CloudVenetoCAs.pem
   access_key = <your EC2 access key>
   secret_key = <your EC2 secret key>
 
 To find your EC2 credentials, in the Dashboard go to **Project** |rarr| 
 **API Access** and then click on **View Credentials**.
+
+
+The ****CloudVenetoCAs.pem** file (referred by the **ca_certs_file** variable in the
+configuration file)
+is needed because the 
+CloudVeneto services are secured using SSL.
+This file can be
+downloaded `from here. <https://raw.githubusercontent.com/CloudVeneto/CertCA/master/CloudVenetoCAs.pem>`__
+
+
+.. NOTE ::
+
+    The certificate can be put anywhere on the client as long as the
+    path you specify is consistent.
+
+
+
 
 
 To create a bucket in the Object Storage service, you can use s3cmd with the 
