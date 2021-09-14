@@ -525,8 +525,8 @@ s3cmd is a convenient command-line tool that can be used.
 First of all you need to create a $HOME/.s3cfg file, that requires the following 
 configuration:
 ::
-  host_base = cloud-areapd.pd.infn.it:5210
-  host_bucket = cloud-areapd.pd.infn.it:5210
+  host_base = rgw-cloud.pd.infn.it:443
+  host_bucket = rgw-cloud.pd.infn.it:443
   use_https = true
   ca_certs_file = /etc/grid-security/certificates/CloudVenetoCAs.pem
   access_key = <your EC2 access key>
