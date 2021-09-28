@@ -606,7 +606,7 @@ Once a bucket is empty, you can remove it with the 'rb' s3cmd command:
 Bucket Access Management
 """"""""""""""""""""""""
 The CloudVeneto object system supports a subset of the Amazon S3 policy language as documented
-`here < https://docs.ceph.com/en/latest/radosgw/bucketpolicy/>`__.
+`here <https://docs.ceph.com/en/latest/radosgw/bucketpolicy/>`__.
 
 S3 bucket policy allows you to grant access to your bucket to other projects.
 
