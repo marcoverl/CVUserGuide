@@ -602,6 +602,10 @@ such storage is deleted when the relevant instance is deleted (see
 
 Flavors with supplementary ephemeral disk
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _FlavorsWithSupEpDisk:
+
+
+
 An instance created using a flavor which has a supplementary ephemeral storage,
 usually automatically makes available this supplementary storage 
 as the /dev/vdb device, through the /mnt directory.

@@ -536,7 +536,7 @@ To find your EC2 credentials, in the Dashboard go to **Project** |rarr|
 **API Access** and then click on **View Credentials**.
 
 
-The ****CloudVenetoCAs.pem** file (referred by the **ca_certs_file** variable in the
+The **CloudVenetoCAs.pem** file (referred by the **ca_certs_file** variable in the
 configuration file)
 is needed because the 
 CloudVeneto services are secured using SSL.
@@ -599,7 +599,21 @@ Once a bucket is empty, you can remove it with the 'rb' s3cmd command:
     As said above, containers (buckets) and their objects are owned by the 
     project, and not by the individual who created them.
     If this is a problem, it is possible to have a personal object storage
-    account, usable through the S3 interface.
+    account, usable through the S3 interface. Please contact 
+    support@cloudveneto.it if you have such requirement.
+
+
+Bucket Access Management
+""""""""""""""""""""""""
+The CloudVeneto object system supports a subset of the Amazon S3 policy language as documented
+`here < https://docs.ceph.com/en/latest/radosgw/bucketpolicy/>`__.
+
+S3 bucket policy allows you to grant access to your bucket to other projects.
+
+
+.. WARNING ::
+    Bucket policies can get quite large, note that there is a 20 kB size limit per policy.
+
 
 
 Accessing storage external to the Cloud
@@ -609,4 +623,4 @@ As explained in :ref:`Network Access<NetworkAccess>`, from an instance of the Cl
 possible to access a host/service hosted in INFN Padova or Legnaro. This
 also means that by default on a virtual machine of the CloudVeneto it is
 not possible to mount a file system exported from a storage server
-hosted in INFN Padova or Legnaro.
+hosted in INFN Padova or Legnaro. 

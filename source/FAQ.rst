@@ -37,4 +37,7 @@ Frequently Asked Questions
 
 -----------------------------------------------------
 
+- I am using an image which has a supplementary ephemeral disk, but I not able to change ownership / mode of a directory
 
+  SOLUTION: A ‘fat’ file system is used for the supplementary ephemeral disk. We suggest to reformat this file system as described in
+  :ref:`Flavors with supplementary ephemeral disk <FlavorsWithSupEpDisk>`.    
