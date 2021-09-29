@@ -609,10 +609,18 @@ The CloudVeneto object system supports a subset of the Amazon S3 policy language
 `here <https://docs.ceph.com/en/latest/radosgw/bucketpolicy/>`__.
 
 S3 bucket policy allows you to grant access to your bucket to other projects.
+Please note that it is only possible to grant access right at the OpenStack project level: it is not 
+possible to grant access right directly to a specific Openstack user.
+
+
+Suppose that you are the owner of a bucket, and you want to share it in read only mode to everyone.
+To implement such use case TBC
+
 
 
 .. WARNING ::
     Bucket policies can get quite large, note that there is a 20 kB size limit per policy.
+
 
 
 
