@@ -613,9 +613,162 @@ Please note that it is only possible to grant access right at the OpenStack proj
 possible to grant access right directly to a specific Openstack user.
 
 
-Suppose that you are the owner of a bucket, and you want to share it in read only mode to everyone.
-To implement such use case TBC
+Suppose that you belong to a OpenStack project called 'AdminTesting'
+(Openstack project id: b38a0dab349e42bdbb469274b20a91b4) and you are
+the owner of a bucket called 'bucket1', and you want to share it in read only 
+mode to everyone.
+To implement such use case prepare a policy file called e.g. example1.json:
 
+::
+
+  {
+   "Version": "2012-10-17",
+   "Id": "read-only",
+   "Statement": [
+     {
+       "Sid": "project-read",
+       "Effect": "Allow",
+       "Principal": {
+         "AWS": "*"
+       },
+       "Action": [
+         "s3:ListBucket",
+         "s3:GetObject"
+       ],
+       "Resource": [
+         "arn:aws:s3:::*"
+       ]
+     }
+   ]
+  }
+
+
+Then, as bucket's owner, uses the s3cmd command to apply the policy on the 
+bucket:
+
+::
+
+  $ s3cmd -c s3-AdminTesting.cfg setpolicy example1.json s3://bucket1
+  s3://bucket1/: Policy updated
+  $ 
+
+You can then check the policies defined for your bucket:
+
+::
+
+  $ s3cmd -c s3-AdminTesting.cfg info s3://bucket1
+  s3://bucket1/ (bucket):
+     Location:  cloudprod
+     Payer:     BucketOwner
+     Expiration Rule: none
+     Policy:    {
+   "Version": "2012-10-17",
+   "Id": "read-only",
+   "Statement": [
+     {
+       "Sid": "project-read",
+       "Effect": "Allow",
+       "Principal": {
+         "AWS": "*"
+       },
+       "Action": [
+         "s3:ListBucket",
+         "s3:GetObject"
+       ],
+       "Resource": [
+         "arn:aws:s3:::*"
+       ]
+     }
+   ]
+  }
+     CORS:      none
+     ACL:       AdminTesting: FULL_CONTROL
+  $ 
+
+Now users belonging to other projects can read the content of your bucket:
+
+::
+
+  $ s3cmd -c s3-AstroCosmo.cfg ls s3://b38a0dab349e42bdbb469274b20a91b4:bucket1
+  2021-09-30 05:22         1285  s3://b38a0dab349e42bdbb469274b20a91b4:bucket1/dracut.conf
+  2021-09-30 05:22            0  s3://b38a0dab349e42bdbb469274b20a91b4:bucket1/exports
+  $
+
+  $ s3cmd -c s3-Magic.cfg ls s3://b38a0dab349e42bdbb469274b20a91b4:bucket1
+  2021-09-30 05:22         1285  s3://b38a0dab349e42bdbb469274b20a91b4:bucket1/dracut.conf
+  2021-09-30 05:51            0  s3://b38a0dab349e42bdbb469274b20a91b4:bucket1/exports
+  $
+   
+  $ s3cmd -c s3-AstroCosmo.cfg get s3://b38a0dab349e42bdbb469274b20a91b4:bucket1/dracut.conf
+  download: 's3://b38a0dab349e42bdbb469274b20a91b4:bucket1/dracut.conf' -> './dracut.conf'  [1 of 1]
+   1285 of 1285   100% in    0s     2.08 KB/s  done
+  $
+
+
+Suppose now that you belong to a OpenStack project called 'AdminTesting'
+(Openstack project id: b38a0dab349e42bdbb469274b20a91b4) and you are
+the owner of a bucket called 'bucket2', and you want to share it in read only 
+mode only to members of of OpenStack project called 'AstroCosmo' (Openstack
+project id: 3d0ab98b833043cb9ab94e6c9f2bdd19).
+
+To implement such use case prepare a policy file called e.g. example2.json:
+
+::
+
+  {
+   "Version": "2012-10-17",
+   "Id": "read-only",
+   "Statement": [
+     {
+       "Sid": "project-read",
+       "Effect": "Allow",
+       "Principal": {
+         "AWS": "arn:aws:iam::3d0ab98b833043cb9ab94e6c9f2bdd19:root"
+       },
+       "Action": [
+         "s3:ListBucket",
+         "s3:GetObject"
+       ],
+       "Resource": [
+         "arn:aws:s3:::*"
+       ]
+     }
+   ]
+  }
+
+Then, as bucket's owner, uses the s3cmd command to apply the policy on the 
+bucket:
+
+::
+
+  $ s3cmd -c s3-AdminTesting.cfg setpolicy example2.json s3://bucket2
+  s3://bucket2/: Policy updated
+  $ 
+
+
+Users belonging to 'AstroCosmo' project can now read the content of your 
+bucket:
+
+::
+
+  $ s3cmd -c s3-AstroCosmo.cfg ls s3://b38a0dab349e42bdbb469274b20a91b4:bucket2
+  2021-09-30 05:52          235  s3://b38a0dab349e42bdbb469274b20a91b4:bucket2/hosts
+  2021-09-30 05:52          345  s3://b38a0dab349e42bdbb469274b20a91b4:bucket2/my.cnf
+  $ 
+
+
+while users of other projects can't:
+
+::
+
+  $ s3cmd -c s3-Magic.cfg ls s3://b38a0dab349e42bdbb469274b20a91b4:bucket2
+  ERROR: Access to bucket 'b38a0dab349e42bdbb469274b20a91b4:bucket2' was denied
+  ERROR: S3 error: 403 (AccessDenied)
+  $ 
+
+
+.. NOTE ::
+    To get the OpenStack project ID, using the Dashboard, click on **Project** |rarr| **API Access** and then **View Credentials**. 
 
 
 .. WARNING ::
