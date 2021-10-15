@@ -846,7 +846,7 @@ To implement such use case prepare a policy file called e.g. example4.json:
        "Sid": "project-read",
        "Effect": "Allow",
        "Principal": {
-          "AWS": "arn:aws:iam:::user/sgaravat"
+         "AWS": "arn:aws:iam::3d0ab98b833043cb9ab94e6c9f2bdd19:root"
        },
        "Action": [
          "s3:ListBucket",
