@@ -767,6 +767,69 @@ while users of other projects can't:
   $ 
 
 
+The object storage service supports also "personal accounts" besides
+the ones related to OpenStack projects.
+Suppose that you belong to an OpenStack project called 'AdminTesting'
+(Openstack project id: b38a0dab349e42bdbb469274b20a91b4) and you are
+the owner of a bucket called 'bucket3', and you want to share it in read only 
+mode only to the "personal account" 'sgaravat'.
+
+To implement such use case prepare a policy file called e.g. example3.json:
+
+::
+
+  {
+   "Version": "2012-10-17",
+   "Id": "read-only",
+   "Statement": [
+     {
+       "Sid": "project-read",
+       "Effect": "Allow",
+       "Principal": {
+          "AWS": "arn:aws:iam:::user/sgaravat"
+       },
+       "Action": [
+         "s3:ListBucket",
+         "s3:GetObject"
+       ],
+       "Resource": [
+         "arn:aws:s3:::*"
+       ]
+     }
+   ]
+  }
+
+Then, as bucket's owner, uses the s3cmd command to apply the policy on the 
+bucket:
+
+::
+
+  $ s3cmd -c s3-AdminTesting.cfg setpolicy example3.json s3://bucket3
+  s3://bucket3/: Policy updated
+  $ 
+
+
+User 'sgaravat' can now now read the content of such bucket:
+
+::
+
+  $ s3cmd -c s3-sgaravat.cfg ls s3://b38a0dab349e42bdbb469274b20a91b4:bucket3
+  2021-10-15 05:01         1023  s3://b38a0dab349e42bdbb469274b20a91b4:bucket3/nfs.conf
+  2021-10-15 05:01         1746  s3://b38a0dab349e42bdbb469274b20a91b4:bucket3/nsswitch.conf
+  $ 
+
+
+while other users can't:
+
+::
+
+  $ s3cmd -c s3-Magic.cfg ls s3://b38a0dab349e42bdbb469274b20a91b4:bucket3
+  ERROR: Access to bucket 'b38a0dab349e42bdbb469274b20a91b4:bucket3' was denied
+  ERROR: S3 error: 403 (AccessDenied)
+  $ 
+
+
+
 .. NOTE ::
     To get the OpenStack project ID, using the Dashboard, click on **Project** |rarr| **API Access** and then **View Credentials**. 
 
