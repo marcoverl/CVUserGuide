@@ -829,6 +829,65 @@ while other users can't:
   $ 
 
 
+Suppose now that you have a "personal account", and you are
+the owner of a bucket called 'bucket4', and you want to share it in read only 
+mode only to members of of OpenStack project called 'AstroCosmo' (Openstack
+project id: 3d0ab98b833043cb9ab94e6c9f2bdd19).
+
+To implement such use case prepare a policy file called e.g. example4.json:
+
+::
+
+  {
+   "Version": "2012-10-17",
+   "Id": "read-only",
+   "Statement": [
+     {
+       "Sid": "project-read",
+       "Effect": "Allow",
+       "Principal": {
+          "AWS": "arn:aws:iam:::user/sgaravat"
+       },
+       "Action": [
+         "s3:ListBucket",
+         "s3:GetObject"
+       ],
+       "Resource": [
+         "arn:aws:s3:::*"
+       ]
+     }
+   ]
+  }
+
+Then, as bucket's owner, uses the s3cmd command to apply the policy on the 
+bucket:
+
+::
+
+  $ s3cmd -c s3-sgaravat.cfg setpolicy example4.json s3://bucket4
+  s3://bucket4/: Policy updated
+  $ 
+
+
+Members of project AstroCosmo can now now read the content of such bucket:
+
+::
+
+  $ s3cmd -c s3-AstroCosmo.cfg ls s3://:bucket4
+  2021-10-15 11:51          524  s3://:bucket4/auto.misc
+  2021-10-15 11:51        21929  s3://:bucket4/brltty.conf
+  $
+
+
+while other users can't:
+
+::
+
+  $ s3cmd -c s3-Magic.cfg ls s3://:bucket4
+  ERROR: Access to bucket ':bucket4' was denied
+  ERROR: S3 error: 403 (AccessDenied)
+
+
 
 .. NOTE ::
     To get the OpenStack project ID, using the Dashboard, click on **Project** |rarr| **API Access** and then **View Credentials**. 
