@@ -94,7 +94,9 @@ Network access
 --------------
 .. _NetworkAccess:
 
-Cloud instances are by default “visible” from the Local Area Networks (LANs) of
+Cloud instances are by default instantiated on private networks.
+The ones created on INFN projects
+are by default “visible” from the Local Area Networks (LANs) of
 both INFN Padova/Unipd Physics Dept. and INFN-LNL. This means that e.g. users can access via ssh
 VMs of the Cloud directly from their desktops located in INFN 
 Padova/Physics Dept. or
@@ -102,8 +104,8 @@ INFN Legnaro. It is then possible to control which services/ports can be
 accessed using the security groups (discussed later) and firewalls on
 the relevant VMs.
 
-If it is necessary to log on a VM of the Cloud from a location different
-than INFN Padova/Physics Dept. and INFN Legnaro, it is necessary to go 
+To access Cloud virtual machines instantiated on Unipd projects it is
+instead necessary to go 
 through a gate machine.
 A Cloud specific gate host (*gate.cloudveneto.it*) can be used.
 
