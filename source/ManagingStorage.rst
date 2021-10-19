@@ -43,10 +43,18 @@ flavor with an ephemeral disk size different from zero, the instance is
 booted with an extra virtual disk (besides the root disk) whose size is 
 indicated by the
 ephemeral value. 
-Please note that, when snapshotting a virtual machine instantiated using
-a flavor with the supplementary ephemeral disk, the content of such
-extra disk won't be saved: only the content of the
-root disk will be snapshotted.
+
+.. WARNING ::
+    Please note that, when snapshotting a virtual machine instantiated using
+    a flavor with the supplementary ephemeral disk, the content of such
+    extra disk won't be saved: only the content of the
+    root disk will be snapshotted.
+
+
+Please see 
+:ref:`Flavors with supplementary ephemeral disk<FlavorsWithSupEpDisk>` for 
+other information related to supplementary ephemeral
+disk.
 
 
 .. WARNING ::
