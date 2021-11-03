@@ -338,6 +338,8 @@ If, instead, you want to reject the request, select **Reject** in **Actions**.
     A user belonging to multiple projects can have different expiration
     dates for the different projects he/she belongs to.
 
+
+
 Administer project members (only for project managers)
 ------------------------------------------------------
 If you are the manager of a project, you can list the members of your
@@ -391,6 +393,27 @@ represented in the following image will appear:
 
 
 Set the new expiration date and then click the **OK** button.
+
+
+Send a message to project members (only for project managers)
+---------------------------------------------------
+If you are the manager of a project, you can send a message (that will 
+be delivered via e-mail) to all members of your project.
+
+Please go to **Identity** |rarr| **Project Members** on the left hand menu
+and click on **Send Message**.
+
+.. image:: ./images/send_message.png
+   :align: center
+
+Fill the 'Message' form with the text that you want to send, and then click
+**Submit**.
+
+
+.. image:: ./images/send_message_form.png
+   :align: center
+
+
 
 Expired users
 -------------
