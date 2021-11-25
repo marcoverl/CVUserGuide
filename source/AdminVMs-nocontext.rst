@@ -124,7 +124,7 @@ to access to the console of the VM.
     using their IP numbers.
 
     For Virtual Machines supposed to have a long life, INFN Padova users
-    may ask (contacting supporto@pd.infn.it) to have them registered in
+    may ask (contacting pd-support AT pd.infn.it) to have them registered in
     the DNS. If possible (i.e. if the chosen names are sensible enough
     and if there are no ambiguities) the registered names in the DNS
     will be the same as the ones chosen as Instance names.

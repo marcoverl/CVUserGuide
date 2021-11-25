@@ -114,7 +114,7 @@ the Cloud keypair, considering the 'root' account, e.g.:
 
     `INFN-Padova computing and Network
     service <https://www.pd.infn.it/eng/computing-and-networking/>`__
-    (supporto@pd.infn.it) can provide support only for instances created
+    (pd-support AT pd.infn.it) can provide support only for instances created
     using such images (only to INFN-Padova users).
 
 
