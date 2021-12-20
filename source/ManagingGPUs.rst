@@ -134,6 +134,13 @@ pay attention to use one of these special flavors:
   4000 GB of extra ephemeral disk space.
 
 
+- **cloudveneto.32cores360GB20+8000GB4T4**
+  
+  Flavor for an instance with 4 GPUs Nvidia T4,
+  32 VCPUs, 360 GB of RAM, 20 GB of ephemeral root disk space,
+  8000 GB of extra ephemeral disk space.
+
+
 - **cloudveneto.8cores40GB20+500GB1Quadro**
   
   Flavor for an instance with 1 GPU Nvidia Quadro RTX 6000,
