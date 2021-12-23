@@ -229,6 +229,8 @@ Policies
 Please consider the following policies when using GPU instances:
 
 
+- GPU enabled flavors must be used **only** when a GPU is needed
+
 - Since there is a high request to use GPUs, please **delete** your
   instance as soon as you don't need it anymore. 
   This is because virtual machines, even if 
@@ -243,4 +245,5 @@ Please consider the following policies when using GPU instances:
   can be deleted by the Cloud administrators.
 
 
-
+- The project HPC-Physics must be used **only** to instantiate virtual
+  machines with GPUs.
