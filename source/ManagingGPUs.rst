@@ -70,9 +70,15 @@ by the other users.
 .. image:: ./images/gpu_reserve_comment.png
    :align: center
 
+
 .. WARNING ::
   Please note that a reservation can be at most 15 days long and you may have 
   at most 2 active reservations for a specific GPU.
+
+
+.. NOTE ::
+  There must be a match between the username reported in the reservation and the username of the relevant virtual machine.
+  Therefore the reservation must be done by the same user that will then create the virtual machine.
 
 
 To delete a reservation, you simply need to move it to the trash bin.
