@@ -29,6 +29,13 @@ or more GPUs can be created only from the **HPC-Physics** project.
 The only exception is  for the 4 T4 GPUs each one coupled with 15 CPU
 cores, that are usable also from the **PhysicsOfData-students** project.
 
+.. WARNING::
+  Please note that the members of the **PhysicsOfData-students** project have the priority on the
+  4 T4 GPUs each one coupled with 15 CPU cores.
+  Other users can use such GPUs, but they must be released within 2 days if requested by other users with higher priority.
+
+
+
 So, first of all, you need to request the affiliation to such project
 (see :ref:`Apply for other projects<ApplyForOtherProjects>` for
 the relevant instructions).
@@ -79,6 +86,12 @@ by the other users.
 .. NOTE ::
   There must be a match between the username reported in the reservation and the username of the relevant virtual machine.
   Therefore the reservation must be done by the same user that will then create the virtual machine.
+
+
+.. WARNING::
+  Please note that the members of the **PhysicsOfData-students** project have the priority on the
+  4 T4 GPUs each one coupled with 15 CPU cores.
+  Other users can use such GPUs, but they must be released within 2 days if requested by other users with higher priority.
 
 
 To delete a reservation, you simply need to move it to the trash bin.
