@@ -619,7 +619,8 @@ using the xfs filesystem as soon as the machine is created:
     sudo mkfs.xfs -f /dev/vdb
 
 If the mkfs operation fails with a 'device busy' error message, 
-edit the /etc/fstab file temporarily disabling the mount of
+edit the /etc/fstab file temporarily disabling (i.e. commenting-out) 
+the mount of
 /mnt. Reboot the system and then retry the mkfs operation.
 
 
