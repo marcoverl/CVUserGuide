@@ -649,12 +649,7 @@ VMs can be stopped and started in different ways available from the
     **Shut Off Instance** actions are chosen, there could be problems with networking
     when the VM is later restarted.
 
-**Pause Instance/Unpause Instance** allows for temporary suspension of the VM. The VM is kept
-in memory but it is not allocated any CPU time.
 
-**Suspend Instance/Resume Instance** stores the VM onto disk and recovers it later. This is
-faster than stop/start and the VM returns to the status is was when the
-suspend was performed as opposed to a new boot cycle.
 
 Contextualisation
 -----------------
@@ -771,6 +766,8 @@ On Internet a lot of documentation (along with examples) is available on
 cloud-init, such as in the `Ubuntu
 Documentation <https://help.ubuntu.com/community/CloudInit>`__.
 
+
+
 Resizing Virtual Machines
 -------------------------
 If the size of a virtual machine needs to be changed, such as adding
@@ -811,6 +808,28 @@ To resize a VM using the graphical Interface:
 
 The status will then change to 'Active' once completed.
 
+
+Suspending Virtual Machines
+---------------------------
+.. _SuspendingVMs:
+
+To suspend an instance, from the **Compute** |rarr| **Instances** table select the desired VM and click
+**Suspend Instance** on the **Actions** menu.
+
+When you suspend an instance, the state of the VM is stored on disk.
+
+To resume a suspended instance, from the **Compute** |rarr| **Instances** table select the desired VM and click
+**Resume Instance** on the **Actions** menu.
+
+
+.. NOTE ::
+   When you suspend a VM, the resources dedicated to the instance are still reserved and therefore are not usable by other users.
+
+
+
+
+
+
 Snapshotting Virtual Machines
 -----------------------------
 .. _SnapshottingVMs:
@@ -849,6 +868,39 @@ To save a snapshot of your VM:
 
 .. NOTE ::
    In CloudVeneto snapshot size is limited to 25 GB.
+
+
+Shelving Virtual Machines
+-------------------------
+.. _ShelvingVMs:
+
+The shelve functionality allows to suspend an instance. 
+The data on the **root disk** of the VM will be stored in a snapshot automatically created once the instance is shelved. 
+Data stored in the memory and elsewhere will not be retained.
+
+This option allows you to release the resources dedicated to the instance, which are therefore usable by other users.
+
+To shelve your VM:
+
+-  **Shutdown your VM**: Log in as root to your VM. Please DO NOT
+   shutdown the VM from the Openstack dashboard to make sure all data
+   are correctly flushed on disk. Issue the *shutdown -h now* or *poweroff* command;
+
+-  From the **Compute** |rarr| **Instances** table select the desired VM and click
+   **Shelve Instance** on the **Actions** menu.
+
+
+.. WARNING ::
+   Only the content of the 'root disk' is saved when you shelve a VM. 
+   So if the instance was created using a flavor that has a supplementary ephemeral disk, the content of such disk 
+   is NOT saved.
+
+
+When you need to use again a shelved instance, you need to unshelve it.
+From the **Compute** |rarr| **Instances** table select the desired VM and click
+**Unshelve Instance** on the **Actions** menu.
+
+
 
 Deleting Virtual Machines
 -------------------------
