@@ -864,7 +864,7 @@ To save a snapshot of your VM:
 .. WARNING ::
    Only the content of the 'root disk' is saved when you do a snapshot. 
    So if the instance was created using a flavor that has a supplementary ephemeral disk, the content of such disk 
-   is NOT saved when snapshotting.
+   is NOT saved and will be lost when snapshotting.
 
 .. NOTE ::
    In CloudVeneto snapshot size is limited to 25 GB.
@@ -893,7 +893,7 @@ To shelve your VM:
 .. WARNING ::
    Only the content of the 'root disk' is saved when you shelve a VM. 
    So if the instance was created using a flavor that has a supplementary ephemeral disk, the content of such disk 
-   is NOT saved.
+   is NOT saved and will be lost.
 
 
 When you need to use again a shelved instance, you need to unshelve it.

@@ -184,15 +184,9 @@ pay attention to use one of these special flavors:
   4 VCPUs, 20 GB of RAM, 20 GB of ephemeral root
   disk space, 200 GB of extra ephemeral disk space.
 
-.. WARNING ::
-   The ephemeral storage on these flavors is usually implemented
-   by fast (SSD/NVMe) disks which, however, don't 
-   provide a high level of reliability.
-   So please make sure that your important data are stored on persistent
-   volumes. 
 
 .. WARNING ::
-   When you snapshot an instance created using one of such flavors, please
+   When you snapshot or shelve an instance created using one of such flavors, please
    consider that only the root disk is saved. The content of the
    extra ephemeral disk is not saved !
 
@@ -203,8 +197,32 @@ pay attention to use one of these special flavors:
    the reservation system described in the :ref:`previous section<ReservingGpu>`.
  
 
+Storage for GPU instances
+-------------------------
+
+Flavors for GPU instances have a 20-25 GB ephemeral root disk.
+
+Usually there is also a larger supplementary ephemeral disk
+(see :ref:`here<FlavorsWithSupEpDisk>` for more information) that can be used if 
+more fast disk space is needed.
+This ephemeral storage is in fact usually implemented
+by fast (SSD/NVMe) disks, usually faster with respect than 
+persistent volumes.
+
+However this ephemeral storage doesn't provide a high level of reliability.
+So please make sure that your important data are stored on persistent
+volumes (see :ref:`Volumes<volumes>`). 
+
+
+.. WARNING ::
+   Only the content of the 'root disk' is saved when you do a snapshot or a shelve of a VM.
+   So if the instance was created using a flavor that has a supplementary ephemeral disk, the content of such disk
+   is NOT saved and will be lost.
+
+
+
 Images for GPU instances
-^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 You are responsible to create the image to be used (see 
 :ref:`User Provided Images <userprovidedimages>` and 
@@ -229,6 +247,24 @@ the relevant drivers.
 
 
 
+What do do when your reservation expires
+-----------------------------------------
+When your reservation for a GPU expires, you need to release it so that it can be used by other users.
+
+Possible options are:
+
+  * Deleting the instance  
+  * Shelving the instance (see :ref:`Shelving Virtual Machines<ShelvingVMs>`)
+
+The second option is useful if you need to use that VM again in the near future.
+
+
+.. WARNING ::
+   Only the content of the 'root disk' is saved when you do a shelve (or a snapshot) of a VM.
+   So if the instance was created using a flavor that has a supplementary ephemeral disk, the content of such disk
+   is NOT saved and will be lost.
+
+
 
 
 Monitoring
@@ -250,7 +286,7 @@ Please consider the following policies when using GPU instances:
 
 - GPU enabled flavors must be used **only** when a GPU is needed
 
-- Since there is a high request to use GPUs, please **delete** your
+- Since there is a high request to use GPUs, please delete or shelve your
   instance as soon as you don't need it anymore. 
   This is because virtual machines, even if 
   idle or in shutdown state, allocate resources (GPUs in particular) which 
