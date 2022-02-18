@@ -40,5 +40,4 @@ by this problem, the instructions reported
 Orchestrating containers
 ------------------------
 If you need to orchestrate multiple containers, we suggest to use Kubernetes (K8S), which is the most popular container orchestrator.
-Chapter :ref:`Creating Kubernetes Clusters on the Cloud<CreatingK8s>` explains how to deploy a Kubernetes cluster on the Cloud.
 

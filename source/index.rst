@@ -30,7 +30,6 @@ Contents:
    Orchestration
    ManagingImages
    ElasticCluster
-   K8sCluster
    MicroPrimers
    FAQ
 
