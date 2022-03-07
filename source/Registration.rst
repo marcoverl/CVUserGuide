@@ -8,9 +8,12 @@ To be able to use the CloudVeneto service, first of all you need to
 apply for an account. The procedure to be followed is described in this
 chapter.
 
-Users who need to use INFN IT resources (i.e. users willing to be member of
-an INFN project) must met the prerequisites specified in the following
+Users who need to use INFN IT resources 
+must met the prerequisites specified in the following
 section before applying for an account on the CloudVeneto infrastructure.
+This always applies to users willing to be member of an INFN project, but also to some Unipd 
+projects which use some INFN resources (e.g. the network).
+
 
 Prerequisites for using INFN resources
 --------------------------------------
@@ -44,13 +47,14 @@ To follow the "Corso di Sicurezza Informatica - BASE", please use
 
    These rules apply to users willing to be member of an INFN project, but 
    also
-   to users who want to join a Physics Dept. related project using a
+   to users who want to join a Unipd Physics Dept. related project using a
    10.64.x.0/24 network (since this is a INFN network).
 
 
 Apply for an account
 --------------------
 
+QUI
 The registration procedure in the cloud is managed through the Horizon
 Openstack web service interface.
 

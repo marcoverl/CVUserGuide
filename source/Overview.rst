@@ -9,15 +9,15 @@ It allows the
 instantiation of Virtual Machines (VMs) of the desired environments (in
 terms of operating system, installed software, etc.) and of the desired
 flavors (in terms of processors, memory size, etc.).
-It also provides storage volumes that can be attached to such virtual 
-instances.
+It also provides storage: block storage (volumes that can be attached to such virtual 
+instances) and object storage.
 
 CloudVeneto also offers higher level services, such as the orchestration of
-multiple resources, the instantiation of elastic batch systems, the
+multiple resources, the
 provision of Kubernetes clusters, etc.
 
 Even if it is a single, logical Cloud service, its resources are spread
-in two different locations: Padova (INFN Padova - University of Padova's
+in two different data centers: Padova (INFN Padova - University of Padova's
 "Dipartimento di Fisica e Astronomia"), and INFN
 Laboratori Nazionali di Legnaro (LNL).
 
@@ -28,7 +28,7 @@ middleware.
 Who can use CloudVeneto ?
 -------------------------
 The CloudVeneto infrastructure is available to the users and collaborators
-of the following Unipd departments:
+of the following Departments of the University of Padova:
 
 * Dipartimento di Biologia
 * Dipartimento di Fisica e Astronomia
