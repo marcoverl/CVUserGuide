@@ -21,7 +21,7 @@ in two different locations: Padova (INFN Padova - University of Padova's
 "Dipartimento di Fisica e Astronomia"), and INFN
 Laboratori Nazionali di Legnaro (LNL).
 
-The CloudVeneto is currently based on the *Train* version of the OpenStack
+The CloudVeneto is currently based on the *Xena* version of the OpenStack
 middleware.
 
 
