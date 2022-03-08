@@ -324,7 +324,6 @@ Accessing the Cloud through the euca2ools EC2 command line tools
 ----------------------------------------------------------------
 .. _AccessingtheCloudthroughEC2:
 
-QUI
 The CloudVeneto also exposes a AWS EC2 compatible interface, which is one
 of the de-facto standard for computational clouds.
 
@@ -399,13 +398,4 @@ To test it, you can e.g. try the following:
     INSTANCEi-e93ef61cami-2cfcb026dasgara1-2running1m1.tiny2018-01-16T08:36:44Znova10.1.1.11instance-storesg-3896bec1
     $ 
 
-.. WARNING ::
-
-    For some euca2ools distributions sourcing the ec2rc.sh script is not
-    enough. You need to explictly specify access and secret keys and the
-    endpoint with the relevant command line options, e.g.:
-
-    ::
-
-        $ euca-describe-instances -I ${EC2_ACCESS_KEY} -S ${EC2_SECRET_KEY} -U ${EC2_URL}
 

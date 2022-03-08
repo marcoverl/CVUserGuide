@@ -6,7 +6,7 @@
 
 Managing Virtual Machines
 =========================
-
+QUI
 .. IMPORTANT ::
 
     Virtual machines, even if idle or in shutdown state, allocate resources which therefore aren't
