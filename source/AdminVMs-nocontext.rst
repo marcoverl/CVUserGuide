@@ -21,12 +21,15 @@ Creating Virtual Machines
 -------------------------
 .. _creatingvms:
 
-To create a Virtual Machine (VM) using the dashboard, you need to have
-already logged into the dashboard, created your private key (as
-explained in :ref:`Creating a keypair<CreatingAKeypair>`) and set the security group (as discussed in :ref:`Setting security group(s)<SecurityGroups>`) to be
-used for this VM.
+To create a Virtual Machine (VM) you need to have first:
 
-To create a VM proceed as follows:
+- created your private key (as
+  explained in :ref:`Creating a keypair<CreatingAKeypair>`) 
+- set the security group(s) (as discussed in :ref:`Setting security group(s)<SecurityGroups>`) to be
+  used for this VM.
+
+
+To create a VM using the dashboard proceed as follows:
 
 -  Be sure you have selected the right Project from the dropdown menu on
    the top.
@@ -40,7 +43,7 @@ To create a VM proceed as follows:
 
 -  Select the **Launch Instance** button. A new window appears. 
 
-   .. image:: ./images/launchinstance.png
+   .. image:: ./images/launchinstance-xena.png
       :align: center
 
 
