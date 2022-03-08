@@ -46,50 +46,41 @@ To create a VM using the dashboard proceed as follows:
    .. image:: ./images/launchinstance-xena.png
       :align: center
 
-
-   Here you can enter:
+In the **Details** tab enter:
 
    -  **Instance name** is the name of the machine you want to create.
+   -  **Count** is the number of virtual machines to be started.
 
-   -  **Flavor** is the size of the machine you want to create. These are
+
+Switch to the **Source** tab:
+
+   .. image:: ./images/launchinstance-source-xena.png
+      :align: center
+
+   -  Unless you want to start a VM from a volume (see 
+      :ref:`Improve reliability: creating Virtual Machines from Volumes<BootFromVolume>`), 
+      as **Select Boot Source** select **Image** or **Instance
+      Snapshot** and then select the one to be used.
+
+Switch to the **Flavor** tab:
+
+   .. image:: ./images/launchinstance-flavor-xena.png
+      :align: center
+
+
+   -  Select the desidered flavor. The flavor is the size of the machine you want to create. This is
       specified using VCPUs (number of virtual CPUs), disk space for the
-      system disk, size for the RAM memory. You are advised to start
-      small (the flavor of a virtual machine can be changed later if
+      system disk, size for the RAM memory. It is recommended to possibly use 
+      small flavors (the flavor of a virtual machine can be changed later if
       required). Flavors are discussed in :ref:`Flavors<Flavors>`.
 
-   -  **Instance Count** is the number of virtual machines to be started.
 
-   -  As **Instance Boot Source** select **Boot from Image** or **Boot from
-      Snapshot** and then specify its name.
+Switch to the **Networks** tab:
 
--  Switch to the **Access & Security tab**.
-
-   .. image:: ./images/launch-accesssec.png
+   .. image:: ./images/launchinstance-network-xena.png
       :align: center
 
-   -  As **Keypair** select the keypair you created. This will allow you to
-      log to the VM (usually as root or as an account where you can get
-      admin privileges via sudo) using this SSH key.
-
-   -  You can also specify the admin (usually root) password of the
-      instance.
-
-      .. WARNING ::
- 
-          Please note that setting the admin password is not guaranteed
-          to always work (the image can't support the “injection” of
-          this password). It is therefore strongly suggested to rely on
-          the ssh-key mechanisms.
-
-   -  Specify the Security group to be used for this VM (security groups
-      are discussed in :ref:`Setting security group(s)<SecurityGroups>`).
-
--  Now switch to the **Networking** tab. 
-
-   .. image:: ./images/launch-net.png
-      :align: center
-
-   You should see one network called *<ProjectName>-lan*
+   You should see at least one network called *<ProjectName>-lan*. Select that one.
 
     .. NOTE ::
    
@@ -101,10 +92,43 @@ To create a VM using the dashboard proceed as follows:
        have a public IP. It will then be necessary to allocate a public
        (floating) IP address to this instance, as explained in :ref:`Giving a VM public access (getting a floating IP)<PublicAccess>`.
 
--  Select **Launch** to start the virtual machine being created. You will be
-   returned to the Overview screen, where there will be a line with the
-   instance name, ip adress and status. The status should be 'Active'
-   once the install is complete.
+Switch to the **Security Groups** tab:
+
+   .. image:: ./images/launchinstance-secgroups-xena.png
+      :align: center
+
+   -  Select the security group(s) to be used for this VM (security groups
+      are discussed in :ref:`Setting security group(s)<SecurityGroups>`).
+
+
+Switch to the **Key Pair** tab:
+
+   .. image:: ./images/launchinstance-keypair-xena.png
+      :align: center
+
+
+
+   -  Select the keypair you want to use. This will allow you to
+      log to the VM (usually as root or as an account where you can get
+      admin privileges via sudo) using this SSH key.
+
+   -  You can also specify the admin (usually root) password of the
+      instance, enabling the **Set admin password** box.
+
+      .. WARNING ::
+ 
+          Please note that setting the admin password is not guaranteed
+          to always work (the image can't support the “injection” of
+          this password). It is therefore strongly suggested to rely on
+          the ssh-key mechanisms.
+
+
+
+
+Select **Launch Instance** to start the virtual machine being created. You will be
+returned to the Overview screen, where there will be a line with the
+instance name, ip adress and status. The status should be 'Active'
+once the install is complete.
 
 Once the status of the machine is 'Active', you can watch the console to
 see it installing and booting. You can click on the VM name and go to a
@@ -120,20 +144,12 @@ For a Linux machine, select **Console**
 to access to the console of the VM.
 
 
-.. NOTE ::
-
-    Virtual Machines instantiated on the Cloud by default aren't
-    registered in the DNS. This means that you'll have to refer to them
-    using their IP numbers.
-
-    For Virtual Machines supposed to have a long life, INFN Padova users
-    may ask (contacting pd-support AT pd.infn.it) to have them registered in
-    the DNS. If possible (i.e. if the chosen names are sensible enough
-    and if there are no ambiguities) the registered names in the DNS
-    will be the same as the ones chosen as Instance names.
 
 Improve reliability: creating Virtual Machines from Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _BootFromVolume:
+
+QUI
 By default Virtual Machines are instantiated using the local disk of the
 Cloud compute node. This means that, in case of failure of the compute
 node, it may happen that the virtual machine content is lost.
@@ -178,10 +194,18 @@ Then proceed as discussed above.
 Accessing Virtual Machines
 --------------------------
 
-.. WARNING ::
+.. NOTE ::
 
-    Please note that by default cloud VMs are not registered in the DNS, and
-    therefore you must use their IP address.
+    Virtual Machines instantiated on the Cloud by default aren't
+    registered in the DNS. This means that you'll have to refer to them
+    using their IP numbers.
+
+    For Virtual Machines supposed to have a long life, INFN Padova users
+    may ask (contacting pd-support AT pd.infn.it) to have them registered in
+    the DNS. If possible (i.e. if the chosen names are sensible enough
+    and if there are no ambiguities) the registered names in the DNS
+    will be the same as the ones chosen as Instance names.
+
 
 Logging to a VM
 ---------------
