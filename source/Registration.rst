@@ -54,7 +54,6 @@ To follow the "Corso di Sicurezza Informatica - BASE", please use
 Apply for an account
 --------------------
 
-QUI
 The registration procedure in the cloud is managed through the Horizon
 Openstack web service interface.
 
@@ -171,7 +170,7 @@ Your request will be managed by the Cloud adminstrator and by the
 manager(s) of the project(s) for which you applied membership. You will
 get an e-mail when your request is approved or if for some reason your 
 request is refused.
-In the first case you will also receive an e-mail for the credentials
+In the first case you will later also receive an e-mail with the credentials
 needed to access the Cloud gate machine (see :ref:`Network Access<NetworkAccess>`).
 
 
@@ -268,8 +267,10 @@ Finally click on the **Register** button and you are done.
 
 Your request will be managed by the Cloud adminstrator and by the
 manager(s) of the project(s) for which you applied membership. You will
-get an e-mail when your request is approved (and therefore you can start
-using the CloudVeneto) or if for some reason your request is refused.
+get an e-mail when your request is approved or if for some reason your 
+request is refused.
+In the first case you will later also receive an e-mail with the credentials
+needed to access the Cloud gate machine (see :ref:`Network Access<NetworkAccess>`).
 
 
 
