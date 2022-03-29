@@ -178,8 +178,6 @@ To create a VM from volume, proceed as explained in
 
 
 
-QUI
-
 Accessing Virtual Machines
 --------------------------
 
@@ -298,8 +296,8 @@ are:
 Access a service running on the VM
 ----------------------------------
 
-Your VM might be running some service (e.g. sshd, http server, ...) you want
-to access from the net. Since VM are on a private network this might be tricky.
+Your VM might be running some service (e.g. an http server) you want
+to access from the net. Since VMs are on a private network this might be tricky.
 A clever approach is to use an **SSH tunnel** (port forwarding mechanism). 
 This technique allows you to *transport* a TCP port opened on your VM
 directly **on your PC**. TCP port 22 can be used for ssh/scp access but any
@@ -314,8 +312,8 @@ to transport **multiple ports** at once.
 
   -  Choose a free TCP port on your machine in the range 1025-65535 (e.g. 2080);
   
-  -  Set up the tunnel using your access to one of the gate machines of
-     the cloud (e.g. gate.cloudveneto.it) and providing your TCP port of
+  -  Set up the tunnel using your access to the gate machine of
+     the cloud (i.e.. gate.cloudveneto.it) and providing your TCP port of
      choice and the IP address of your remote VM:
   
      ::
@@ -355,7 +353,7 @@ to transport **multiple ports** at once.
   
   - Choose **two** free TCP port on your machine in the range 1025-65535 (e.g. 2080 and 2022);
   
-  - Set up the tunnel using your access to one of the gate machines of the cloud (e.g. gate.cloudveneto.it) 
+  - Set up the tunnel using your access the gate machine of the cloud (i.e. gate.cloudveneto.it) 
     and providing your TCP ports of choice and the IP address of your remote VM:
   
   ::
@@ -422,18 +420,27 @@ have an access facing the internet. Your options are:
 
    -  Copy file from the gate machine to your VM;
 
--  Exploit the port forwarding mechanism explained above to access port 22
+-  Exploit the port forwarding mechanism explained in the previous section to access port 22
    of your VM from your PC.
 
 Giving a VM public access (getting a floating IP)
 -------------------------------------------------
 .. _PublicAccess:
 
+ARRIVATO QUI
+
 If needed, e.g. if a VM should host a service accessible from the
 Internet, such VM on the Cloud can be given a public IP. For this
 purpose you will need:
 
 -  to instantiate the VM, as explained in :ref:`Creating Virtual Machines<creatingvms>`;
+
+
+.. IMPORTANT ::
+
+    INFN users will have to create the VM on the **<ProjectName>-wan**
+    network, if the VM must be given a public IP.
+
 
 -  to allocate a floating (public) IP;
 
@@ -522,10 +529,6 @@ click the **Actions** button and select the **Release Floating IP** option.
    a security problem, you need to promptly fix it.
    If this is not done, the use of the floating IP will be revoked. 
 
-.. IMPORTANT ::
-
-    INFN users will have to create the VM on the **<ProjectName>-wan**
-    network, if the VM must be given a public IP.
 
 To control which services/ports of your virtual machine can be accessed,
 be sure you are using the right security group (as discussed in :ref:`Setting security group(s)<SecurityGroups>`) and
