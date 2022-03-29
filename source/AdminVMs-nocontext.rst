@@ -6,7 +6,6 @@
 
 Managing Virtual Machines
 =========================
-QUI
 .. IMPORTANT ::
 
     Virtual machines, even if idle or in shutdown state, allocate resources which therefore aren't
@@ -149,14 +148,13 @@ Improve reliability: creating Virtual Machines from Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _BootFromVolume:
 
-QUI
 By default Virtual Machines are instantiated using the local disk of the
 Cloud compute node. This means that, in case of failure of the compute
 node, it may happen that the virtual machine content is lost.
 
-For production servers which are not fully redundant and load balanced,
-to improve the availability it is advisable to use an external storage
-volume for the system disk of the virtual machine. The advantage is also
+For production servers which are not fully redundant,
+to improve the availability it is advisable to use external storage
+(i.e. a volume) for the system disk of the virtual machine. The advantage is also
 that, if the compute node hosting the virtual machine has to be switched
 off e.g. for maintenance, the Cloud administrator before doing this
 operation can live-migrate the instance to another Cloud compute node
@@ -166,30 +164,21 @@ On the other hand, I/O performance is usually better when the instance
 is created using the local disk of the compute node with respect to a
 virtual machine created from volume.
 
-To create a VM from volume, in the **Launch Instance** tab select
-**Boot from image (create a new volume)** for the **Instance Boot Source**
-field.
+To create a VM from volume, proceed as explained in 
+:ref:`Creating Virtual Machines<creatingvms>`, but in the **Source** tab please:
 
-Select the image to be used (**Image Name** field). Then specify the
-desired disk size (**Device size (GB)**).
+* specify 'Yes' for **Create New Volume**
+* specify 'No' for **Delete Volume on Instance Delete**
+* specify the desired volume size
 
-.. image:: ./images/boot_from_image.png
+
+.. image:: ./images/boot_from_image_xena.png
    :align: center
 
-Then proceed as discussed above.
 
 
 
-
-
-.. NOTE ::
-
-    Unipd
-    Since volumes for VMs are created on the ceph backend,
-    users will have to first contact support@cloudveneto.it to require
-    some disk space on the ceph storage system. In fact 
-    by default they are given no disk space on such volume backend.
-
+QUI
 
 Accessing Virtual Machines
 --------------------------
@@ -200,11 +189,6 @@ Accessing Virtual Machines
     registered in the DNS. This means that you'll have to refer to them
     using their IP numbers.
 
-    For Virtual Machines supposed to have a long life, INFN Padova users
-    may ask (contacting pd-support AT pd.infn.it) to have them registered in
-    the DNS. If possible (i.e. if the chosen names are sensible enough
-    and if there are no ambiguities) the registered names in the DNS
-    will be the same as the ones chosen as Instance names.
 
 
 Logging to a VM
@@ -212,7 +196,7 @@ Logging to a VM
 .. _LoggingToAVM:
 
 Virtual machines created on the cloud have their IP assigned on a
-private network associated with the project they belong to. Therefore
+**private** network associated with the project they belong to. Therefore
 they cannot be accessed directly from the internet. 
 
 If you need to log on your VMs from the Internet you must go through a
