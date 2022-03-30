@@ -67,7 +67,7 @@ Volumes
 
 Volumes are persistent virtualized block devices independent of any
 particular instance. Volumes may be attached to a single instance at a
-time (i.e. not like a distributed filesystem such as Lustre or Gluster),
+time,
 but they may be detached or re-attached to a different instance while
 retaining all data, much like a USB drive.
 
@@ -143,14 +143,12 @@ E.g.:
 In this example the project was given 400 GB. For the ceph and
 equallogic-unipd volume types the quota is 200 GB. 
 
-.. WARNING ::
-    If you try to create a volume using a type for which the quota is
-    over, you will see a generic 'Unable to create volume' error
-    message.
 
 Using (attaching) a Volume
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _CreateFS:
+
+ARRIVATO QUI
 
 The new defined volume will appear in the **Volumes** tab.
 

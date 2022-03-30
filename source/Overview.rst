@@ -52,6 +52,10 @@ Resource users and administrators
 Please note that 
 when you create a resource (e.g. a virtual machine) on CloudVeneto, you
 are then responsible to manage it.
+You will be held responsible for all the activities
+performed on the VM created by yourself.
+
+
 This means that you need to have adequate skills in using the resource
 that you create and at least basic system administration
 skills (some basics on Linux administration are presented in 

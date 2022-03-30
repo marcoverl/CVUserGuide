@@ -427,7 +427,6 @@ Giving a VM public access (getting a floating IP)
 -------------------------------------------------
 .. _PublicAccess:
 
-ARRIVATO QUI
 
 If needed, e.g. if a VM should host a service accessible from the
 Internet, such VM on the Cloud can be given a public IP. For this
@@ -552,7 +551,7 @@ Creating accounts on your Virtual Machine
 If you need to create accounts on the virtual machine, please see 
 :ref:`Adding a user to your VM<AddingUser>`. 
 
-If you are an INFN user, and you are using a **SL6x-INFNPadova-x86-64-<date>** or **CentOS7x-INFNPadova-x86-64-<date>** image, please see 
+If you are an INFN user, and you are using a **<operating-system>-INFNPadova-x86-64-<date>** image, please see 
 :ref:`Public Images for INFN Padova users<PublicImagesPd>`.
 
 
@@ -659,10 +658,7 @@ VMs can be stopped and started in different ways available from the
 
     The cleanest way to shutdown (or reboot) an instance is however to
     log on the VM and issue from the shell the *shutdown* or
-    *reboot* command. In fact if the **Soft Reboot Instance** or **Hard Reboot Instance** or
-    **Shut Off Instance** actions are chosen, there could be problems with networking
-    when the VM is later restarted.
-
+    *reboot* command. 
 
 
 Contextualisation
@@ -784,6 +780,14 @@ Documentation <https://help.ubuntu.com/community/CloudInit>`__.
 
 Resizing Virtual Machines
 -------------------------
+
+
+.. IMPORTANT ::
+
+    At the time of writing this documentation, there is a problem with the resize operation issued using the 
+    dashboard. If you need to resize your instance please use the command line tool or contact support@cloudveneto.it
+
+
 If the size of a virtual machine needs to be changed, such as adding
 more memory or cores, this can be done using the resize operation. Using
 resize, you can select a new flavor for your virtual machine. The
@@ -837,7 +841,7 @@ To resume a suspended instance, from the **Compute** |rarr| **Instances** table 
 
 
 .. NOTE ::
-   When you suspend a VM, the resources dedicated to the instance are still reserved and therefore are not usable by other users.
+   When you suspend a VM, the resources allocated for that instance are still reserved and therefore are not usable by other users.
 
 
 
@@ -947,12 +951,12 @@ different OpenStack cloud, can be done using snapshots.
 
 In short the procedure to migrate an instance is the following:
 
--  Create a snapshot of the instance in the source project, if possible 
+-  Create a snapshot of the instance in the source project
    (please refer
    to the instructions provided at :ref:`Snapshotting Virtual Machines<SnapshottingVMs>` which also explain what are the restrictions of this procedure).
 
 -  Transfer the snapshot from the source project to the destination one
-   (this was discussed in the previous section:  :ref:`Migrating an image to another cloud<MigratingAnImageToAnotherCloud>`).
+   (this is discussed in :ref:`Migrating an image to another cloud<MigratingAnImageToAnotherCloud>`).
 
 -  In the target environment boot a new instance from the snapshot.
 

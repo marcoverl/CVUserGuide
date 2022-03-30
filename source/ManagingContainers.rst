@@ -17,7 +17,7 @@ Running docker containers in the Cloud
 For information about Docker and how to install it, please
 look at the `Docker Documentation <https://docs.docker.com>`__.
 
-We report here only about a couple of possible issues that need to be properly addressed.
+We report here only about a couple of issues that need to be properly addressed.
 
 The first one concerns networking. Docker by default sets the default MTU to 1500, but the default MTU for
 Cloud virtual machines is reduced by the overhead added by some networking components.
