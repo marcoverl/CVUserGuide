@@ -192,6 +192,10 @@ pay attention to use one of these special flavors:
    extra ephemeral disk is not saved !
 
 
+.. NOTE ::
+
+   While some flavors allow the use of multiple GPUs, please note that the existing hardware is not optimized
+   for GPU-to-GPU communications.
 
 Storage for GPU instances
 -------------------------
