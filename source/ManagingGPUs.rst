@@ -193,8 +193,9 @@ pay attention to use one of these special flavors:
 
 .. NOTE::
 
-   Before allocating one or more GPUs, please register such allocation using
-   the reservation system described in the :ref:`previous section<ReservingGpu>`.
+   While some flavors allow the use of multiple GPUs, please note that the existing hardware is not optimized
+   for GPU-to-GPU communications.
+
  
 
 Storage for GPU instances
