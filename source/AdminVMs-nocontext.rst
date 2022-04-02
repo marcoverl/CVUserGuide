@@ -218,8 +218,10 @@ Assuming that
 
 -  Your VM got the 10.67.15.3 IP address;
 
--  You know the default user on the VM. If, as an example, the VM is
-   Ubuntu based there is a default user called 'ubuntu';
+-  You know the default user on the VM. 
+
+   - For Ubuntu based instances there is a default user called 'ubuntu';
+   - For CentOS based instances there is a default user called 'centos';
 
 -  You stored your *my\_key keypair* in *~/private* on the gate machine;
 
