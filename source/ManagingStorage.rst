@@ -148,7 +148,6 @@ Using (attaching) a Volume
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _CreateFS:
 
-ARRIVATO QUI
 
 The new defined volume will appear in the **Volumes** tab.
 
@@ -175,7 +174,7 @@ Log in to the instance and check if the disk has been added:
     grep vdb /proc/partitions
      253       16   12582912 vdb
 
-If needed, create a file system on it (this will scratch the disk!):
+If this is a newly created volume, you might need to create a file system on it (this will scratch the disk!):
 
 ::
 
@@ -226,6 +225,7 @@ Sharing a volume between multiple (virtual) machines
 As discussed in :ref:`Volumes<volumes>`, a volume may be attached to a single instance.
 However it can be shared with other virtual machines of the Cloud
 (and/or with other hosts) using NFS.
+The following explains how this can be done, on a CentOS7 server:
 
 1. **Configure NFS server**
 
@@ -407,11 +407,6 @@ However it can be shared with other virtual machines of the Cloud
     (i.e. it shouldn't be used for other activities).
 
 
-.. NOTE ::
-    Please note that this procedure can be used to mount a volume also
-    on hosts outside the Cloud (but in the INFN-DFA local area network): it is sufficient to specify the IP
-    address of these hosts in the /etc/exports file on the instance
-    acting as NFS server.
 
 
 Transferring the ownership of a volume to another user
@@ -519,8 +514,11 @@ uploaded to a container.
     Please note that containers (and their objects) are owned by the 
     project, and not by the individual who created them.
     This means that, if you create a container and upload some files on this
-    container, the other members of the project can see these files and 
-    possibly also delete them.
+    container, the other members of the project can see (and 
+    also delete) these files.
+
+
+ARRIVATO QUI
 
 
 Accessing the object storage using the S3 interface
