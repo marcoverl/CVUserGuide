@@ -518,7 +518,6 @@ uploaded to a container.
     also delete) these files.
 
 
-ARRIVATO QUI
 
 
 Accessing the object storage using the S3 interface
