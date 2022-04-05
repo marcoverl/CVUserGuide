@@ -45,20 +45,29 @@ These images are visible to all users. They appear with
    :align: center
 
 
+.. NOTE ::
+    Users are not allowed to publish public (i.e. available to all
+    projects) images.
+
 
 Public Images for INFN Padova users
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _PublicImagesPd:
 
-The **SL6x-INFNPadova-x86-64-<date>** and
-**CentOS7x-INFNPadova-x86-64-<date>** images are basic SL6.x / CentOS
-7.x images which also include *cloud-init* to perform contextualization
-based on the user data specified when the VM are instantiated. They also
-configure CVMFS and the relevant squid servers.
+The **<OperatingSystem>-INFNPadova-x86-64-<date>** 
+images:
 
-Such images also configure the Padova LDAP server for user
-authentication. This means that it is just necessary to “enable” the
-relevant accounts on the VM adding in the /etc/passwd file:
+- include *cloud-init* to perform contextualization
+  based on the user data specified when the VM are instantiated
+- configure CVMFS and the relevant squid servers
+- allow INFN-Padova system administrators (see 
+  `INFN-Padova computing and Network
+  service <https://www.pd.infn.it/eng/computing-and-networking/>`__)
+  to log (with admin privileges) on the
+  instance
+- configure the INFN Padova LDAP server for user
+  authentication. This means that it is just necessary to “enable” the
+  relevant accounts on the VM adding in the /etc/passwd file:
 
 ::
 
@@ -98,31 +107,13 @@ system. In this case a:
 
 should help.
 
-You can access instances created using these images, through ssh using
-the Cloud keypair, considering the 'root' account, e.g.:
-
-::
-
-    ssh -i ~/private/my_key root@10.64.17.3
-
-
-.. NOTE ::
-    The **SL6x-INFNPadova-x86-64-<date>** and
-    **CentOS7x-INFNPadova-x86-64-<date>** images also allow INFN-Padova
-    system administrators to log (with admin privileges) on the
-    instance.
-
-    `INFN-Padova computing and Network
-    service <https://www.pd.infn.it/eng/computing-and-networking/>`__
-    (pd-support AT pd.infn.it) can provide support only for instances created
-    using such images (only to INFN-Padova users).
 
 
 .. WARNING ::
     These images for INFN-Padova users are supposed to be used only by INFN
     Padova users and only for projects using a INFN (i.e. 10.64.x.0/24 
-    network). Using these images on Unipd projects (i.e. the one using
-    10.67.x.0/24 networks) can cause problems. 
+    network). They can't be used on projects using
+    10.67.x.0/24 networks.
 
 
 
@@ -136,9 +127,6 @@ service: these images are private, meaning that they are only available
 to the users of the project they are uploaded for.
 
 
-.. NOTE ::
-    Users are not allowed to publish public (i.e. available to all
-    projects) images.
 
 Many open source projects such as Ubuntu and Fedora produce
 pre-built images which can be used for certain clouds. If these are
@@ -148,7 +136,7 @@ available, it is much easier to use them compared to building your own.
 
 -  `Ubuntu repository <https://cloud-images.ubuntu.com/>`__
 
--  `CentOS 7 images <http://cloud.centos.org/centos/7/images/>`__
+-  `CentOS images <http://cloud.centos.org/centos/>`__
 
 
 
@@ -271,11 +259,6 @@ project whose id is e81df4c0b493439abb8b85bfd4cbe071, use the command:
     | updated_at | 2018-03-19T16:09:21Z                 |
     +------------+--------------------------------------+
 
-.. NOTE ::
-    Because of a bug in OpenStack this command could return an error message such as: 
-    ::
-      403 Forbidden: Not allowed to create members for image d4b02b71-755e-47ad-bb27-1ea5c23bf7cb. (HTTP 403)
-    even if actually the command worked.
 
 
 Then a member of the target project (with id e81df4c0b493439abb8b85bfd4cbe071
@@ -301,7 +284,7 @@ a list of "customers" (i.e. they don't want to use the image sharing stuff descr
 The vendor can make the image a community' image. Such image won't appear in user's default image lists of other 
 projects (so they won't know about it unless they are motivated to seek it out).
 
-The process to create a community image is the one described to create "ref"`private images<userprovidedimages>`:
+The process to create a community image is the one described to create private images (see :ref:`private images<userprovidedimages>`):
 the only difference is that the *Visibility* field must be set to *Community*.
 
 A consumer can find a community image uploaded by another project
@@ -318,13 +301,14 @@ Building Images
 
 
 Users can also build custom images, that can then been uploaded in the
-Cloud Image service as described in :ref:`User Provided Images <userprovidedimages>`.
+Cloud Image service as described in :ref:`User Provided Images<userprovidedimages>`.
+
 
 There are several tools providing support for image creation. Some of
 them are described in the `Openstack
 documentation <http://docs.openstack.org/image-guide/content/ch_creating_images_automatically.html>`__.
 
-One example is **virt-builder**, which is briefly described in the next
+One example is **virt-customize**, which is briefly described in the next
 subsection. 
 
 
@@ -355,96 +339,50 @@ Please consider these guidelines when creating an image:
     using contextualization (see :ref:`Contextualisations<contextualisation>`) 
     or to create new images using one of the tools mentioned above. 
    
-virt-builder
+virt-customize
 ^^^^^^^^^^^^
-Virt-builder is a command line tool
+virt-customize is a command line tool
 for quickly creating customized images.
+virt-customize is very easy to install (it is provided by the *libguestfs-tools-c* package).
 
-It takes cleanly prepared, digitally signed OS templates and customizes them.
+It takes as input an image (e.g. one provided by Ubuntu/CentOS/...: see above)
+and customizes them.
 
-Documentation how to use virt-builder is provided in the relevant
-`man pages <http://libguestfs.org/virt-builder.1.html>`__.
+Documentation how to use virt-customize is provided in the relevant
+`man pages <http://libguestfs.org/virt-customize.1.html>`__. 
 
-Here we provide some examples.
-
-To see the operating system available to install, please use the following 
-command:
-
-   ::
-
-      virt-builder --list               
-
-
-  The following command:
+Here we provide just one example. The following command:
    
    ::
 
-      virt-builder -v -x centos-7.7 \
-        --uninstall "chrony" \
-	--install "ntp,cloud-init,cloud-utils,cloud-utils-growpart,gdisk" \
+      export LIBGUESTFS_BACKEND=direct
+      virt-customize -a CentOS-7-x86_64-GenericCloud-2111.qcow2 \
+        --install epel-release \
         --timezone Europe/Rome" \
-        --write '/etc/ntp.conf:server ntp.pd.infn.it' \
-        --run-command 'systemctl enable ntpd' \
-        --edit '/etc/resolv.conf:s/nameserver 10.0.2.3//' \
-	--output c7.7-test-grow.qcow2 --format qcow2 --selinux-relabel
+        --append-line "/etc/chrony.conf:server ntp.pd.infn.it iburst" \
+        --run-command "systemctl enable chronyd" \
+        --run-command "sed -i 's/^SELINUX=.*$/SELINUX=disabled/' /etc/selinux/config" \
+        --update 
+        --selinux-relabel
 
 
-creates a centos 7.7 image, called *centos-7.7.qcow2* in qcow2 format, where 
-the packages *ntp*, *cloud-init*, *cloud-utils*, *cloud-utils-growpart* and
-*gdisk* are installed.
+takes as input a CentOS7 image file, called *CentOS-7-x86_64-GenericCloud-2111.qcow2* in qcow2 format 
+and:
 
-The above command removes from the image the package *chrony*.
-
-The option *--timezone Europe/Rome* sets the timezone.
-
-The string 'server ntp.pd.infn.it' is written into the file */etc/ntp.conf*.
-
-The command 'systemctl enable ntpd' is also issued 
-(to start the ntpd service at boot).
-
-The option *--edit '/etc/resolv.conf:s/nameserver 10.0.2.3//'* is
-used as a workaround to address a problem in the centos7 default
-image (a wrong nameserver is defined in /etc/resolv.conf).
+- installs the epel-release package
+- sets the timezone
+- configures chrony and enable it at boot time
+- updates all packages
 
 
-The following command will instead create an ubuntu 18.04 image, called 
-*k8s-ubuntu-18.04.raw*, in raw format:
+The resulting image should then be compressed before uploading to Openstack:
 
-  ::
+   ::
 
-     virt-builder -v -x ubuntu-18.04 \
-    --install "net-tools,vim,apt-transport-https,ca-certificates,curl,software-properties-common,docker.io,sudo,wget,rsync,cloud-init,cloud-utils" \
-    --timezone Europe/Rome \
-    --output k8s-ubuntu-18.04.raw --format raw \
-    --run install.sh \
-    --firstboot-command 'apt-get update' \
-    --firstboot-command 'apt-get upgrade -y' \
-    --selinux-relabel
-
-Besides specifying a set of packages to be installed, the above command specifies that the script
-*install.sh* must be run on the disk image.
-The script can be used e.g. to install packages from an extra repository:
-
-  ::
- 
-     $ cat install.sh 
-     #!/bin/bash
-     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-     cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-     deb https://apt.kubernetes.io/ kubernetes-xenial main
-     EOF
-     apt-get update
-     apt-get install -y kubelet kubeadm kubectl
+      export LIBGUESTFS_BACKEND=direct
+      virt-sparsify --compress CentOS-7-x86_64-GenericCloud-2111.qcow2 centos7-compressed.qcow2
 
 
-The command also specifies that the commands *apt-get update* and *apt-get upgrade -y* must be executed at the first boot.
-
-
-
-virt-builder is very easy to install (it is provided by the *libguestfs-tools-c* package)
-and doesn't require root privileges.
-If needed, access to an instance where virt-builder is installed can be provided:
-in such case please contact support@cloudveneto.it.
 
 
 
@@ -500,15 +438,4 @@ download the image file:
 ::
 
     $ openstack image save --file photo-slave.qcow2 753e8fa1-3f1b-407d-9294-d22b89ec3184
-
-To upload the image to the destination environment, first of all source
-the environment script of the target cloud.
-
-Then run the **openstack image create** command:
-
-::
-
-    $ openstack image create --private --disk-format=qcow2 \         
-          --container-format=bare \                                                                                                               
-          --file photo-slave.qcow2 photo-slave
 

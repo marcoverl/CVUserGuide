@@ -33,11 +33,16 @@ Frequently Asked Questions
 
    and try again.
 
+-----------------------------------------------------
 
+- I can't see anymore my data after a reboot of my instance 
+
+  SOLUTION: Are the data on an volume ? Did you remember to mount this volume ? Please also see  :ref:`this section<RemountDisk>`.
+  
 
 -----------------------------------------------------
 
-- I am using an image which has a supplementary ephemeral disk, but I not able to change ownership / mode of a directory
+- I am using a flavor which has a supplementary ephemeral disk, but I not able to change ownership / mode of a directory
 
   SOLUTION: A ‘fat’ file system is used for the supplementary ephemeral disk. We suggest to reformat this file system as described in
   :ref:`Flavors with supplementary ephemeral disk <FlavorsWithSupEpDisk>`.    

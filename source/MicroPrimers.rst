@@ -622,6 +622,7 @@ Let's resize the volume
 
 Automatically remount volumes on reboot
 ---------------------------------------
+.. _RemountDisk:
 
 Connecting a volume to your VM using the 'mount' command is a one-shot
 solution. If you need to reboot your VM for some reason you will have to
@@ -717,107 +718,6 @@ Specific instructions relevant for INFN-Padova users
 In this section we discuss about some specific topics relevant only for
 INFN-Padova users.
 
-Enabling INFN Padova LDAP based authentication on the Virtual Machine
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-When creating a custom image, it might be needed to enable a LDAP server
-to manage authentication for users. This section explains how to enable
-the INFN Padova's LDAP server for user authentication on the VMs of the
-Cloud. To do that, the following LDAP client configurations, targeted to
-SL6.x systems, need to be available on the image used to start the VMs.
-
-First of all, the following packages must be installed:
-
--  openssl
-
--  openldap
-
--  openldap-clients
-
--  pam-ldap
-
--  nss-pam-ldapd
-
--  nss-tools
-
--  nscd
-
-Then the following files (included in this `ldap.tar <https://wiki.infn.it/_media/progetti/cloud-areapd/user_s_guides/ldap.tar>`__
-tar file) must be installed on the Virtual Machine:
-
--  /etc/openldap/cacerts/cacert.pem
-
--  /etc/openldap/ldap.conf
-
--  /etc/pam\_ldap.conf
-
--  /etc/nsswitch.conf
-
--  /etc/nslcd.conf
-
--  /etc/pam.d/system-auth-ac
-
--  /etc/pam.d/password-auth-ac
-
-To do that, it is enough to log on the VM and:
-
-::
-
-                                                                                         
-    cd /                                                                                         
-    tar xvf / path/ldap.tar                                                                      
-
-Make sure that the following links exist:
-
-::
-
-                                                                                         
-    /etc/pam.d/password-auth -> password-auth-ac                                                 
-    /etc/pam.d/system-auth -> system-auth-ac                                                     
-
-Then it is necessary to start the nslcd and nscd services:
-
-::
-
-                                                                                         
-    service nslcd start                                                                          
-    service nscd start                                                                           
-    chkconfig nslcd on                                                                           
-    chkconfig nscd on                                                                            
-
-Then it is just necessary to “enable” the relevant accounts on the VM
-adding in the /etc/passwd file:
-
-::
-
-                                                                                         
-    +name1::::::                                                                                 
-    +name2::::::                                                                                 
-    ...                                                                                          
-
-and creating their home directories.
-
-You might also want to set a different home directory wrt the one specified in LDAP, e.g.:
-
-::
-
-    +pippo:::::/ehome/pippo:    
-
-Changes done in /etc/passwd could not be applied immediately by the
-system. In this case a:
-
-::
-
-                                                                                         
-    nscd -i passwd                                                                               
-    should help.                                                                                 
-
-.. NOTE ::
-    Please note that the **SL6x-INFNPadova-x86-64-<date>** and
-    **CentOS7x-INFNPadova-x86-64-<date>** images have already the LDAP
-    client properly configured to use the Padova LDAP server. Using
-    these images it is just necessary to enable the relevant users in
-    /etc/passwd and create their home directories.
 
 Install Mathematica (only for INFN Padova users)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

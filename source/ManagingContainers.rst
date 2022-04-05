@@ -23,8 +23,16 @@ The first one concerns networking. Docker by default sets the default MTU to 150
 Cloud virtual machines is reduced by the overhead added by some networking components.
 Thus you need to reduce the Docker MTU to say 1420.
 
-`Here <https://rahulait.wordpress.com/2016/02/28/modifying-default-mtu-for-docker-containers>`__
-are the detailed steps on how to change the MTU for containers in docker.
+The simplest way to implement that is editing the file /etc/docker/daemon.json
+setting:
+
+   ::
+
+       {
+         "mtu": 1420
+       }
+
+
 
 The second issue concerns the file system: there could be problems running docker on old CentOS 7 releases 
 where xfs is used as file system, as reported 
