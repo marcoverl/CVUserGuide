@@ -237,28 +237,35 @@ The script will now print something like:
 Now you have to start the master node. As explained in :ref:`Creating Virtual Machines<creatingvms>`, go to
 'Instances' and create a new instance with [Launch Instances].
 
-In the details select:
+In the relevant tabs select:
 
-[details]
+[Details]
 
 -  *Instance Name* => whatever you like
+
+[Source]
+
+-  *Image name* => The same image chosen for the slaves.
+
+[Flavor]
 
 -  *Flavor* => whatever you like; can be different from the flavor chosen
    for the slave nodes
 
--  *Image name* => The same image chosen for the slaves.
-
-[Access and Security]
-
--  *Key pair* => The key-pair that will be used to log on the nodes of the
-   batch cluster
+[Security Groups]
 
 -  *Security Group* => the security group for the master (choose only this
    one)
 
-[post creation]
+[Key Pair]
 
--  *Customization Script Source* => Select "File" from the dropdown menu
+-  *Key pair* => The key-pair that will be used to log on the nodes of the
+   batch cluster
+
+
+[Configuration]
+
+-  *Load Customization Script Source* => Select "File" from the dropdown menu
    and use "Choose File" to upload the user\_data\_file created by the
    ecm.py script
 
