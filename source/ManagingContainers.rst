@@ -19,12 +19,17 @@ look at the `Docker Documentation <https://docs.docker.com>`__.
 
 We report here only about a couple of possible issues that need to be properly addressed.
 
-The first one concerns networking. Docker by default sets the default MTU to 1500, but the default MTU for
-Cloud virtual machines is reduced by the overhead added by some networking components.
-Thus you need to reduce the Docker MTU to say 1420.
+The first one concerns networking. Docker by default sets the MTU to 1500, but the MTU for
+CloudVeneto virtual machines is 1458 (reduced by the overhead added by some networking components).
+Thus it is needed to reduce the Docker MTU to say 1450.
+To implement this, when a new instance is created, the file /etc/docker/daemon.json is automatically created with
+this content:
 
-`Here <https://rahulait.wordpress.com/2016/02/28/modifying-default-mtu-for-docker-containers>`__
-are the detailed steps on how to change the MTU for containers in docker.
+   ::
+
+       {                                                                                                                                        
+         "mtu": 1450                                                                                                                            
+       }                                                                                                                                        
 
 The second issue concerns the file system: there could be problems running docker on old CentOS 7 releases 
 where xfs is used as file system, as reported 
