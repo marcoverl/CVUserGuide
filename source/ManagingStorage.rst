@@ -18,7 +18,7 @@ There are several ways of handling disk storage in the CloudVeneto:
    volume can be selected when it is created within the quota limits for
    the particular project.
 
-- **Object Storage** (experimental) allows to store and retrieve potentially 
+- **Object Storage** allows to store and retrieve potentially 
   lots of data 
   with a simple API. It's built for scale and optimized for durability, 
   availability, and concurrency across the entire data set. 
@@ -460,8 +460,9 @@ the donor and then click on **Accept Volume Transfer**.
 
 
 
-Object Storage (experimental)
------------------------------
+Object Storage
+--------------
+
 The CloudVeneto Object Store is built upon Ceph and
 supports two interfaces:
 
