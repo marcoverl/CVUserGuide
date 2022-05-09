@@ -784,12 +784,6 @@ Resizing Virtual Machines
 -------------------------
 
 
-.. IMPORTANT ::
-
-    At the time of writing this documentation, there is a problem with the resize operation issued using the 
-    dashboard. If you need to resize your instance please use the command line tool or contact support@cloudveneto.it
-
-
 If the size of a virtual machine needs to be changed, such as adding
 more memory or cores, this can be done using the resize operation. Using
 resize, you can select a new flavor for your virtual machine. The
