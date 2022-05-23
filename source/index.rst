@@ -13,6 +13,8 @@ CloudVeneto.it User Guide
    For any issues, questions, problems concerning this document please contact 
    the CloudVeneto admins at support@cloudveneto.it
 
+.. note::
+   We heavily took inspiration from CERN's Openstack user guide when writing this documentation
 
 Contents:
 

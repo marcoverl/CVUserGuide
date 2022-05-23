@@ -26,7 +26,11 @@ full access and direct control of such GPU device.
 
 GPU instances, i.e. virtual machines which have access to one 
 or more GPUs can be created only from the **HPC-Physics** project.
-The only exception is  for the 4 T4 GPUs each one coupled with 15 CPU
+So, first of all, you need to request the affiliation to such project
+(see :ref:`Apply for other projects<ApplyForOtherProjects>` for
+the relevant instructions).
+
+The only exception is  for the 4 T4 GPUs with 15 CPU
 cores, that are usable also from the **PhysicsOfData-students** project.
 
 .. WARNING::
@@ -36,9 +40,6 @@ cores, that are usable also from the **PhysicsOfData-students** project.
 
 
 
-So, first of all, you need to request the affiliation to such project
-(see :ref:`Apply for other projects<ApplyForOtherProjects>` for
-the relevant instructions).
 
 
 Reserving a GPU
@@ -191,12 +192,11 @@ pay attention to use one of these special flavors:
    extra ephemeral disk is not saved !
 
 
-.. NOTE::
+.. NOTE ::
 
    While some flavors allow the use of multiple GPUs, please note that the existing hardware is not optimized
    for GPU-to-GPU communications.
 
- 
 
 Storage for GPU instances
 -------------------------
@@ -225,27 +225,14 @@ volumes (see :ref:`Volumes<volumes>`).
 Images for GPU instances
 ------------------------
 
-You are responsible to create the image to be used (see 
+You are responsible to create a "GPU ready" image (see 
 :ref:`User Provided Images <userprovidedimages>` and 
-:ref:`Building Images <buildingimages>`). 
+:ref:`Building Images <buildingimages>`). or you can use a "standard"
+image and then install the the needed GPU drivers and software.
 
 `These <https://developer.nvidia.com/cuda-downloads>`__ 
 instructions explain how to install CUDA toolkit and
-the relevant drivers.
-
-.. NOTE::
-
-   For better performance, 
-   we suggest to create images:
-
-     - in raw format
-     - setting the properties *hw_disk_bus=scsi* and *hw_scsi_model=virtio-scsi*, i.e., using the command line tool:
-
-       ::
-
-	  # glance image-update --property hw_disk_bus=scsi <image-id>
-	  # glance image-update --property hw_scsi_model=virtio-scsi <image-id>
-
+the NVIDIA drivers.
 
 
 What do do when your reservation expires
@@ -295,7 +282,7 @@ Please consider the following policies when using GPU instances:
 
 - Once activated, your virtual instance is **managed by you**. 
 
-- Before allocation one or more GPUs, please register such allocation 
+- Before creating an instance using one or more GPUs, please register such allocation 
   as explained :ref:`here<ReservingGpu>`.
   Instances for which there isn't a reservation 
   can be deleted by the Cloud administrators.

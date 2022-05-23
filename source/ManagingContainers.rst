@@ -17,7 +17,20 @@ Running docker containers in the Cloud
 For information about Docker and how to install it, please
 look at the `Docker Documentation <https://docs.docker.com>`__.
 
-We report here only about a couple of possible issues that need to be properly addressed.
+We report here only about a couple of issues that need to be properly addressed.
+
+The first one concerns networking. Docker by default sets the MTU to 1500, but the MTU for
+CloudVeneto virtual machines is 1458 (reduced by the overhead added by some networking components).
+Thus it is needed to reduce the Docker MTU to say 1450.
+To implement this, when a new instance is created, the file /etc/docker/daemon.json is automatically created with 
+this content:
+
+
+   ::
+
+       {
+         "mtu": 1450
+       }
 
 The first one concerns networking. Docker by default sets the MTU to 1500, but the MTU for
 CloudVeneto virtual machines is 1458 (reduced by the overhead added by some networking components).
@@ -31,11 +44,11 @@ this content:
          "mtu": 1450                                                                                                                            
        }                                                                                                                                        
 
+
 The second issue concerns the file system: there could be problems running docker on old CentOS 7 releases 
 where xfs is used as file system, as reported 
 `here <https://www.pimwiddershoven.nl/entry/docker-on-centos-7-machine-with-xfs-filesystem-can-cause-trouble-when-d-type-is-not-supported>`__.
 Newest CentOS 7 releases are not affected by this issue.
-
 If, for some reasons, you can't use a newer version of CentOS 7 not affected
 by this problem, the instructions reported 
 `here <https://stackoverflow.com/questions/45461307/selinux-is-not-supported-with-the-overlay-graph-driver>`__ might help.

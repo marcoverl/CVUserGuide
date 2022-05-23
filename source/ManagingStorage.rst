@@ -18,7 +18,7 @@ There are several ways of handling disk storage in the CloudVeneto:
    volume can be selected when it is created within the quota limits for
    the particular project.
 
-- **Object Storage** (experimental) allows to store and retrieve potentially 
+- **Object Storage** allows to store and retrieve potentially 
   lots of data 
   with a simple API. It's built for scale and optimized for durability, 
   availability, and concurrency across the entire data set. 
@@ -67,7 +67,7 @@ Volumes
 
 Volumes are persistent virtualized block devices independent of any
 particular instance. Volumes may be attached to a single instance at a
-time (i.e. not like a distributed filesystem such as Lustre or Gluster),
+time,
 but they may be detached or re-attached to a different instance while
 retaining all data, much like a USB drive.
 
@@ -143,14 +143,11 @@ E.g.:
 In this example the project was given 400 GB. For the ceph and
 equallogic-unipd volume types the quota is 200 GB. 
 
-.. WARNING ::
-    If you try to create a volume using a type for which the quota is
-    over, you will see a generic 'Unable to create volume' error
-    message.
 
 Using (attaching) a Volume
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. _CreateFS:
+
 
 The new defined volume will appear in the **Volumes** tab.
 
@@ -177,7 +174,7 @@ Log in to the instance and check if the disk has been added:
     grep vdb /proc/partitions
      253       16   12582912 vdb
 
-If needed, create a file system on it (this will scratch the disk!):
+If this is a newly created volume, you might need to create a file system on it (this will scratch the disk!):
 
 ::
 
@@ -228,6 +225,7 @@ Sharing a volume between multiple (virtual) machines
 As discussed in :ref:`Volumes<volumes>`, a volume may be attached to a single instance.
 However it can be shared with other virtual machines of the Cloud
 (and/or with other hosts) using NFS.
+The following explains how this can be done, on a CentOS7 server:
 
 1. **Configure NFS server**
 
@@ -409,11 +407,6 @@ However it can be shared with other virtual machines of the Cloud
     (i.e. it shouldn't be used for other activities).
 
 
-.. NOTE ::
-    Please note that this procedure can be used to mount a volume also
-    on hosts outside the Cloud (but in the INFN-DFA local area network): it is sufficient to specify the IP
-    address of these hosts in the /etc/exports file on the instance
-    acting as NFS server.
 
 
 Transferring the ownership of a volume to another user
@@ -467,8 +460,9 @@ the donor and then click on **Accept Volume Transfer**.
 
 
 
-Object Storage (experimental)
------------------------------
+Object Storage
+--------------
+
 The CloudVeneto Object Store is built upon Ceph and
 supports two interfaces:
 
@@ -521,8 +515,10 @@ uploaded to a container.
     Please note that containers (and their objects) are owned by the 
     project, and not by the individual who created them.
     This means that, if you create a container and upload some files on this
-    container, the other members of the project can see these files and 
-    possibly also delete them.
+    container, the other members of the project can see (and 
+    also delete) these files.
+
+
 
 
 Accessing the object storage using the S3 interface

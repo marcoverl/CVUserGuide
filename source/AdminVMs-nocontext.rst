@@ -6,7 +6,6 @@
 
 Managing Virtual Machines
 =========================
-
 .. IMPORTANT ::
 
     Virtual machines, even if idle or in shutdown state, allocate resources which therefore aren't
@@ -21,12 +20,15 @@ Creating Virtual Machines
 -------------------------
 .. _creatingvms:
 
-To create a Virtual Machine (VM) using the dashboard, you need to have
-already logged into the dashboard, created your private key (as
-explained in :ref:`Creating a keypair<CreatingAKeypair>`) and set the security group (as discussed in :ref:`Setting security group(s)<SecurityGroups>`) to be
-used for this VM.
+To create a Virtual Machine (VM) you need to have first:
 
-To create a VM proceed as follows:
+- created your private key (as
+  explained in :ref:`Creating a keypair<CreatingAKeypair>`) 
+- set the security group(s) (as discussed in :ref:`Setting security group(s)<SecurityGroups>`) to be
+  used for this VM.
+
+
+To create a VM using the dashboard proceed as follows:
 
 -  Be sure you have selected the right Project from the dropdown menu on
    the top.
@@ -40,53 +42,44 @@ To create a VM proceed as follows:
 
 -  Select the **Launch Instance** button. A new window appears. 
 
-   .. image:: ./images/launchinstance.png
+   .. image:: ./images/launchinstance-xena.png
       :align: center
 
-
-   Here you can enter:
+In the **Details** tab enter:
 
    -  **Instance name** is the name of the machine you want to create.
+   -  **Count** is the number of virtual machines to be started.
 
-   -  **Flavor** is the size of the machine you want to create. These are
+
+Switch to the **Source** tab:
+
+   .. image:: ./images/launchinstance-source-xena.png
+      :align: center
+
+   -  Unless you want to start a VM from a volume (see 
+      :ref:`Improve reliability: creating Virtual Machines from Volumes<BootFromVolume>`), 
+      as **Select Boot Source** select **Image** or **Instance
+      Snapshot** and then select the one to be used.
+
+Switch to the **Flavor** tab:
+
+   .. image:: ./images/launchinstance-flavor-xena.png
+      :align: center
+
+
+   -  Select the desidered flavor. The flavor is the size of the machine you want to create. This is
       specified using VCPUs (number of virtual CPUs), disk space for the
-      system disk, size for the RAM memory. You are advised to start
-      small (the flavor of a virtual machine can be changed later if
+      system disk, size for the RAM memory. It is recommended to possibly use 
+      small flavors (the flavor of a virtual machine can be changed later if
       required). Flavors are discussed in :ref:`Flavors<Flavors>`.
 
-   -  **Instance Count** is the number of virtual machines to be started.
 
-   -  As **Instance Boot Source** select **Boot from Image** or **Boot from
-      Snapshot** and then specify its name.
+Switch to the **Networks** tab:
 
--  Switch to the **Access & Security tab**.
-
-   .. image:: ./images/launch-accesssec.png
+   .. image:: ./images/launchinstance-network-xena.png
       :align: center
 
-   -  As **Keypair** select the keypair you created. This will allow you to
-      log to the VM (usually as root or as an account where you can get
-      admin privileges via sudo) using this SSH key.
-
-   -  You can also specify the admin (usually root) password of the
-      instance.
-
-      .. WARNING ::
- 
-          Please note that setting the admin password is not guaranteed
-          to always work (the image can't support the “injection” of
-          this password). It is therefore strongly suggested to rely on
-          the ssh-key mechanisms.
-
-   -  Specify the Security group to be used for this VM (security groups
-      are discussed in :ref:`Setting security group(s)<SecurityGroups>`).
-
--  Now switch to the **Networking** tab. 
-
-   .. image:: ./images/launch-net.png
-      :align: center
-
-   You should see one network called *<ProjectName>-lan*
+   You should see at least one network called *<ProjectName>-lan*. Select that one.
 
     .. NOTE ::
    
@@ -98,10 +91,43 @@ To create a VM proceed as follows:
        have a public IP. It will then be necessary to allocate a public
        (floating) IP address to this instance, as explained in :ref:`Giving a VM public access (getting a floating IP)<PublicAccess>`.
 
--  Select **Launch** to start the virtual machine being created. You will be
-   returned to the Overview screen, where there will be a line with the
-   instance name, ip adress and status. The status should be 'Active'
-   once the install is complete.
+Switch to the **Security Groups** tab:
+
+   .. image:: ./images/launchinstance-secgroups-xena.png
+      :align: center
+
+   -  Select the security group(s) to be used for this VM (security groups
+      are discussed in :ref:`Setting security group(s)<SecurityGroups>`).
+
+
+Switch to the **Key Pair** tab:
+
+   .. image:: ./images/launchinstance-keypair-xena.png
+      :align: center
+
+
+
+   -  Select the keypair you want to use. This will allow you to
+      log to the VM (usually as root or as an account where you can get
+      admin privileges via sudo) using this SSH key.
+
+   -  You can also specify the admin (usually root) password of the
+      instance, enabling the **Set admin password** box.
+
+      .. WARNING ::
+ 
+          Please note that setting the admin password is not guaranteed
+          to always work (the image can't support the “injection” of
+          this password). It is therefore strongly suggested to rely on
+          the ssh-key mechanisms.
+
+
+
+
+Select **Launch Instance** to start the virtual machine being created. You will be
+returned to the Overview screen, where there will be a line with the
+instance name, ip adress and status. The status should be 'Active'
+once the install is complete.
 
 Once the status of the machine is 'Active', you can watch the console to
 see it installing and booting. You can click on the VM name and go to a
@@ -117,27 +143,18 @@ For a Linux machine, select **Console**
 to access to the console of the VM.
 
 
-.. NOTE ::
-
-    Virtual Machines instantiated on the Cloud by default aren't
-    registered in the DNS. This means that you'll have to refer to them
-    using their IP numbers.
-
-    For Virtual Machines supposed to have a long life, INFN Padova users
-    may ask (contacting pd-support AT pd.infn.it) to have them registered in
-    the DNS. If possible (i.e. if the chosen names are sensible enough
-    and if there are no ambiguities) the registered names in the DNS
-    will be the same as the ones chosen as Instance names.
 
 Improve reliability: creating Virtual Machines from Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _BootFromVolume:
+
 By default Virtual Machines are instantiated using the local disk of the
 Cloud compute node. This means that, in case of failure of the compute
 node, it may happen that the virtual machine content is lost.
 
-For production servers which are not fully redundant and load balanced,
-to improve the availability it is advisable to use an external storage
-volume for the system disk of the virtual machine. The advantage is also
+For production servers which are not fully redundant,
+to improve the availability it is advisable to use external storage
+(i.e. a volume) for the system disk of the virtual machine. The advantage is also
 that, if the compute node hosting the virtual machine has to be switched
 off e.g. for maintenance, the Cloud administrator before doing this
 operation can live-migrate the instance to another Cloud compute node
@@ -147,45 +164,37 @@ On the other hand, I/O performance is usually better when the instance
 is created using the local disk of the compute node with respect to a
 virtual machine created from volume.
 
-To create a VM from volume, in the **Launch Instance** tab select
-**Boot from image (create a new volume)** for the **Instance Boot Source**
-field.
+To create a VM from volume, proceed as explained in 
+:ref:`Creating Virtual Machines<creatingvms>`, but in the **Source** tab please:
 
-Select the image to be used (**Image Name** field). Then specify the
-desired disk size (**Device size (GB)**).
+* specify 'Yes' for **Create New Volume**
+* specify 'No' for **Delete Volume on Instance Delete**
+* specify the desired volume size
 
-.. image:: ./images/boot_from_image.png
+
+.. image:: ./images/boot_from_image_xena.png
    :align: center
 
-Then proceed as discussed above.
 
-
-
-
-
-.. NOTE ::
-
-    Unipd
-    Since volumes for VMs are created on the ceph backend,
-    users will have to first contact support@cloudveneto.it to require
-    some disk space on the ceph storage system. In fact 
-    by default they are given no disk space on such volume backend.
 
 
 Accessing Virtual Machines
 --------------------------
 
-.. WARNING ::
+.. NOTE ::
 
-    Please note that by default cloud VMs are not registered in the DNS, and
-    therefore you must use their IP address.
+    Virtual Machines instantiated on the Cloud by default aren't
+    registered in the DNS. This means that you'll have to refer to them
+    using their IP numbers.
+
+
 
 Logging to a VM
 ---------------
 .. _LoggingToAVM:
 
 Virtual machines created on the cloud have their IP assigned on a
-private network associated with the project they belong to. Therefore
+**private** network associated with the project they belong to. Therefore
 they cannot be accessed directly from the internet. 
 
 If you need to log on your VMs from the Internet you must go through a
@@ -213,7 +222,6 @@ Assuming that
 
    - For Ubuntu based instances there is a default user called 'ubuntu';
    - For CentOS based instances there is a default user called 'centos';
-
 
 -  You stored your *my\_key keypair* in *~/private* on the gate machine;
 
@@ -290,8 +298,8 @@ are:
 Access a service running on the VM
 ----------------------------------
 
-Your VM might be running some service (e.g. sshd, http server, ...) you want
-to access from the net. Since VM are on a private network this might be tricky.
+Your VM might be running some service (e.g. an http server) you want
+to access from the net. Since VMs are on a private network this might be tricky.
 A clever approach is to use an **SSH tunnel** (port forwarding mechanism). 
 This technique allows you to *transport* a TCP port opened on your VM
 directly **on your PC**. TCP port 22 can be used for ssh/scp access but any
@@ -306,8 +314,8 @@ to transport **multiple ports** at once.
 
   -  Choose a free TCP port on your machine in the range 1025-65535 (e.g. 2080);
   
-  -  Set up the tunnel using your access to one of the gate machines of
-     the cloud (e.g. gate.cloudveneto.it) and providing your TCP port of
+  -  Set up the tunnel using your access to the gate machine of
+     the cloud (i.e.. gate.cloudveneto.it) and providing your TCP port of
      choice and the IP address of your remote VM:
   
      ::
@@ -347,7 +355,7 @@ to transport **multiple ports** at once.
   
   - Choose **two** free TCP port on your machine in the range 1025-65535 (e.g. 2080 and 2022);
   
-  - Set up the tunnel using your access to one of the gate machines of the cloud (e.g. gate.cloudveneto.it) 
+  - Set up the tunnel using your access the gate machine of the cloud (i.e. gate.cloudveneto.it) 
     and providing your TCP ports of choice and the IP address of your remote VM:
   
   ::
@@ -414,18 +422,26 @@ have an access facing the internet. Your options are:
 
    -  Copy file from the gate machine to your VM;
 
--  Exploit the port forwarding mechanism explained above to access port 22
+-  Exploit the port forwarding mechanism explained in the previous section to access port 22
    of your VM from your PC.
 
 Giving a VM public access (getting a floating IP)
 -------------------------------------------------
 .. _PublicAccess:
 
+
 If needed, e.g. if a VM should host a service accessible from the
 Internet, such VM on the Cloud can be given a public IP. For this
 purpose you will need:
 
 -  to instantiate the VM, as explained in :ref:`Creating Virtual Machines<creatingvms>`;
+
+
+.. IMPORTANT ::
+
+    INFN users will have to create the VM on the **<ProjectName>-wan**
+    network, if the VM must be given a public IP.
+
 
 -  to allocate a floating (public) IP;
 
@@ -514,10 +530,6 @@ click the **Actions** button and select the **Release Floating IP** option.
    a security problem, you need to promptly fix it.
    If this is not done, the use of the floating IP will be revoked. 
 
-.. IMPORTANT ::
-
-    INFN users will have to create the VM on the **<ProjectName>-wan**
-    network, if the VM must be given a public IP.
 
 To control which services/ports of your virtual machine can be accessed,
 be sure you are using the right security group (as discussed in :ref:`Setting security group(s)<SecurityGroups>`) and
@@ -541,7 +553,7 @@ Creating accounts on your Virtual Machine
 If you need to create accounts on the virtual machine, please see 
 :ref:`Adding a user to your VM<AddingUser>`. 
 
-If you are an INFN user, and you are using a **SL6x-INFNPadova-x86-64-<date>** or **CentOS7x-INFNPadova-x86-64-<date>** image, please see 
+If you are an INFN user, and you are using a **<operating-system>-INFNPadova-x86-64-<date>** image, please see 
 :ref:`Public Images for INFN Padova users<PublicImagesPd>`.
 
 
@@ -648,10 +660,7 @@ VMs can be stopped and started in different ways available from the
 
     The cleanest way to shutdown (or reboot) an instance is however to
     log on the VM and issue from the shell the *shutdown* or
-    *reboot* command. In fact if the **Soft Reboot Instance** or **Hard Reboot Instance** or
-    **Shut Off Instance** actions are chosen, there could be problems with networking
-    when the VM is later restarted.
-
+    *reboot* command. 
 
 
 Contextualisation
@@ -773,6 +782,8 @@ Documentation <https://help.ubuntu.com/community/CloudInit>`__.
 
 Resizing Virtual Machines
 -------------------------
+
+
 If the size of a virtual machine needs to be changed, such as adding
 more memory or cores, this can be done using the resize operation. Using
 resize, you can select a new flavor for your virtual machine. The
@@ -826,7 +837,7 @@ To resume a suspended instance, from the **Compute** |rarr| **Instances** table 
 
 
 .. NOTE ::
-   When you suspend a VM, the resources dedicated to the instance are still reserved and therefore are not usable by other users.
+   When you suspend a VM, the resources allocated for that instance are still reserved and therefore are not usable by other users.
 
 
 
@@ -936,12 +947,12 @@ different OpenStack cloud, can be done using snapshots.
 
 In short the procedure to migrate an instance is the following:
 
--  Create a snapshot of the instance in the source project, if possible 
+-  Create a snapshot of the instance in the source project
    (please refer
    to the instructions provided at :ref:`Snapshotting Virtual Machines<SnapshottingVMs>` which also explain what are the restrictions of this procedure).
 
 -  Transfer the snapshot from the source project to the destination one
-   (this was discussed in the previous section:  :ref:`Migrating an image to another cloud<MigratingAnImageToAnotherCloud>`).
+   (this is discussed in :ref:`Migrating an image to another cloud<MigratingAnImageToAnotherCloud>`).
 
 -  In the target environment boot a new instance from the snapshot.
 

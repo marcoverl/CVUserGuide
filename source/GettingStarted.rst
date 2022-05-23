@@ -52,7 +52,7 @@ You will need to give the keypair a name, such as *my\_key*. Select *SSH Key* as
 
 
 
-On completion of the operation, a file *my\_key.pem* will be downloaded to
+On completion of the operation, a file (*my\_key.pem* in our example) will be downloaded to
 your computer.
 
 
@@ -72,9 +72,7 @@ Importing your keypair
 You might already have an ssh key you use to remotely access machines.
 This mean you already have under the *.ssh* directory in your home folder
 a couple of files named *id\_rsa* (or *id\_dsa*) and *id\_rsa.pub* (or
-*id\_dsa.pub*). If, on the machine you want to log on, your *id\_rsa.pub*
-has been authorized you can access the machine without providing a
-password.
+*id\_dsa.pub*). 
 
 Importing your public key allow you to 'inject' it on any newly created
 VM in your project.
@@ -90,10 +88,13 @@ The steps are as follows:
 You will need to give the keypair a name (your full username is a good
 choice), e.g. *paolomazzon*.
 
-On the "Public Key" field paste the content of your *id\_rsa.pub* file
+On the "Key Type" field, select *SSH Key*.
+
+Then you can load your public key from a file (usually your *id\_rsa.pub* file), or you can past its
+content.
 
 
-.. image:: ./images/import_keypair.png
+.. image:: ./images/import_keypair_xena.png
    :align: center
 
 
@@ -115,7 +116,7 @@ Setting security group(s)
 Security groups are sets of IP rules (firewall) that define networking
 access and are applied to all instances within a project using that
 group. As described in :ref:`Creating Virtual Machines <creatingvms>`, when you create an instance you have to
-specify the security group to be used.
+specify the security group(s) to be used.
 
 To set such IP rules, users can either add them to the *default* security
 group or can create a new security group with the desired rules.
@@ -153,7 +154,7 @@ group rules to a project, if needed.
 
 -  Click **Add**.
 
--  To add an ICMP rule, click **Add Rule**.
+-  To add an ICMP rule, click **+ Add Rule**.
 
 -  In the *Add Rule* dialog box, enter the following values:
 
@@ -397,13 +398,4 @@ To test it, you can e.g. try the following:
     INSTANCEi-e93ef61cami-2cfcb026dasgara1-2running1m1.tiny2018-01-16T08:36:44Znova10.1.1.11instance-storesg-3896bec1
     $ 
 
-.. WARNING ::
-
-    For some euca2ools distributions sourcing the ec2rc.sh script is not
-    enough. You need to explictly specify access and secret keys and the
-    endpoint with the relevant command line options, e.g.:
-
-    ::
-
-        $ euca-describe-instances -I ${EC2_ACCESS_KEY} -S ${EC2_SECRET_KEY} -U ${EC2_URL}
 

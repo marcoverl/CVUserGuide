@@ -8,9 +8,12 @@ To be able to use the CloudVeneto service, first of all you need to
 apply for an account. The procedure to be followed is described in this
 chapter.
 
-Users who need to use INFN IT resources (i.e. users willing to be member of
-an INFN project) must met the prerequisites specified in the following
+Users who need to use INFN IT resources 
+must met the prerequisites specified in the following
 section before applying for an account on the CloudVeneto infrastructure.
+This always applies to users willing to be member of an INFN project, but also to some Unipd 
+projects which use some INFN resources (e.g. the network).
+
 
 Prerequisites for using INFN resources
 --------------------------------------
@@ -44,7 +47,7 @@ To follow the "Corso di Sicurezza Informatica - BASE", please use
 
    These rules apply to users willing to be member of an INFN project, but 
    also
-   to users who want to join a Physics Dept. related project using a
+   to users who want to join a Unipd Physics Dept. related project using a
    10.64.x.0/24 network (since this is a INFN network).
 
 
@@ -167,7 +170,7 @@ Your request will be managed by the Cloud adminstrator and by the
 manager(s) of the project(s) for which you applied membership. You will
 get an e-mail when your request is approved or if for some reason your 
 request is refused.
-In the first case you will also receive an e-mail for the credentials
+In the first case you will later also receive an e-mail with the credentials
 needed to access the Cloud gate machine (see :ref:`Network Access<NetworkAccess>`).
 
 
@@ -264,8 +267,10 @@ Finally click on the **Register** button and you are done.
 
 Your request will be managed by the Cloud adminstrator and by the
 manager(s) of the project(s) for which you applied membership. You will
-get an e-mail when your request is approved (and therefore you can start
-using the CloudVeneto) or if for some reason your request is refused.
+get an e-mail when your request is approved or if for some reason your 
+request is refused.
+In the first case you will later also receive an e-mail with the credentials
+needed to access the Cloud gate machine (see :ref:`Network Access<NetworkAccess>`).
 
 
 
