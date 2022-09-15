@@ -607,8 +607,8 @@ Once a bucket is empty, you can remove it with the 'rb' s3cmd command:
     support@cloudveneto.it if you have such requirement.
 
 
-Bucket Access Management
-""""""""""""""""""""""""
+Bucket Access Policies
+""""""""""""""""""""""
 The CloudVeneto object system supports a subset of the Amazon S3 policy language as documented
 `here <https://docs.ceph.com/en/latest/radosgw/bucketpolicy/>`__.
 
@@ -616,6 +616,10 @@ S3 bucket policy allows you to grant access to your bucket to other projects.
 Please note that it is only possible to grant access right at the OpenStack project level: it is not 
 possible to grant access right directly to a specific Openstack user.
 
+Let's now consider some use cases:
+
+
+**Use case 1**
 
 Suppose that you belong to a OpenStack project called 'AdminTesting'
 (Openstack project id: b38a0dab349e42bdbb469274b20a91b4) and you are
@@ -708,6 +712,7 @@ Now users belonging to other projects can read the content of your bucket:
    1285 of 1285   100% in    0s     2.08 KB/s  done
   $
 
+**Use case 2**
 
 Suppose now that you belong to a OpenStack project called 'AdminTesting'
 (Openstack project id: b38a0dab349e42bdbb469274b20a91b4) and you are
@@ -771,6 +776,9 @@ while users of other projects can't:
   $ 
 
 
+**Use case 3**
+
+
 The object storage service supports also "personal accounts" besides
 the ones related to OpenStack projects.
 Suppose that you belong to an OpenStack project called 'AdminTesting'
@@ -832,6 +840,8 @@ while other users can't:
   ERROR: S3 error: 403 (AccessDenied)
   $ 
 
+
+**Use case 4**
 
 Suppose now that you have a "personal account", and you are
 the owner of a bucket called 'bucket4', and you want to share it in read only 
@@ -900,6 +910,15 @@ while other users can't:
 .. WARNING ::
     Bucket policies can get quite large, note that there is a 20 kB size limit per policy.
 
+
+Accessing object storage data from a scientific environment
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+A S3 Cloud object storage container can be mounted directly as a folder or 
+synced on your computer or on another scientific environment. 
+This can be achieved, for example, using Rclone (https://rclone.org).
+
+TBC
 
 
 
