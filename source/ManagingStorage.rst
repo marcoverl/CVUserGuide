@@ -463,8 +463,12 @@ the donor and then click on **Accept Volume Transfer**.
 Object Storage
 --------------
 
-The CloudVeneto Object Store is built upon Ceph and
-supports two interfaces:
+CloudVeneto provides also an Object Storage system.
+Data is stored as objects (which are typically files) which
+are organized in **containers**, also called **buckets**.
+
+
+The CloudVeneto Object Store is built upon Ceph and supports two interfaces:
 
 - S3-compatible: provides object storage functionality with an interface that 
   is compatible with a large subset of the Amazon S3 RESTful API.
@@ -473,15 +477,16 @@ supports two interfaces:
   that is compatible with a large subset of the OpenStack Swift API.
 
 
-Objects (which are typically files) in the object storage are organized in 
-**containers**, also called **buckets**.
 
 .. WARNING ::
-    Please note that backups are not performed on object storage.
+    Please note that backups are not performed on the CloudVeneto 
+    object storage.
 
 
 Accessing the object storage using the dashboard
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The access to the object storage using the OpenStack dashboard is implemented
+through the Swift-compatible interface.
 
 
 To create a container, using the Dashboard, click on **Object Storage** |rarr| **Containers** and then click on **+ Container**.
@@ -525,7 +530,37 @@ Accessing the object storage using the S3 interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 You can also access the object storage using the S3 interface.
 
-s3cmd is a convenient command-line tool that can be used. 
+There are several tools that can be used to interact with the object storage
+using the S3 interface: in the following subsections we discuss about s3cmd and
+rclone, which are two tools that can be used.
+
+The use of the S3 interface requires some credentials which consist of an access 
+key ID and a secret access key.
+
+To find your such credentials, in the Dashboard go to **Project** |rarr| 
+**API Access** and then click on **View Credentials**: the relevant attributes
+are referred as "EC2 Access Key" and "EC2 secret Key".
+
+
+
+Note that these are the OpenStack project credentials. This means that using such 
+credentials
+containers (buckets) and their objects are owned by the project, and not by the 
+individual who created them.
+
+If this is not suitable for your use cases, it is possible to have a personal object 
+storage account, usable through the S3 interface. Please contact 
+support@cloudveneto.it if you have such requirement.
+
+
+
+Accessing the storage using s3cmd
+""""""""""""""""""""""""""""""""""
+
+
+s3cmd is a convenient command-line tool that can be used to access the
+object storage using the S3 interface.
+
 First of all you need to create a $HOME/.s3cfg file, that requires the following 
 configuration:
 ::
@@ -533,11 +568,9 @@ configuration:
   host_bucket = rgw-cloud.pd.infn.it:443
   use_https = true
   ca_certs_file = /etc/grid-security/certificates/CloudVenetoCAs.pem
-  access_key = <your EC2 access key>
-  secret_key = <your EC2 secret key>
+  access_key = <your access key>
+  secret_key = <your secret key>
 
-To find your EC2 credentials, in the Dashboard go to **Project** |rarr| 
-**API Access** and then click on **View Credentials**.
 
 
 The **CloudVenetoCAs.pem** file (referred by the **ca_certs_file** variable in the
@@ -591,7 +624,9 @@ You can delete files from a bucket with the 'del' s3cmd command:
   $
 
 Once a bucket is empty, you can remove it with the 'rb' s3cmd command:
+
 ::
+
   $ s3cmd rb s3://mybucket
   Bucket 's3://mybucket/' removed
   $
@@ -599,12 +634,113 @@ Once a bucket is empty, you can remove it with the 'rb' s3cmd command:
   $ s3cmd ls
   $ 
 
+
+Accessing the storage using rclone
+""""""""""""""""""""""""""""""""""
+Rclone (https://rclone.org) is another tool that can be used to
+interact with the object storage using the S3 interface.
+
+
+Installing rclone on you computer is easy on linux systems:
+
+::
+
+  $ sudo -v | curl https://rclone.org/install.sh | sudo bash
+
+
+Instructions for other operating systems are available at
+https://rclone.org/install.
+
+
+Once Rclone is installed, you need to configure it to access the CloudVeneto object 
+storage system. This can be done by creating the file $HOME/.rclone.conf with this content:
+
+::
+
+  [cloudveneto]
+  type = s3
+  provider = Ceph
+  access_key_id =  < your-access-key>
+  secret_access_key =  <your-secret-key>
+  endpoint = https://rgw-cloud.pd.infn.it
+
+
+and set the following variable:
+
+::
+
+  export SSL_CERT_FILE=/etc/grid-security/certificates/CloudVenetoCAs.pem
+
+
+The **CloudVenetoCAs.pem** file (referred by the **SSL_CERT_FILE** variable
+is needed because the 
+CloudVeneto services are secured using SSL.
+This file can be
+downloaded `from here. <https://raw.githubusercontent.com/CloudVeneto/CertCA/master/CloudVenetoCAs.pem>`__
+
+
 .. NOTE ::
-    As said above, containers (buckets) and their objects are owned by the 
-    project, and not by the individual who created them.
-    If this is a problem, it is possible to have a personal object storage
-    account, usable through the S3 interface. Please contact 
-    support@cloudveneto.it if you have such requirement.
+
+    The certificate can be put anywhere on the client as long as the
+    path you specify is consistent.
+
+
+To list the objects in your object storage, you can use the 'rclone ls' command:
+
+::
+
+  $ rclone ls cloudveneto:
+     1285 bucket1/dracut.conf
+        0 bucket1/exports
+      235 bucket2/hosts
+      345 bucket2/my.cnf
+     1023 bucket3/nfs.conf
+     1746 bucket3/nsswitch.conf
+   192019 container--ll/pdf/aa.pdf
+   184873 container1/5server-per-Cloud-scientifica-AVCP - Smart CIG.pdf
+     1842 container1/8c9f048e.0
+    50710 container1/folder/5.pdf
+    29780 container1/folder/7.pdf
+
+
+Using Rclone you can for example **mount** a S3 Cloud object storage bucket as a folder
+in your virtual machine (or in your desktop or other environment) 
+
+E.g with the following command the bucket 'bucket1' is mounted in the local folder 'localfolder':
+
+::
+
+  $ mkdir localfolder
+  $ rclone --vfs-cache-mode writes  mount cloudveneto:bucket1 localfolder
+
+The content of the 'bucket1' bucket is now available on your local environment under 'localfolder'.
+You can list, create and delete files in it.
+The "--vfs-cache-mode" flag enables file caching (you can use either writes or full option). 
+
+To unmount, simply press CTRL-C.
+
+
+Rclone can also be used, though the sync command, to **syncronize** an object storage bucket with a local 
+folder or viceversa.
+The sync command makes the destination (second argument) identical to source (first argument).
+
+E.g.:
+
+::
+
+  $ mkdir local
+  $ ls local
+  $ rclone sync cloudveneto:bucket2 local
+  $ ls local
+  hosts  my.cnf
+
+
+After your work is done you may want to copy the modified files to the cloud storage:
+
+
+::
+
+  $ rclone sync local cloudveneto:bucket2
 
 
 Bucket Access Policies
@@ -717,7 +853,7 @@ Now users belonging to other projects can read the content of your bucket:
 Suppose now that you belong to a OpenStack project called 'AdminTesting'
 (Openstack project id: b38a0dab349e42bdbb469274b20a91b4) and you are
 the owner of a bucket called 'bucket2', and you want to share it in read only 
-mode only to members of of OpenStack project called 'AstroCosmo' (Openstack
+mode only to members of OpenStack project called 'AstroCosmo' (Openstack
 project id: 3d0ab98b833043cb9ab94e6c9f2bdd19).
 
 To implement such use case prepare a policy file called e.g. example2.json:
@@ -778,8 +914,8 @@ while users of other projects can't:
 
 **Use case 3**
 
-
-The object storage service supports also "personal accounts" besides
+As said above,
+the object storage service supports also "personal accounts" besides
 the ones related to OpenStack projects.
 Suppose that you belong to an OpenStack project called 'AdminTesting'
 (Openstack project id: b38a0dab349e42bdbb469274b20a91b4) and you are
@@ -911,14 +1047,6 @@ while other users can't:
     Bucket policies can get quite large, note that there is a 20 kB size limit per policy.
 
 
-Accessing object storage data from a scientific environment
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-A S3 Cloud object storage container can be mounted directly as a folder or 
-synced on your computer or on another scientific environment. 
-This can be achieved, for example, using Rclone (https://rclone.org).
-
-TBC
 
 
 
