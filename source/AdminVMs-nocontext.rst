@@ -188,6 +188,23 @@ Accessing Virtual Machines
     using their IP numbers.
 
 
+The big picture
+---------------
+
+Once yout VM is in the "running" state you access it through ssh with a default
+username (more on that later) and your private key. 
+
+There are three possible scenarios:
+
+-  You are a INFN user, so you might have access to the internal INFN network.
+   From there you can contact directly your VM on a network like 10.64.x.y
+
+-  You don't have such access or you are connecting from outside such network: you 
+   must access a "gate" machine first and then access the VM;
+
+-  You need to perform that "one shot operation" or you want to check the state
+   of your VM: you can use the "Console" tab of your VM via web.
+
 
 Logging to a VM
 ---------------
@@ -200,16 +217,15 @@ they cannot be accessed directly from the internet.
 If you need to log on your VMs from the Internet you must go through a
 gate machine: **gate.cloudveneto.it**.
 
-When your account on the cloud is created you also got access to the
-gate. Contact support@cloudveneto.it in case of problems with this
-account.
+When your account on the cloud is created, credentials for accessing such
+gate are sent to you. Contact support@cloudveneto.it in case of problems 
+with this credentials.
 
 .. NOTE ::
 
-    Projects that get their private network on the subnet 10.64.0.0/16
-    are peculiar: the VMs can be accessed from the INFN-Padova or
-    INFN-Legnaro Local Area Networks (LANs). Those projects are created
-    mostly for INFN users.
+    Projects created (mostly) for INFN users get their private network 
+    on a 10.64.x.y address. The VMs on these networks can be accessed 
+    directly from the INFN-Padova or INFN-Legnaro Local Area Networks (LANs).
 
 Assuming that
 
@@ -235,7 +251,7 @@ you can access your VM from the gate machine issuing
 Conversely, there is
 no limitation on the 'outer' services you can reach from your VM (modulo
 the services hosted in the INFN Padova/Legnaro LANs, as described in 
-:ref:`Accessing other hosts/services from Virtual Machines<AccessingFromVMs>`.
+:ref:`Accessing other hosts/services from Virtual Machines<AccessingFromVMs>`).
 
 
 Common access problems
