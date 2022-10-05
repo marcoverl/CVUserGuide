@@ -178,18 +178,9 @@ To create a VM from volume, proceed as explained in
 
 
 
-Accessing Virtual Machines
---------------------------
+Accessing Virtual Machines: the big picture
+-------------------------------------------
 
-.. NOTE ::
-
-    Virtual Machines instantiated on the Cloud by default aren't
-    registered in the DNS. This means that you'll have to refer to them
-    using their IP numbers.
-
-
-The big picture
----------------
 
 Once your VM is in the "running" state you access it through ssh with a default
 username (more on that later) and your private key. 
@@ -204,6 +195,13 @@ There are three possible scenarios:
 
 -  You need to perform that "one shot operation" or you want to check the state
    of your VM: you can use the "Console" tab of your VM via web.
+
+.. NOTE ::
+
+    Virtual Machines instantiated on the Cloud by default aren't
+    registered in the DNS. This means that you'll have to refer to them
+    using their IP numbers.
+
 
 
 Logging to a VM
