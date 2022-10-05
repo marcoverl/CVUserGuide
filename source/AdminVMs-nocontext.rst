@@ -191,13 +191,13 @@ Accessing Virtual Machines
 The big picture
 ---------------
 
-Once yout VM is in the "running" state you access it through ssh with a default
+Once your VM is in the "running" state you access it through ssh with a default
 username (more on that later) and your private key. 
 
 There are three possible scenarios:
 
--  You are a INFN user, so you might have access to the internal INFN network.
-   From there you can contact directly your VM on a network like 10.64.x.y
+-  You are a INFN user, so you might have access to the internal INFN network:
+   from there you can contact directly your VM on a network like 10.64.x.y;
 
 -  You don't have such access or you are connecting from outside such network: you 
    must access a "gate" machine first and then access the VM;
