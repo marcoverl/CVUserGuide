@@ -174,13 +174,28 @@ Log in to the instance and check if the disk has been added:
     grep vdb /proc/partitions
      253       16   12582912 vdb
 
-If this is a newly created volume, you might need to create a file system on it (this will scratch the disk!):
+If this is a newly created volume, you might need to create a file system on it.
+**WARNING**: this will delete everything (format) on the disk! Do it just the first time you use the volume.
 
 ::
 
     mkfs -t ext4 /dev/vdb
 
-Mount the volume:
+.. _createlabel:
+
+It is advisable to create a 'label' on the disk. Use a descripive short name with no spaces (e.g.: MYDATA)
+
+::
+
+    e2label /dev/vdb MYDATA
+
+Mount the volume: if you created a label you can use
+
+::
+
+   mount LABEL=MYDATA /mnt
+
+otherwise use the device name:
 
 ::
 
@@ -564,6 +579,7 @@ object storage using the S3 interface.
 First of all you need to create a $HOME/.s3cfg file, that requires the following 
 configuration:
 ::
+
   host_base = rgw-cloud.pd.infn.it:443
   host_bucket = rgw-cloud.pd.infn.it:443
   use_https = true
@@ -593,18 +609,21 @@ downloaded `from here. <https://raw.githubusercontent.com/CloudVeneto/CertCA/mas
 To create a bucket in the Object Storage service, you can use s3cmd with the 
 'mb' command:
 ::
+
   $ s3cmd mb s3://mybucket
   Bucket 's3://mybucket/' created
   $ 
 
 Then with the 'ls' command you can verify that the bucket has been created:
 ::
+
   $ s3cmd ls
   2020-04-14 16:30  s3://mybucket
   $
 
 Once created you can start adding files to the bucket:
 ::
+
   $ s3cmd put /etc/fstab s3://mybucket
   upload: '/etc/fstab' -> 's3://mybucket/fstab'  [1 of 1]
    628 of 628   100% in    0s   780.01 B/s  done
@@ -616,6 +635,7 @@ Once created you can start adding files to the bucket:
 
 You can delete files from a bucket with the 'del' s3cmd command:
 ::
+
   $ s3cmd del s3://mybucket/fstab
   delete: 's3://mybucket/fstab'
   $
