@@ -634,21 +634,23 @@ Forget to do so might cause the following:
    volume) thinking you are writing on your volume with, say, 1 TB of
    space;
 
-2. The volume is not mounted there so you are writing instead on the
+#. The volume is not mounted there so you are writing instead on the
    same space where your operating system lives;
 
-3. You eventually fill up your filesystem and your VM crash/starts
+#. You eventually fill up your filesystem and your VM crash/starts
    malfunctioning;
 
-4. Your VM might not boot anymore and you have to call for help.
+#. Your VM might not boot anymore and you have to call for help.
 
 We will now create an entry on the */etc/fstab* file to remount the
 volume upon reboot.
 
 .. WARNING ::
-    A big warning! DO NOT edit the /etc/fstab file by transferring it on
-    a windows machine and then back to your VM. Bad things will
-    happen...
+    A big warning! The /etc/fstab file is essential for any linux system.
+    Scrambling its contents with incorrect mount options, syntax errors
+    and the like can prevent your VM from booting. **Always proceed with
+    caution** and **try everything from the command line before writing**
+    something inside the file and reboot the VM.
 
 The /mnt directory is normally used as the 'mount point' for various
 devices. Normally you would create a directory under /mnt for each
@@ -666,14 +668,34 @@ All the operations will be performed as the supersuser.
        root@maz03:~#
                 
 
-2. Create the 'mount point'
+#. Create the 'mount point'
 
    ::
 
        root@maz03:~# mkdir -p /mnt/volume1
                 
 
-3. Edit the /etc/fstab file: we will use the 'nano' editor for that:
+#. It is strongly advisable you create a label on the volume as showed in :ref:`Using (attaching) a Volume<createlabel>`
+
+   ::
+
+       root@maz03:~# e2label /dev/vdb MYDATA
+
+
+#. Try it! Especially if you plan to put some options (e.g. -o user,... ). Whatever the command...
+
+   ::
+
+       root@maz03:~# mount LABEL=MYDATA /mnt/volume1
+
+   ...should give no errors.
+
+   ::
+
+       root@maz03:~# mount | grep volume1
+       /dev/vdb on /mnt/volume1 type ext4 (rw,relatime)
+
+#. If everything is ok you can safely edit the /etc/fstab file. We will use the 'nano' editor for that:
 
    ::
 
@@ -685,25 +707,45 @@ All the operations will be performed as the supersuser.
    .. image:: ./images/edit_fstab.png
       :align: center
 
-4. Add a line telling you want to mount the device /dev/vdb under
-   /mnt/volume1 (you have already created an ext4 filesystem on it).
+
+#. Add a line telling you want to mount the device with label ``MYDATA`` under
+   ``/mnt/volume1`` (we suppose the volume has an ext4 filesystem and you didn't add any option.
 
    This should be the content of your file:
 
    .. image:: ./images/add_vol1_to_fstab.png
       :align: center
 
-5. Write your file to disk by pressing **CTRL+o** ... ... and confirming
+
+#. Write your file to disk by pressing ``CTRL+o`` ... ... and confirming
    with enter.
 
    .. image:: ./images/write_fstab.png
       :align: center
 
-6. Exit the editor by pressing ``CTRL+x``. Go back to your normal user
-   by issuing the 'exit' command or by pressing CTRL+d
+
+#. Exit the editor by pressing ``CTRL+x``. 
+
+#. Double check the file is valid. **Please don't skip this passage.**
+
+   1. If you previously tried to mount the volume just unmount it first (if you didn't just skip this step):
+
+     ::
+
+        root@maz03:~# umount /mnt/volume1
+
+   2. Try to mount everything you put in the /etc/fstab:
+
+     ::
+
+        root@maz03:~# mount -av
+        /                        : ignored
+        /mnt/volume1             : successfully mounted
+
+#. Go back to your normal user by issuing the 'exit' command or by pressing ``CTRL+d``
 
 Now your volume will appear under the '/mnt/volume1' directory everytime
-your VM boots up. You can also mount the volume just issuing
+your VM boots up. You can also mount the volume anytime just issuing
 
 ::
 
