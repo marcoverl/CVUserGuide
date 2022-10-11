@@ -665,7 +665,7 @@ Installing rclone on you computer is easy on linux systems:
 
 ::
 
-  $ sudo -v | curl https://rclone.org/install.sh | sudo bash
+  $ curl https://rclone.org/install.sh | sudo bash
 
 
 Instructions for other operating systems are available at
@@ -723,7 +723,7 @@ To list the objects in your object storage, you can use the 'rclone ls' command:
     29780 container1/folder/7.pdf
 
 
-Using Rclone you can for example **mount** a S3 Cloud object storage bucket as a folder
+Using Rclone you can for example **mount** (please note that the "fuse" package is required) a S3 Cloud object storage bucket as a folder
 in your virtual machine (or in your desktop or other environment) 
 
 E.g with the following command the bucket 'bucket1' is mounted in the local folder 'localfolder':
