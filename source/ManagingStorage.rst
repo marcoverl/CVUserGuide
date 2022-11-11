@@ -177,9 +177,8 @@ Log in to the instance and check if the disk has been added:
 If this is a newly created volume, you might need to create a file system on it.
 **WARNING**: this will delete everything (format) on the disk! Do it just the first time you use the volume.
 
-::
-
-    mkfs -t ext4 /dev/vdb
+.. image:: ./images/create_volume_filesystem.png
+   :align: center
 
 .. _createlabel:
 
