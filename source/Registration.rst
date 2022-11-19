@@ -17,6 +17,8 @@ projects which use some INFN resources (e.g. the network).
 
 Prerequisites for using INFN resources
 --------------------------------------
+.. _INFNReq:
+
 Users who need to use INFN IT resources must:
 
 - have a verified digital identity (LoA2) on INFN-AAI;

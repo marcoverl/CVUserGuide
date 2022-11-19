@@ -562,6 +562,8 @@ Creating accounts on your Virtual Machine
    to people who have already an account on this CloudVeneto service, or have 
    an account at INFN Padova, or have an account at INFN Laboratori Nazionali 
    di Legnaro.
+   For projects using INFN resources, please remember that users have to be 
+   compliant with respect to what is specified in :ref:`Prerequisites for using INFN resources<INFNReq>`.
 
 
 If you need to create accounts on the virtual machine, please see 
