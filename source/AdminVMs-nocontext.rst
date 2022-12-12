@@ -234,9 +234,9 @@ Assuming that
 
 -  You know the default user on the VM
 
-   - For Ubuntu based instances there is a default user called 'ubuntu';
    - For CentOS based instances there is a default user called 'centos';
    - For AlmaLinux  based instances there is a default user called 'almalinux'
+   - For Ubuntu based instances there is a default user called 'ubuntu';
 
 -  You stored your *my\_key keypair* in *~/private* on the gate machine;
 
