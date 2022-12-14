@@ -177,7 +177,7 @@ needed to access the Cloud gate machine (see :ref:`Network Access<NetworkAccess>
 
 
 Apply for an account using Username and Password
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. _ApplyUsingUserPasswd:
 
 
@@ -298,6 +298,27 @@ on the following image:
 Fulfill your request selecting the relevant choice under the **Project
 action** dropdown list.
 
+Project membership renewal
+--------------------------
+.. _ProjectMembershipRenewal:
+
+When the project membership of the user is going to expire, usually 30 days
+before, he/she is invited to decide whether to renew the membership or
+to cancel it at the due date.
+The user receives a message from the CloudVeneto site:
+
+.. image:: ./images/proposed_renew_msg.png
+   :align: center
+
+he/she must log into the dashboard and select the related project from
+the combo on top of the page, if necessary. The following page appears:
+
+.. image:: ./images/proposed_renewal.png
+   :align: center
+
+If the user accepts the proposed renewal a project membership request
+will be sent to the project administrators (see next section).
+
 Manage project membership requests (only for project managers)
 --------------------------------------------------------------
 .. _ManageProjectMembershipRequests:
@@ -403,7 +424,7 @@ Set the new expiration date and then click the **OK** button.
 
 
 Send a message to project members (only for project managers)
----------------------------------------------------
+-------------------------------------------------------------
 If you are the manager of a project, you can send a message (that will 
 be delivered via e-mail) to all members of your project.
 
