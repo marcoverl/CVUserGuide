@@ -1,8 +1,8 @@
 ..    include:: <isonum.txt>
 
 
-Registration
-============
+Registration, User and Project Management
+=========================================
 
 To be able to use the CloudVeneto service, first of all you need to
 apply for an account. The procedure to be followed is described in this
@@ -298,26 +298,6 @@ on the following image:
 Fulfill your request selecting the relevant choice under the **Project
 action** dropdown list.
 
-Project membership renewal
---------------------------
-.. _ProjectMembershipRenewal:
-
-When the project membership of the user is going to expire, usually 30 days
-before, he/she is invited to decide whether to renew the membership or
-to cancel it at the due date.
-The user receives a message from the CloudVeneto site:
-
-.. image:: ./images/proposed_renew_msg.png
-   :align: center
-
-he/she must log into the dashboard and select the related project from
-the combo on top of the page, if necessary. The following page appears:
-
-.. image:: ./images/proposed_renewal.png
-   :align: center
-
-If the user accepts the proposed renewal a project membership request
-will be sent to the project administrators (see next section).
 
 Manage project membership requests (only for project managers)
 --------------------------------------------------------------
@@ -395,10 +375,49 @@ on **Toggle Role**) from 'Project User' to 'Project manager' or viceversa.
 From this window you can also remove a specific user from the project
 you manage.
 
-Manage account renewals (only for project managers)
+
+Project membership renewal
+--------------------------
+.. _ProjectMembershipRenewal:
+
+A user can be affiliated to multiple projects and each affiliation has an
+expiration date.
+You can check the expiration dates for the projects you are affiliated opening
+the OpenStack web dashboard,
+i.e. going to https://cloud-areapd.pd.infn.it or
+https://cloudveneto.ict.unipd.it in a browser. Then log in, and access
+**Identity** |rarr| **Projects**. 
+
+
+
+
+When the membership for a particular project is going to expire, 
+usually 30 days before the expiration, you are invited to decide whether to renew the membership or
+to cancel it at the due date: you will receive a message from the CloudVeneto 
+site such as this one:
+
+.. image:: ./images/proposed_renew_msg.png
+   :align: center
+
+You will then must log into the dashboard and select the related project from
+the combo on top of the page, if necessary. A page such as this one will 
+appear:
+
+.. image:: ./images/proposed_renewal.png
+   :align: center
+
+If you click 'Yes' (i.e. if you would like to have your membership renewed), 
+the project renewal request
+will be sent to the project administrator(s) for approval (ad documented
+in the next section).
+
+
+Manage project membership renewal requests (only for project managers)
 ---------------------------------------------------
 
-When the affiliation of a user for a project is expiring, as manager of
+When the affiliation of a user for a project is expiring
+and that user would like the renewal of such membership (see previous section),
+as manager of
 that project you will receive an e-mail such as this one:
 
 .. image:: ./images/email_renewreq.png
@@ -421,6 +440,15 @@ represented in the following image will appear:
 
 
 Set the new expiration date and then click the **OK** button.
+
+.. NOTE::
+
+    Please note that you can change any time the expiration date for the 
+    membership of a certain user to the project you are managing.
+    This can be done going in the Dashboard and accessing
+    **Identity** |rarr| **Project Membership**. 
+    Then select **Change Expiration** in the **Actions** menu for the relevant 
+    user.
 
 
 Send a message to project members (only for project managers)
