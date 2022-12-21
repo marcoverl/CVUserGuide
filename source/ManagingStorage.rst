@@ -201,6 +201,7 @@ otherwise use the device name:
     mount /dev/vdb /mnt
 
 .. NOTE ::
+    You can attach only your volumes
     Please note that you can attach a volume of yours to an instance
     created by another user of the same project, but the opposite is not
     possible: you can't attach a volume created by another user to an
@@ -222,6 +223,14 @@ Then, using the Dashboard, click on **Volumes**, click on
 detached volume can then be associated to another VM, as described above
 (you won't have to re-create the file system, otherwise you will loose
 the content of the volume!)
+
+.. NOTE ::
+    You can detach only your volumes.
+    Please note that you can detach a volume of yours from an instance
+    created by another user of the same project, but the opposite is not
+    possible: you can't detach a volume created by another user from an
+    instance of yours.
+
 
 Deleting a Volume
 ^^^^^^^^^^^^^^^^^
