@@ -34,7 +34,11 @@ After this self-registration process, connect to the INFN-AAI User Portal at
 https://userportal.app.infn.it/ using your INFN-AAI account 
 to complete the digital identity registration. In this process you will
 have to choose where (the INFN site) you want to be identified, and
-the person that will have to approve your request.
+the person that will have to approve your request (if you are a Unipd student 
+and you can't find your Professor among the proposed
+list of persons, please select 'Giannina Borgato').
+
+
 Documentation (unfortunately only in Italian) on this process
 is available `here <https://wiki.infn.it/cn/ccr/aai/doc/rid/istruzioni>`__.
 
