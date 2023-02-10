@@ -754,17 +754,17 @@ your VM boots up. You can also mount the volume anytime just issuing
 The system will lookup in /etc/fstab and mount the correct volume
 corresponding to the /mnt/volume1 mount point.
 
-Specific instructions relevant for INFN-Padova users
-----------------------------------------------------
+Specific instructions relevant for INFN-Padova and Physics Dept. users
+----------------------------------------------------------------------
 
 In this section we discuss about some specific topics relevant only for
 INFN-Padova users.
 
 
-Install Mathematica (only for INFN Padova users)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install Mathematica
+^^^^^^^^^^^^^^^^^^^
 
-INFN-Padova users can follow these instructions to install Mathematica
+INFN-Padova and Physics Dept. users can follow these instructions to install Mathematica
 on their Linux box.
 
 First of all mount on your VM the directory where the installation kit
