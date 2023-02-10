@@ -59,7 +59,7 @@ your computer.
 .. WARNING ::
 
     Be careful not to loose the file you just downloaded since there is
-    no easy way to download it again.
+    no way to download it again.
 
 This file should be stored in a safe location. To keep it private, run: ::
 
