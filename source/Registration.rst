@@ -124,9 +124,6 @@ a new project (and you are the leader of the experiment/research group
 associated to this project). In this case you will have to specify also
 a Project name and a Project Description. 
 
-You will
-also have to specify if this project must be private (a personal project
-where you will be the only member) or not.
 
 
 Newly created projects will get a default quota of:
@@ -141,15 +138,6 @@ Allocation of more resources for UniPD users must be approved by the
 Cloud UniPD "governance". Mail your request to
 cloud-unipd-gov@lists.pd.infn.it if you want more resources to be
 allocated to your project.
-
-.. NOTE::
-
-    Public (i.e. not private) projects are projects where other users
-    can apply for membership. They are supposed to be used for
-    experiments or other research groups.
-
-    **Personal private projects are discouraged** and are created only
-    for convincing reasons.
 
 
 .. NOTE::
@@ -223,9 +211,6 @@ a new project (and you are the leader of the experiment/research group
 associated to this project). In this case you will have to specify also
 a Project name and a Project Description. 
 
-You will
-also have to specify if this project must be private (a personal project
-where you will be the only member) or not.
 
 
 Newly created projects will get a default quota of:
@@ -240,15 +225,6 @@ Allocation of more resources for UniPD users must be approved by the
 Cloud UniPD "governance". Mail your request to
 cloud-unipd-gov@lists.pd.infn.it if you want more resources to be
 allocated to your project.
-
-.. NOTE::
-
-    Public (i.e. not private) projects are projects where other users
-    can apply for membership. They are supposed to be used for
-    experiments or other research groups.
-
-    **Personal private projects are discouraged** and are created only
-    for convincing reasons.
 
 
 .. NOTE::
