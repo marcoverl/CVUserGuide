@@ -300,14 +300,14 @@ are:
        Host key verification failed.
 
 -  SOLUTION: the IP of your VM has probably been reused. You need to
-   update the relevant entry on your */home/user/.ssh/known\_hosts* file.
-   Please run:
+   delete the offending entry on your */home/user/.ssh/known\_hosts* file.
+   For example you can use:
 
    ::
 
-       ssh-keygen -R 10.64.51.7
+       sed -i '/^10.64.51.7 ssh/d' .ssh/known_hosts
 
-   and try again.
+   and try again to connect.
 
 
 Access a service running on the VM
