@@ -22,7 +22,7 @@ Frequently Asked Questions
        RSA host key for 10.64.51.7 has changed and you have requested strict checking.     
        Host key verification failed.                                                       
 
--  SOLUTION: the IP of your VM has probably been reused. You need to
+   SOLUTION: the IP of your VM has probably been reused. You need to
    delete the offending entry on your */home/user/.ssh/known\_hosts* file.
    For example you can use:
 
