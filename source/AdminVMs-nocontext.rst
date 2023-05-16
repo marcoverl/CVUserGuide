@@ -931,6 +931,11 @@ When you need to use again a shelved instance, you need to unshelve it.
 From the **Compute** |rarr| **Instances** table select the desired VM and click
 **Unshelve Instance** on the **Actions** menu.
 
+    .. NOTE ::
+   
+       Please note that when you shelve an instance, the resources used by that VM are released and are available to host other 
+       instances, but the shelved instance is still accounted in the used quota.
+
 
 
 Deleting Virtual Machines
