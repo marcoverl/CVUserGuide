@@ -79,5 +79,5 @@ Who can read my data if I use a INFN-Padova public image ?
 
 As explained in :ref:`Public Images for INFN Padova users<PublicImagesPd>`, 
 the **<OperatingSystem>-INFNPadova-x86-64-<date>** images allow INFN-Padova 
-system administrators (see INFN-Padova computing and Network service) to log 
+system administrators to log 
 with admin privileges on the instances created using these images.
