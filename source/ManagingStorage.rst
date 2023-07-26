@@ -485,6 +485,8 @@ the donor and then click on **Accept Volume Transfer**.
 
 Object Storage
 --------------
+.. _ObjectStorage:
+
 
 CloudVeneto provides also an Object Storage system.
 Data is stored as objects (which are typically files) which

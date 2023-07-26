@@ -205,6 +205,9 @@ Once loaded, the image can then be used to create virtual machines.
 
 Shared Images
 -------------
+.. _sharedimages:
+
+
 
 As mentioned before, users are not allowed to publish public images.
 However private images can be shared between different projects. This is
@@ -277,6 +280,10 @@ In the target project, the image will appear in the image list:
 
 Community images
 ----------------
+.. _communityimages:
+
+
+
 Let's suppose that a project wants to make a prepared VM image available so that in order to use the project's 
 software, all you have to do is boot an instance from their image. However they worry about the hassle of maintaining 
 a list of "customers" (i.e. they don't want to use the image sharing stuff described in the previous section).

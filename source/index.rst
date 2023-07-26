@@ -33,6 +33,7 @@ Contents:
    ManagingImages
    ElasticCluster
    MicroPrimers
+   Privacy
    FAQ
 
 Indices and tables

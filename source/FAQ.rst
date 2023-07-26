@@ -4,6 +4,10 @@ Frequently Asked Questions
 ==========================
 
 
+
+Problems accessing my virtual machine via SSH
+-----------------------------------------------
+
 -  I get this error when accessing via SSH my virtual machine:
 
    ::
@@ -32,6 +36,9 @@ Frequently Asked Questions
 
    and try again to connect.
 
+I can't see anymore my data
+---------------------------
+
 -----------------------------------------------------
 
 - I can't see anymore my data after a reboot of my instance 
@@ -40,6 +47,9 @@ Frequently Asked Questions
   
 
 -----------------------------------------------------
+
+Problems with supplementary ephemeral storage
+---------------------------------------------
 
 - I am using a flavor which has a supplementary ephemeral disk, but I not able to change ownership / mode of a directory
 
