@@ -67,17 +67,10 @@ images:
   instance
 - configure the INFN Padova LDAP server for user
   authentication. This means that it is just necessary to “enable” the
-  relevant accounts on the VM adding in the /etc/passwd file:
-
-::
-
-                                                                                         
-    +name1::::::                                                                                 
-    +name2::::::                                                                                 
-    ...                                                                                          
-
-and creating their home directories (and changing their ownership).
-E.g.
+  relevant accounts and/or groups using the procedure documented at
+  https://github.com/CloudVeneto/DS389-Script/
+  and creating their home directories (and changing their ownership).
+  If e.g. you enabled the LDAP user 'pippo' to create his home directory:
 
 ::
 
@@ -90,22 +83,6 @@ The last command will return a string "<userid>(pippo) gid=<groupid>(utenti) gro
 
    sudo chown -R <userid>.<groupid> /home/pippo
 
-You might also want to set a different home directory wrt the one specified in LDAP, e.g.:
-
-::
-
-
-    +pippo:::::/ehome/pippo:
-
-Changes done in /etc/passwd could not be applied immediately by the
-system. In this case a:
-
-::
-
-                                                                                         
-    nscd -i passwd                                                                               
-
-should help.
 
 
 
