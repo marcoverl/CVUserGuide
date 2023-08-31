@@ -72,7 +72,7 @@ of the Cloud infrastructure, and for debugging purposes.
 
 
 Who can read my data if I use a INFN-Padova public image ?
--------------------------
+----------------------------------------------------------
 .. _infnpdimages_privacy:
 
 

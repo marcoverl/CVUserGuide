@@ -4,7 +4,7 @@ Frequently Asked Questions
 ==========================
 
 Account renewal and expiration
------------------------------
+------------------------------
 
 - I received an email with the following text:
 
@@ -100,8 +100,6 @@ Problems accessing my virtual machine via SSH
 
 I can't see anymore my data
 ---------------------------
-
------------------------------------------------------
 
 - I can't see anymore my data after a reboot of my instance 
 

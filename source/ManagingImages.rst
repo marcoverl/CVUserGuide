@@ -324,7 +324,7 @@ Please consider these guidelines when creating an image:
     or to create new images using one of the tools mentioned above. 
    
 virt-customize
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 virt-customize is a command line tool
 for quickly creating customized images.
 virt-customize is very easy to install (it is provided by the *libguestfs-tools-c* package).

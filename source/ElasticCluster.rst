@@ -601,12 +601,6 @@ cluster (this might be needed e.g. after a reboot).
    and the condor\_status command output should be empty (no nodes
    running)
 
-   ::
-
-
-
-               
-
    Then start the elastiq service
 
    ::

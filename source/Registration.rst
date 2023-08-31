@@ -393,7 +393,7 @@ in the next section).
 
 
 Manage project membership renewal requests (only for project managers)
----------------------------------------------------
+----------------------------------------------------------------------
 
 When the affiliation of a user for a project is expiring
 and that user would like the renewal of such membership (see previous section),

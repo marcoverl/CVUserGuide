@@ -308,6 +308,7 @@ For further details on configuration see https://strimzi.io/docs/master/#assembl
 
 A topic for the Kafka cluster can be declared as in the ktopic.yaml file taken from the examples directory, and created by executing the following kubectl command:
 ::
+
     # kubectl apply -f ktopic.yaml
 
 Kubernetes provides a port on the master for accessing the created cluster.
