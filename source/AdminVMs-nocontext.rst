@@ -903,6 +903,10 @@ To save a snapshot of your VM:
 .. NOTE ::
    In CloudVeneto snapshot size is limited to 25 GB.
 
+.. WARNING ::
+   A snapshot is saved with the same authorization policies as a private 
+   image. Therefore it can be accessed and used by the other members of 
+   your project. 
 
 Shelving Virtual Machines
 -------------------------
