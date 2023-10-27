@@ -6,7 +6,7 @@ CloudVeneto provides Unipd Physics Dept. and INFN Padova users with some
 GPUs (Graphics Processing Units). These are:
 
    * 4 GPU Nvidia V100
-   * 11 GPU Nvidia Tesla T4
+   * 12 GPU Nvidia Tesla T4
    * 1 GPU Nvidia Quadro RTX 6000 
    * 2 GPU Nvidia TITAN Xp
    * 1 GPU Nvidia GeForce GTX TITAN
@@ -15,7 +15,7 @@ GPUs (Graphics Processing Units). These are:
 The Nvidia T4 GPUs are divided in 2 sets:
    * the first set is composed by 4 Nvidia T4 GPUs, each one coupled with 15 
      CPU cores; 
-   * the second set is composed by 7 Nvidia T4 GPUs, each one coupled with 8 
+   * the second set is composed by 8 Nvidia T4 GPUs, each one coupled with 8 
      CPU cores.
 
 
