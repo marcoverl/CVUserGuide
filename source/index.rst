@@ -31,6 +31,7 @@ Contents:
    ManagingStorage
    Orchestration
    ManagingImages
+   CaaS
    ElasticCluster
    MicroPrimers
    Privacy
