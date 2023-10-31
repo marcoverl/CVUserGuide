@@ -331,7 +331,7 @@ This annotation ensures that the pod can be scheduled on shared nodes, providing
 
 .. important::
 
-   Please note that when using 'shared,' we recommend that the Kubernetes scheduler allocates resources on shared nodes. However, it may still select your private node. To explicitly restrict a Pod to run on specific node(s) or prefer running on particular nodes, you can utilize any of the methods outlined in this `guide <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/>`__. For security reasons, please note that the `nodeName <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename>`__ method is not allowed.
+Note that with "shared", the Kubernetes scheduler allocates resources on both private and shared nodes, and not just on shared ones. Therefore, it may still select your private node. To explicitly restrict a Pod to run on specific node(s) or prefer running on particular nodes, you can utilize any of the methods outlined in this `guide <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/>`__. For security reasons, please note that the `nodeName <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename>`__ method is not allowed.
 
 In the following example, we demonstrate how to create a Pod and request it to run on a specific node, the **glv-01-1696949601872**, associated with the **glv-01** OSNode:
 
