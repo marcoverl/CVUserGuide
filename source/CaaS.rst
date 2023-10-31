@@ -74,7 +74,7 @@ Prerequisites
 
 Plugin installation
 ^^^^^^^^^^^^^^^^^^^
-Download `kubectl-openstack <https://confluence.infn.it/download/attachments/135594229/kubectl-openstack?version=4&modificationDate=1695203796000&api=v2>`__, then make the file executable using the command 'chmod 755 kubectl-openstack', and finally, copy it to the directory '/usr/local/bin/.
+Download `kubectl-openstack <https://confluence.infn.it/download/attachments/135594229/kubectl-openstack?version=4&modificationDate=1695203796000&api=v2>`__ (linux version), then make the file executable using the command 'chmod 755 kubectl-openstack', and finally, copy it to the directory '/usr/local/bin/.
 
 Usage
 ^^^^^
