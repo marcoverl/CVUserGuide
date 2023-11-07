@@ -82,7 +82,7 @@ To view the syntax and the list of parameters use the help:
 ::
 
     $ kubectl-openstack --help
-    Usage: kubectl-openstack [FLAG] -user <USERNAME> -password <PASSOWRD> -project <PROJECT>
+    Usage: kubectl-openstack [FLAG] -user=<USERNAME> -password=<PASSOWRD> -project=<PROJECT>
  
     Options:
       -force
@@ -99,7 +99,7 @@ The following example configures kubectl selecting CMS as project:
 
 ::
 
-    $ kubectl-openstack -user zangrand@infn.it -password ******** -project CMS
+    $ kubectl-openstack -user=zangrand@infn.it -password=******** -project=CMS
     kubectl configured correctly
 
 
