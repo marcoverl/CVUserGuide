@@ -12,6 +12,10 @@ GPUs (Graphics Processing Units). These are:
    * 1 GPU Nvidia GeForce GTX TITAN
 
 
+There are actually other 5 Nvidia GPUs integrated in CloudVeneto, but these
+are reserved to specific projects (the ones who paid for these resources).
+
+
 The Nvidia T4 GPUs are divided in 2 sets:
    * the first set is composed by 4 Nvidia T4 GPUs, each one coupled with 15 
      CPU cores; 
