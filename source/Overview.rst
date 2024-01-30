@@ -166,7 +166,6 @@ topics like:
 
 -  basic linux usage (some documentation is available on :ref:`Some basics on Linux administration<linuxbasics>`);
 
--  accessing your VM 'the graphical way'.
 
 
 You might ask your Department / Institution technicians in case of problems with

@@ -310,6 +310,141 @@ are:
    and try again to connect.
 
 
+Accessing a VM in the "graphical way"
+-------------------------------------
+This section explains how to access a VM in the graphical way.
+
+You first need to configure your VM (see below an example that applies to a AlmaLinux9 VM).
+This operation must be done once.
+
+
+Then from your notebook create the relevant tunnels:
+
+
+
+   ::
+
+       ssh -i <SSH KEY file> -J gate.cloudveneto.it -L 5901:localhost:5901 almalinux@<VM IP>
+
+
+You can now access the graphical interface of the
+VM from your notebook using a remote desktop software such as TigerVNC
+or Mobaxterm (https://mobaxterm.mobatek.net/download.html): referring to the previous example you'll just need
+to connect to 'localhost:5901'.
+
+
+
+
+In this example 'almalinux' is the account of the VM.
+You can of course choose a different port than 5901.
+
+
+
+
+Configure a AlmaLinux9 VM for remote graphical access
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Log in to the VM
+
+   ::
+      
+       ssh -i <file key>.key almalinux@<IP VM>
+
+Then:
+
+   ::
+      
+       sudo su -
+       dnf  update
+       yum-config-manager --set-enabled crb
+       dnf install epel-release
+       dnf groupinstall "Server with GUI"
+       dnf install tigervnc-server
+       systemctl set-default graphical
+
+Edit the file /etc/tigervnc/vncserver-config-defaults adding the option:
+
+   ::
+      
+       localhost
+
+Edit the /etc/tigervnc/vncserver.users assigning the console 1 to the relevant user ('almalinux' in our example).This is done adding
+a line to the file:
+
+   ::
+      
+       :1=almalinux
+
+Set a passwd for the relevant user ('almalinux' in our example); this might be needed to unlock the screen:
+
+   ::
+      
+       passwd almalinux
+
+As user 'almalinux' (or the user you want to consider) set a VNC password:
+
+   ::
+      
+     exit
+     vncpasswd
+     
+and create the file ~/.vnc/config with this content:
+
+   ::
+      
+     geometry=1920x1080
+     localhost
+
+To complete the setup:     
+
+   ::
+      
+    systemctl enable vncserver@:1.service
+    systemctl start vncserver@:1.service
+    reboot
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+If you prefer to use KDE Plasma as window manager, please install the following packages:
+
+   ::
+      
+    dnf groupinstall "KDE Plasma Workspaces"
+
+Edit the file '/etc/tigervnc/vncserver-config-defaults' adding:
+
+   ::
+      
+    session=kde
+
+Then reboot the VM
+
+-------------------------------------------------------------------------------------------------
+
+Another option is using MATE as windows manager. In this case install the following packages:
+
+
+   ::
+      
+    dnf install NetworkManager-libreswan-gnome NetworkManager-openconnect-gnome NetworkManager-openvpn-gnome atril atril-caja atril-thumbnailer caja caja-actions caja-image-converter caja-open-terminal caja-sendto caja-wallpaper caja-xattr-tags dconf-editor engrampa eom f36-backgrounds-base f36-backgrounds-extras-base f36-backgrounds-extras-mate f36-backgrounds-mate f37-backgrounds-base f37-backgrounds-extras-base f37-backgrounds-extras-mate f37-backgrounds-mate filezilla gnome-epub-thumbnailer  gparted gucharmap hexchat marco mate-applets mate-backgrounds mate-calc mate-control-center mate-desktop mate-dictionary mate-disk-usage-analyzer mate-icon-theme mate-media mate-menus mate-menus-preferences-category-menu mate-notification-daemon mate-panel mate-polkit mate-power-manager mate-screensaver mate-screenshot mate-search-tool mate-session-manager mate-settings-daemon mate-system-log mate-system-monitor mate-terminal mate-themes mate-user-admin mate-user-guide lightdm mozo network-manager-applet p7zip p7zip-plugins parole pavucontrol pluma seahorse seahorse-caja setroubleshoot simple-scan slick-greeter-mate system-config-printer system-config-printer-applet thunderbird transmission-gtk usermode-gtk
+
+
+Edit the file ‘/etc/tigervnc/vncserver-config-defaults’ adding:
+
+    
+   ::
+      
+    session=mate
+
+
+To complete the setup reboot the VM.      
+
+
+
+
+   
 Access a service running on the VM
 ----------------------------------
 
