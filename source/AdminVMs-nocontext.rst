@@ -336,7 +336,6 @@ to connect to 'localhost:5901'.
 
 
 In this example 'almalinux' is the account of the VM.
-You can of course choose a different port than 5901.
 
 
 
@@ -487,6 +486,12 @@ a line to the file:
    ::
       
        :1=ubuntu
+
+Set a password for the user 'ubuntu' (or the user you want to consider):
+
+   ::
+      
+       passwd ubuntu
 
 
 As user 'ubuntu' (or the user you want to consider) set a VNC password:
