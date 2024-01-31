@@ -314,11 +314,11 @@ Accessing a VM in the "graphical way"
 -------------------------------------
 This section explains how to access a VM in the graphical way.
 
-You first need to configure your VM (see below an example that applies to a AlmaLinux9 VM).
+You first need to configure your VM (see below two examples that applies to AlmaLinux9 and Ubuntu 22.04 VMs).
 This operation must be done once.
 
 
-Then from your notebook create the relevant tunnels:
+Then from your notebook create the relevant tunnels, e.g.:
 
 
 
@@ -393,7 +393,8 @@ and create the file ~/.vnc/config with this content:
 Then:     
 
    ::
-      
+    
+    sudo su -  
     systemctl enable vncserver@:1.service
     systemctl start vncserver@:1.service
     reboot
@@ -453,6 +454,67 @@ Edit the file ‘/etc/tigervnc/vncserver-config-defaults’ adding:
 
 
 To complete the setup reboot the VM.      
+
+
+
+Configure a Ubuntu 22.04 VM for remote graphical access
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Log in to the VM
+
+   ::
+      
+       ssh -i <file key>.key ubuntu@<IP VM>
+
+Then:
+
+   ::
+      
+       sudo su -
+       apt-get update
+       apt install ubuntu-desktop
+       apt install tigervnc-standalone-server
+
+Edit the file /etc/tigervnc/vncserver-config-defaults adding the option:
+
+   ::
+      
+       $localhost = "yes";
+
+
+Edit the /etc/tigervnc/vncserver.users assigning the console 1 to the relevant user ('ubuntu' in our example).This is done adding
+a line to the file:
+
+   ::
+      
+       :1=ubuntu
+
+
+As user 'ubuntu' (or the user you want to consider) set a VNC password:
+
+   ::
+      
+     exit
+     vncpasswd
+     
+and create the file ~/.vnc/config with this content:
+
+   ::
+      
+     geometry=1920x1080
+     localhost
+
+Then:     
+
+   ::
+    sudo su -  
+    systemctl enable tigervncserver@:1.service
+    systemctl start tigervncserver@:1.service
+    reboot
+
+You have done !
+You can now connect to the graphical interface of the VM from your notebook using a remote desktop software,
+as explained above.
+
 
 
 
