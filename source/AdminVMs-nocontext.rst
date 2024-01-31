@@ -393,10 +393,10 @@ Then:
 
    ::
     
-    sudo su -  
-    systemctl enable vncserver@:1.service
-    systemctl start vncserver@:1.service
-    reboot
+     sudo su -  
+     systemctl enable vncserver@:1.service
+     systemctl start vncserver@:1.service
+     reboot
 
 To complete the setup log in again to the VM
 
@@ -511,6 +511,7 @@ and create the file ~/.vnc/config with this content:
 Then:     
 
    ::
+
     sudo su -  
     systemctl enable tigervncserver@:1.service
     systemctl start tigervncserver@:1.service
