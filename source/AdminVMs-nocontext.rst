@@ -355,8 +355,8 @@ Then:
       
        sudo su -
        dnf update
-       yum-config-manager --set-enabled crb
        dfn install yum-utils
+       yum-config-manager --set-enabled crb
        dnf install epel-release
        dnf groupinstall "Server with GUI"
        dnf install tigervnc-server
