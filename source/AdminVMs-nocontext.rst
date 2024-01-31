@@ -328,7 +328,7 @@ Then from your notebook create the relevant tunnels:
 
 
 You can now access the graphical interface of the
-VM from your notebook using a remote desktop software such as TigerVNC
+VM from your notebook using a remote desktop software such as TigerVNC Viewer
 or Mobaxterm (https://mobaxterm.mobatek.net/download.html): referring to the previous example you'll just need
 to connect to 'localhost:5901'.
 
@@ -375,11 +375,6 @@ a line to the file:
       
        :1=almalinux
 
-Set a passwd for the relevant user ('almalinux' in our example); this might be needed to unlock the screen:
-
-   ::
-      
-       passwd almalinux
 
 As user 'almalinux' (or the user you want to consider) set a VNC password:
 
@@ -395,7 +390,7 @@ and create the file ~/.vnc/config with this content:
      geometry=1920x1080
      localhost
 
-To complete the setup:     
+Then:     
 
    ::
       
@@ -403,8 +398,25 @@ To complete the setup:
     systemctl start vncserver@:1.service
     reboot
 
+To complete the setup log in again to the VM
+
+   ::
+      
+       ssh -i <file key>.key almalinux@<IP VM>
+
+and issue the following commands:
+
+   ::
+      
+       gsettings set org.gnome.desktop.screensaver idle-activation-enabled false
+       gsettings set org.gnome.desktop.screensaver lock-enabled false
+       sudo su -
+      systemctl restart vncserver@:1.service
 
 
+You have done !
+You can now connect to the graphical interface of the VM from your notebook using a remote desktop software,
+as explained above.
 
 -------------------------------------------------------------------------------------------------
 
