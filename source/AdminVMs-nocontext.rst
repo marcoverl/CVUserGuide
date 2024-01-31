@@ -355,7 +355,7 @@ Then:
       
        sudo su -
        dnf update
-       dfn install yum-utils
+       dnf install yum-utils
        yum-config-manager --set-enabled crb
        dnf install epel-release
        dnf groupinstall "Server with GUI"
