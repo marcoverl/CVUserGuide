@@ -654,7 +654,14 @@ have an access facing the internet. Your options are:
    -  Copy file from the gate machine to your VM;
 
 -  Exploit the port forwarding mechanism explained in the previous section to access port 22
-   of your VM from your PC.
+   of your VM from your PC, so, e.g.:
+
+  ::
+  
+     ssh -L2022:10.X.Y.Z:22 user@gate.cloudveneto.it
+     scp -P 2022 -i ~/private/my_key  my_local_file.txt  remoteuser@localhost:/remote/path/
+
+
 
 Giving a VM public access (getting a floating IP)
 -------------------------------------------------
