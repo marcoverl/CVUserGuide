@@ -457,7 +457,7 @@ To complete the setup reboot the VM.
 
 
 Configure a Ubuntu 22.04 VM for remote graphical access
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Log in to the VM
 
    ::

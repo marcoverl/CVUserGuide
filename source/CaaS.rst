@@ -204,6 +204,7 @@ Verifying the OSNode status
 To check the status of one or more OSNodes in your Kubernetes cluster, you can use the following commands:
 
 - To list all OSNodes and their basic information:
+
 ::
 
    $ kubectl get osn
@@ -214,6 +215,7 @@ To check the status of one or more OSNodes in your Kubernetes cluster, you can u
 **Please note that each OSNode has a Kubernetes Node associated to it** (e.g. osn-01 -> osn-01-1696949601872).
 
 - To list all OSNodes with additional details, including flavor, status, and IP address:
+
 ::
 
    $ kubectl get osn -o wide
@@ -223,6 +225,7 @@ To check the status of one or more OSNodes in your Kubernetes cluster, you can u
 
 
 - To view detailed information about a specific OSNodes (replace osn-01 with the desired OSNodes name):
+
 ::
 
    $ kubectl get osn -o wide osn-01
@@ -231,22 +234,26 @@ To check the status of one or more OSNodes in your Kubernetes cluster, you can u
 
 
 Removing OSNodes
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 To remove one or more OSNodes and their associated Virtual Machine from CloudVeneto, use the following command:
+
 ::
 
    $ kubectl delete osn <node_name_1> <node_name_2> ...
 
 For example, to remove osn-01 and osn-02, you would run:
+
 ::
+
    $ kubectl delete osn osn-01 osn-02
    openstacknode.osnode.infn.it "osn-01" deleted
    openstacknode.osnode.infn.it "osn-02" deleted
 
 
-Geeting details about your OSNode
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Getting details about your OSNode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For more detailed information about your OSNodes, you can use the following command:
+
 ::
 
    $ kubectl describe osn qst-gpu-01
@@ -331,7 +338,7 @@ This annotation ensures that the pod can be scheduled on shared nodes, providing
 
 .. important::
 
-Note that with "shared", the Kubernetes scheduler allocates resources on both private and shared nodes, and not just on shared ones. Therefore, it may still select your private node. To explicitly restrict a Pod to run on specific node(s) or prefer running on particular nodes, you can utilize any of the methods outlined in this `guide <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/>`__. For security reasons, please note that the `nodeName <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename>`__ method is not allowed.
+   Note that with "shared", the Kubernetes scheduler allocates resources on both private and shared nodes, and not just on shared ones. Therefore, it may still select your private node. To explicitly restrict a Pod to run on specific node(s) or prefer running on particular nodes, you can utilize any of the methods outlined in this `guide <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/>`__. For security reasons, please note that the `nodeName <https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename>`__ method is not allowed.
 
 In the following example, we demonstrate how to create a Pod and request it to run on a specific node, the **glv-01-1696949601872**, associated with the **glv-01** OSNode:
 
@@ -376,6 +383,7 @@ Apply this Pod configuration to create the Pod:
 
 You can now check the Pods to see that the dnsutils-shared Pod is running on the specified node:
 ::
+
    $ kubectl get pods -o wide
    NAME              READY   STATUS    RESTARTS   AGE   IP             NODE                   NOMINATED NODE   READINESS GATES
    dnsutils-shared   1/1     Running   0          51m   10.244.11.42   glv-01-1696949601872   <none>           <none>
