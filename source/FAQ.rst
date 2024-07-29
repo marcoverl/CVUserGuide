@@ -94,7 +94,7 @@ Problems accessing my virtual machine via SSH
 
    ::
 
-       sed -i '/^10.64.51.7 ssh/d' .ssh/known_hosts
+       sed -i '/^10.64.51.7 /d' .ssh/known_hosts
 
    and try again to connect.
 
