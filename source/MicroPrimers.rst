@@ -438,7 +438,7 @@ system.
 
 1. ::
 
-       $ sudo useradd -m -c 'Paolo E. Mazzon' pemazzon
+       $ sudo useradd -m -c 'Paolo E. Mazzon' -s /bin/bash pemazzon
                 
 
    The meaning of parameters is:
@@ -447,20 +447,7 @@ system.
 
    -  **-c** = set this as a description of the user
 
-   .. WARNING ::
-       It may be necessary to enable password authentications through
-       ssh. Check the file */etc/ssh/sshd_config* and be sure that you
-       have
-
-       **ChallengeResponseAuthentication yes**
-
-       inside. If you modified that file restart the ssh service using
-
-       DEB systems: **sudo restart ssh**
-
-       or
-
-       RH systems: **sudo systemctl restart sshd**
+   -  **-s** = set this as the default shell for the user
 
 2. Set a password for the user: you will decide a password that will be
    valid just for the first login. You will force the user to change it
@@ -481,8 +468,29 @@ system.
 
        $ sudo chage -d 0 pemazzon
                 
+4. Allow the user to connect via password authentication:
 
-4. Mail the user the password you have set.
+You need to enable the sshd configuration directive
+
+   ::
+
+       PasswordAuthentication yes
+
+This directive is set differently depending on what distribution and version
+you are using.
+
+  * For ubuntu 20.04 you need to change it in ``/etc/ssh/sshd_config``
+  * For ubuntu 22.04 or 24.04 you need to change it in ``/etc/ssh/sshd_config.d/60-cloudimg-settings.conf``
+  * For Almalinux 8 you need to change it in ``/etc/ssh/sshd_config``
+  * For Almalinux 9 you need to change it in ``/etc/ssh/sshd_config.d/50-cloud-init.conf``
+
+After the change restart the sshd (ssh on ubuntu 24.04) service with
+
+   ::
+
+       systemctl restart sshd
+
+5. Mail the user the password you have set.
 
 Formatting/resizing a volume you just attached
 ----------------------------------------------
