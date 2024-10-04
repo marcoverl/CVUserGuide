@@ -27,21 +27,7 @@ middleware.
 
 Who can use CloudVeneto ?
 -------------------------
-The CloudVeneto infrastructure is available to the users and collaborators
-of the following Departments of the University of Padova:
-
-* Dipartimento di Biologia (DiBio)
-* Dipartimento di Fisica e Astronomia (DFA)
-* Dipartimento di Geoscienze
-* Dipartimento di Ingegneria Civile, Edile e Ambientale (DICEA)
-* Dipartimento di Ingegneria dell'Informazione (DEI)
-* Dipartimento di Matematica 
-* Dipartimento di Medicina Molecolare (DMM)
-* Dipartimento di Scienze Biomediche (DSB)
-* Dipartimento di Scienze Chimiche (DiSC)
-* Dipartimento di Scienze del Farmaco (DSF)
-
-and INFN units:
+The CloudVeneto infrastructure is available to the users and collaborators of the University of Padova and of following INFN units:
 
 * Sezione di Padova
 * Laboratori Nazionali di Legnaro (LNL)
