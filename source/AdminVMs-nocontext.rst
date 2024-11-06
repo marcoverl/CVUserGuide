@@ -1141,6 +1141,10 @@ Data stored in the memory and elsewhere will not be retained.
 
 This option allows you to release the resources dedicated to the instance, which are therefore usable by other users.
 
+.. WARNING ::
+   Before sheving an instance, make sure to detach all volumes (if any) from the VM
+
+
 To shelve your VM:
 
 -  **Shutdown your VM**: Log in as root to your VM. Please DO NOT
