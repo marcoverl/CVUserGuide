@@ -1,10 +1,19 @@
 ..    include:: <isonum.txt>
 
 
-Creating Batch Clusters on the Cloud (currently deprecated and with the next Openstack update to Caracalla, it will be not more available)
-====================================
+Creating Batch Clusters on the Cloud (deprecated)
+=================================================
 
-Warning: 12/12/2024, this service is currently deprecated and with the next cloud update to Caracalla Openstack release, it will be not more available.
+and with the next Openstack update to Caracalla, it will be not more available)
+
+   .. WARNING::
+       **Decembre 12 2024: The functionality described in the section relies on a
+       service (ec2-api) that is deprecated and won't be avalable anymore
+       when we deploy the OpenStack Caracal release (this will likely be done in
+       the first
+       months of 2025).**
+
+
 
 The virtual machines provided by CloudVeneto can also be used to
 implement batch clusters where users can run their applications (normal

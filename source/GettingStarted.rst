@@ -320,9 +320,20 @@ authenticate. The OpenStack command line tools can then be used, e.g.:
     password is wrong, you will be told (with a generic authentication
     error) only when you issue some OpenStack commands.
 
-Accessing the Cloud through the euca2ools EC2 command line tools
+Accessing the Cloud through the euca2ools EC2 command line tools (deprecated)
 ----------------------------------------------------------------
 .. _AccessingtheCloudthroughEC2:
+
+
+
+   .. WARNING::
+       **Decembre 12 2024: The AWS EC2 compatible interface relies on a 
+       service (ec2-api) that is deprecated and won't be avalable anymore 
+       when we deploy the OpenStack Caracal release (this will likely be done in
+       the first                                                                     
+       months of 2025).**
+
+
 
 The CloudVeneto also exposes a AWS EC2 compatible interface, which is one
 of the de-facto standard for computational clouds.
