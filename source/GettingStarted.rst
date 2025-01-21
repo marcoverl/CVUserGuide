@@ -23,13 +23,15 @@ Padova Single Sign On (SSO) system, or using the username and password.
 
 .. WARNING ::
 
-   Please note that the credentials to be used here are not the one for 
-   accessing gate.cloudveneto.it
+   Please note that the credentials to be used here are not the ones for 
+   accessing gate.cloudveneto.it or for accessing the Virtual Machines
+   instantiated on the Cloud.
 
 
 Creating a keypair
 ------------------
 .. _CreatingAKeypair:
+
 
 You can now proceed creating a key-pair. This is a secret key which
 will allow you to interact with your virtual machine once it is created.
@@ -65,12 +67,19 @@ This file should be stored in a safe location. To keep it private, run: ::
 
   chmod 600 my_key.pem
 
+You can now use this key when instantiating a VM as an access
+method.
+
 
 Importing your keypair
 ----------------------
 
-You might already have an ssh key you use to remotely access machines.
-This mean you already have under the *.ssh* directory in your home folder
+You might already have an ssh key you use to remotely access machines, and
+you migt want to use this ssh key instead of creating a new one (as explained
+in the previous section).
+
+
+If you already have an ssh key, you have under the *.ssh* directory in your home folder
 a couple of files named *id\_rsa* (or *id\_dsa*) and *id\_rsa.pub* (or
 *id\_dsa.pub*). 
 
@@ -118,14 +127,23 @@ access and are applied to all instances within a project using that
 group. As described in :ref:`Creating Virtual Machines <creatingvms>`, when you create an instance you have to
 specify the security group(s) to be used.
 
-To set such IP rules, users can either add them to the *default* security
+
+.. NOTE ::
+
+      By default when a project is created, a *default* security group is
+      created with rules allowing SSH and ping access to the virtual machines
+
+
+
+To set some other IP rules, users can either add them to the *default* security
 group or can create a new security group with the desired rules.
 
-For example the following procedure enables SSH and ICMP (ping) access
+
+
+
+For example the following procedure enables HTTPs access (i.e. on port 443)
 to the *default* security group. The rules apply to all instances within a
-given project using this security group, and should be set (just once)
-for every project, unless there is a reason to inhibit SSH or ICMP
-access to the instances.
+given project using this security group. 
 
 This procedure can be adjusted as necessary to add additional security
 group rules to a project, if needed.
@@ -135,12 +153,12 @@ group rules to a project, if needed.
 
 -  Select the *default* security group and click **Manage Rules**.
 
--  To allow SSH access, click **+ Add Rule**.
+-  To allow HTTPs access, click **+ Add Rule**.
 
 -  In the *Add Rule* dialog box, enter the following values:
 
    +----------+-------------+
-   | Rule     | SSH         |
+   | Rule     | HTTPS       |
    +----------+-------------+
    | Remote   | CIDR        |
    +----------+-------------+
@@ -154,21 +172,6 @@ group rules to a project, if needed.
 
 -  Click **Add**.
 
--  To add an ICMP rule, click **+ Add Rule**.
-
--  In the *Add Rule* dialog box, enter the following values:
-
-   +-------------+-------------+
-   | Rule        | All ICMP    |
-   +-------------+-------------+
-   | Direction   | Ingress     |
-   +-------------+-------------+
-   | Remote      | CIDR        |
-   +-------------+-------------+
-   | CIDR        | 0.0.0.0/0   |
-   +-------------+-------------+
-
--  Click **Add**.
 
 .. WARNING ::
 
